@@ -1,0 +1,7 @@
+mixin info-page(mod, headline, text)
+  article.info-page.mobile-cabinet-white-border
+    .info-page__cont.cont
+      h4.info-page__headline= headline
+      each item in text
+        p.info-page__text.text= item
+      a.info-page__link(class = mod ? `info-page__link_${mod}`: "" href="#").button-orange.text Открыть почту

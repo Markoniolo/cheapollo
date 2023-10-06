@@ -1,0 +1,38 @@
+article.questions.desktop-white-border.mobile-white-border
+  .questions__cont.cont
+    h2.questions__title.title
+      | Вопросы
+      |
+      span.questions__title-span 2
+    .questions__area
+      .questions__main
+        each i in [1,2,3,4,5,6,7,8]
+          .questions__comment(class = i!==1 ? `questions__comment_answer`: '')
+            p.questions__text.text Какой размер лучше взять?
+            .questions__bottom
+              .questions__author.text-small Наталья
+              .questions__time.text-small 12.06.2021
+              .questions__answer.text-small Ответить
+      .questions__sidebar
+        .questions__sidebar-box
+          h3.questions__headline.headline Задайте вопрос
+          p.questions__sidebar-text.text Ответим сегодня до 19:00 или завтра в течение дня
+          form.questions__form(data-role="autocomplete-spam-form" action="url" method="POST")
+            input(type="hidden", name="Report_on_stock[is_spam]" data-role="input-spam")
+            label.questions__label
+              .questions__box.input-animate-box
+                textarea.questions__textarea.textarea.input-animate(placeholder=" " name="message" rows="3")
+                span.input-animate-placeholder Вопрос
+            label.questions__label
+              .questions__box.input-animate-box
+                input.questions__input.input.input-animate(placeholder=" " type="text" name="name" required)
+                span.input-animate-placeholder Имя*
+            label.questions__label
+              .questions__box.input-animate-box
+                input.questions__input.input.input-animate(placeholder=" " type="tel" name="phone" required data-role="autocomplete-spam-form-phone")
+                span.input-animate-placeholder Телефон*
+            button.questions__submit.button-orange.text(data-role="autocomplete-spam-form-button") Отправить вопрос
+            .questions__policy
+              | Нажимая на кнопку, вы соглашаетесь с
+              |
+              a.questions__policy-link(href="/policy" target="_blank") Политикой конфиденциальности

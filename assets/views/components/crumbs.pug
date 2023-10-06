@@ -1,0 +1,5 @@
+mixin crumbs(crumbsList)
+  ul.crumbs__list
+    each item in crumbsList
+      li.crumbs__item
+        a.crumbs__link.text-small.link_grey(href="#")= item

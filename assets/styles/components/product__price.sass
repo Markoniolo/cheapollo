@@ -1,0 +1,79 @@
+.product__price
+  @include media(1240)
+    margin-bottom: 0
+
+.product__price-list
+  a:first-child,span:first-child
+    border-radius: 40px 40px 12px 12px
+  a:last-child,span:last-child
+    border-radius: 12px 12px 40px 40px
+
+.product__price-link
+  margin: 1px 1px 5px 1px
+  border: 1px solid transparent
+  padding: 24px
+  border-radius: 12px
+  background-color: $white
+  display: flex
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  align-items: center
+  @include media(1240)
+    box-shadow: none
+
+a.product__price-link
+  text-decoration: none
+  transition-property: border-color, box-shadow
+  transition-duration: .2s
+  @include media(1240)
+    background-color: $grey
+  &:hover
+    @include hover
+      border: 1px solid $orange
+      box-shadow: none
+
+.product__price-link_active
+  border: 1px solid $orange
+  box-shadow: none
+
+.product__price-box
+
+.product__price-price
+  display: block
+  margin-bottom: 8px
+
+.product__price-note
+  margin-right: 20px
+  @include media(520)
+    margin-right: 15px
+
+.product__price-inner
+  margin-left: auto
+  flex-shrink: 0
+  display: flex
+
+.product__price-picture
+  margin-right: 18px
+  width: 112px
+  padding: 13px 6px
+  background-color: $white
+  border-radius: 12px
+  @include media(520)
+    display: none
+
+.product__price-image
+  width: 99px
+  height: 29px
+
+.product__price-basket
+  display: flex
+  margin-left: auto
+  justify-content: center
+  align-items: center
+  width: 56px
+  height: 56px
+  border-radius: 20px
+  &::before
+    content: ""
+    width: 24px
+    height: 24px
+    +bgIcon('ic_basket_black.svg', 24px, 24px)

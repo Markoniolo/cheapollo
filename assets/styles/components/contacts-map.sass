@@ -1,0 +1,210 @@
+.contacts-map
+  border-radius: 0
+  @include media(950)
+    padding-bottom: 424px
+    position: relative
+
+.contacts-map_delivery
+  padding-bottom: 40px
+  .contacts-map__area
+    position: relative
+    z-index: 2
+    @include media(950)
+      position: static
+
+.contacts-map__cont
+
+.contacts-map__top
+  margin-bottom: -35px
+  position: relative
+  padding: 40px 250px 75px 54px
+  background: linear-gradient(100.28deg, #FF6138 0%, #FF9838 100%)
+  border-radius: 40px 40px 0 0
+  color: $fc_white
+  @include media(1240)
+    padding: 24px 110px 50px 20px
+    border-radius: 24px 24px 0 0
+  @include media(950)
+    padding: 24px 110px 24px 20px
+    margin-bottom: 24px
+    border-radius: 24px
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  @include media(520)
+    padding-right: 20px
+    margin: 0 -20px 24px
+
+.contacts-map__title
+  margin-bottom: 24px
+  @include media(1240)
+    margin-bottom: 12px
+  @include media(520)
+    padding-right: 85px
+
+.contacts-map__text
+  color: rgba($fc_white, .9)
+
+.contacts-map__top-image
+  position: absolute
+  top: 14px
+  right: 52px
+  width: 174px
+  height: 174px
+  @include media(1240)
+    top: 8px
+    right: 8px
+    width: 93px
+    height: 93px
+
+.contacts-map__headline
+  margin-bottom: 24px
+  font-size: 20px
+  line-height: 24px
+
+.contacts-map__area
+  display: flex
+  border-radius: 40px
+  overflow: hidden
+  background-color: #F7F7F7
+  height: 584px
+  @include media(1240)
+    height: 500px
+    border-radius: 24px
+  @include media(950)
+    border-radius: 0
+    display: block
+    height: auto
+    background-color: $white
+
+.contacts-map__list
+  width: 400px
+  flex-shrink: 0
+  padding: 40px 30px
+  overflow: auto
+  @include media(1240)
+    padding: 20px
+  @include media(950)
+    width: 100%
+    padding: 0
+
+.contacts-map__item
+  margin-bottom: 32px
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  @include media(1240)
+    margin-bottom: 24px
+  &:last-of-type
+    margin-bottom: 0
+    @include media(1240)
+      margin-bottom: 0
+
+.contacts-map__address
+  display: inline-block
+  margin-bottom: 8px
+  font-weight: 500
+  cursor: pointer
+  text-decoration: none
+  transition-duration: .2s
+  transition-property: color
+  &:hover
+    @include hover
+      color: $fc_orange
+
+.contacts-map__span
+  margin-bottom: 8px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+
+.contacts-map__contacts
+  margin-bottom: 8px
+  display: flex
+
+.contacts-map__phone
+  text-decoration: none
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+
+.contacts-map__mail
+  position: relative
+  text-decoration: none
+  margin-left: 20px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+  &::before
+    content: ""
+    position: absolute
+    top: 6px
+    left: -12px
+    width: 4px
+    height: 4px
+    border-radius: 50%
+    background-color: rgba($black, .5)
+
+.contacts-map__info
+  display: none
+
+.contacts-map__info_active
+  display: block
+
+.contacts-map__gallery
+  display: flex
+  margin: 0 -2px 12px
+  overflow: auto
+
+.contacts-map__picture
+  margin: 0 2px
+  width: 105px
+
+.contacts-map__image
+  height: 80px
+  border-radius: 8px
+
+.contacts-map__info-text
+  margin-bottom: 8px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+  b
+    color: $fc_black
+
+.contacts-map__show-info
+  cursor: pointer
+  transition-property: color
+  transition-duration: .2s
+  &:hover
+    @include hover
+      color: $fc_orange
+      &::after
+        +bgIcon("ic_arrow_bottom_orange.svg", 16px, 16px)
+  &::after
+    content: ""
+    display: inline-block
+    vertical-align: top
+    width: 16px
+    height: 16px
+    transition-duration: .2s
+    transition-property: background
+    +bgIcon("ic_arrow_bottom_black.svg", 16px, 16px)
+
+.contacts-map__show-info_active
+  &::after
+    transform: rotate(180deg)
+
+.contacts-map__map
+  flex-shrink: 0
+  width: 788px
+  height: 584px
+  @include media(1240)
+    width: calc(100% - 400px)
+    height: 500px
+  @include media(950)
+    margin-top: 24px
+    height: 360px
+    position: absolute
+    width: 100%
+    left: 0
+    right: 0
+    bottom: 40px

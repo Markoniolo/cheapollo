@@ -1,0 +1,263 @@
+.modal-basket
+  width: 788px
+  padding: 0
+  @include media(1240)
+    width: 414px
+  @include media(520)
+    width: calc(100% - 1px)
+
+.modal-basket__cont
+
+.modal-basket__box
+
+.modal-basket__form
+  padding: 27px 32px 24px
+  text-align: left
+  @include media(1240)
+    margin-bottom: 0
+    padding: 30px 18px
+
+.modal-basket__headline
+  margin-right: 50px
+  margin-bottom: 32px
+  @include media(1240)
+    margin-bottom: 20px
+
+.modal-basket__basket
+  position: relative
+  display: flex
+  align-items: flex-start
+  padding-bottom: 27px
+  @include media(1240)
+    flex-direction: column
+    border: none
+    padding-left: 82px
+    padding-bottom: 32px
+
+.modal-basket__picture
+  flex-shrink: 0
+  margin-right: 12px
+  @include media(1240)
+    margin: 0
+    position: absolute
+    top: 0
+    left: 0
+
+.modal-basket__image
+  width: 72px
+  height: 72px
+
+.modal-basket__info
+  flex-grow: 1
+  margin-right: 32px
+  @include media(1240)
+    margin-bottom: 12px
+    width: 100%
+
+.modal-basket__name
+  display: block
+  margin-bottom: 4px
+  font-size: 16px
+  line-height: 20px
+  @include media(1240)
+    font-size: 13px
+    line-height: 16px
+
+.modal-basket__saler
+  display: block
+  margin-bottom: 4px
+  color: rgba($fc_black, .5)
+
+.modal-basket__status
+  display: block
+
+.modal-basket__counter
+  flex-shrink: 0
+  position: relative
+  display: flex
+  align-items: center
+  margin-top: -1px
+  margin-right: 32px
+  overflow: hidden
+  border-radius: 12px
+  background-color: $grey
+  border: 1px solid transparent
+  width: 96px
+  @include media(1240)
+    margin: 0
+
+.modal-basket__counter-button
+  position: absolute
+  left: 0
+  border: none
+  background-color: $grey
+  width: 27px
+  top: 0
+  bottom: 0
+  &::before
+    content: ''
+    position: absolute
+    top: 14px
+    left: 8px
+    width: 12px
+    height: 2px
+    background-color: #C6C6C6
+    transition-property: background-color
+    transition-duration: .2s
+  &:hover
+    @include hover
+      &::after, &::before
+        background-color: $black
+
+.modal-basket__counter-button_delete
+  &:hover
+    @include hover
+      &::after, &::before
+        background-color: transparent
+      &::before
+        opacity: 1
+  &::before
+    width: 27px
+    height: 29px
+    top: 0
+    left: 0
+    background-color: transparent
+    transition-property: opacity
+    transition-duration: .2s
+    opacity: .3
+    +bgIcon("ic_close_black.svg", 21px, 21px)
+
+.modal-basket__counter-number
+  border: none
+  padding: 5px 26px 6px
+  width: 100%
+  background-color: transparent
+  text-align: center
+  font-size: 16px
+  line-height: 19px
+
+.modal-basket__counter-button_plus
+  right: 0
+  left: unset
+  &::after
+    content: ''
+    position: absolute
+    top: 9px
+    left: 13px
+    width: 2px
+    height: 12px
+    background-color: #C6C6C6
+    transition-property: background-color
+    transition-duration: .2s
+  &::before
+    left: 8px
+
+.modal-basket__price
+  margin-right: 64px
+  order: 2
+  flex-shrink: 0
+  text-align: center
+  @include media(1240)
+    margin-right: 40px
+    margin-bottom: 6px
+    text-align: left
+    order: -1
+
+.modal-basket__price-line
+  margin-top: -3px
+
+.modal-basket__price-current
+  margin-right: 4px
+  font-size: 24px
+  line-height: 32px
+
+.modal-basket__price-note
+  font-size: 16px
+  line-height: 24px
+
+.modal-basket__price-old
+  position: relative
+  font-size: 13px
+  line-height: 14px
+  color: rgba($fc_black, .5)
+  &::before
+    content: ''
+    position: absolute
+    top: 9px
+    left: -1px
+    right: -1px
+    height: 1px
+    background-color: rgba($fc_black, .5)
+
+.modal-basket__button
+  position: absolute
+  border-radius: 12px
+  right: 0
+  width: 32px
+  height: 32px
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    opacity: .3
+    transition-property: opacity
+    transition-duration: .2s
+
+.modal-basket__button_like
+  top: -5px
+  &::before
+    +bgIcon('ic_heart_black.svg', 16px, 16px)
+
+.modal-basket__button_like-active
+  &::before
+    opacity: 1
+    +bgIcon('ic_heart_orange.svg', 16px, 16px)
+
+.modal-basket__btn-box
+  display: flex
+  margin-top: 24px
+  @include media(1240)
+    margin-top: 0
+    display: block
+
+.modal-basket__buy
+  display: flex
+  flex-grow: 1
+  margin-right: 32px
+  @include media(1240)
+    display: block
+    margin: 0 0 20px
+
+.modal-basket__label
+  display: block
+  flex-grow: 1
+  margin-right: 12px
+  @include media(1240)
+    margin: 0 0 12px
+
+.modal-basket__input
+  width: 100%
+
+.modal-basket__btn-buy
+  padding: 16px 24px
+  @include media(1240)
+    width: 100%
+
+.modal-basket__btn-basket
+  text-decoration: none
+  text-align: center
+  display: block
+  padding: 16px 20px
+  @include media(1240)
+    width: 100%
+  &::before
+    content: ""
+    margin-right: 6px
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    +bgIcon('ic_basket_white.svg', 24px, 24px)

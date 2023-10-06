@@ -1,0 +1,368 @@
+.tile
+  padding-top: 80px
+  padding-bottom: 80px
+  @include media(1240)
+    padding-top: 40px
+    padding-bottom: 40px
+
+.tile_favorites
+  border-radius: 0
+
+.tile__cont
+
+.tile__title
+  margin-bottom: 20px
+  text-align: center
+  @include media(1240)
+    margin-bottom: 12px
+  @include media(520)
+    text-align: left
+
+.tile__headline
+  margin-bottom: 40px
+  @include media(1240)
+    display: none
+
+.tile__title_single
+  margin-bottom: 60px
+  @include media(1240)
+    margin-bottom: 24px
+
+.tile__title-span
+  position: relative
+  display: inline-block
+  z-index: 1
+  &::before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 1px
+    right: -11px
+    width: 233px
+    height: 56px
+    +bgIcon("ic_ellipse_orange.svg")
+    @include media(1240)
+      width: 167px
+      height: 40px
+
+.tile__big-text
+  margin-bottom: 60px
+  text-align: center
+  @include media(1240)
+    margin-bottom: 24px
+  @include media(520)
+    text-align: left
+
+.tile__list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -27px
+  @include media(1240)
+    margin: 0 -5px
+
+.tile__item
+  position: relative
+  z-index: 1
+  margin: 0 27px 36px
+  display: flex
+  flex-direction: column
+  width: 256px
+  flex-shrink: 0
+  @include media(1240)
+    margin: 0 5px 32px
+    width: 277px
+  @include media(950)
+    width: 209px
+  @include media(700)
+    width: 229px
+  @include media(520)
+    width: calc(50% - 10px)
+  &::before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: -20px
+    right: -16px
+    bottom: -20px
+    left: -16px
+    background-color: $white
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+    border-radius: 32px
+    opacity: 0
+    transition-property: opacity
+    transition-duration: .2s
+    @include media(1240)
+      content: none
+  &:hover
+    @include hover
+      .tile__button
+        opacity: 1
+      &::before
+        opacity: 1
+
+.tile__item-link
+  text-decoration: none
+  display: block
+
+.tile__picture
+  position: relative
+  width: 250px
+  margin-bottom: 10px
+  @include media(1240)
+    margin-bottom: 4px
+  @include media(950)
+    width: 194px
+  @include media(700)
+    width: 214px
+  @include media(520)
+    width: calc(100% - 15px)
+    position: relative
+    padding-bottom: calc(100% - 15px)
+
+.tile__discount
+  position: absolute
+  z-index: 1
+  top: -8px
+  right: -8px
+  width: 60px
+  height: 60px
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  color: $fc_white
+  background-color: $orange
+  font-size: 16px
+  line-height: 24px
+  font-weight: 500
+  @include media(1240)
+    top: -4px
+    right: -4px
+    width: 44px
+    height: 44px
+    font-size: 13px
+    line-height: 16px
+
+.tile__image
+  height: 250px
+  @include media(950)
+    height: 194px
+  @include media(700)
+    height: 214px
+  @include media(520)
+    height: auto
+    position: absolute
+
+.tile__price-box
+  display: flex
+  align-items: flex-end
+  margin-bottom: 6px
+  @include media(1240)
+    margin-bottom: 4px
+
+.tile__price
+  margin-right: 5px
+  font-size: 36px
+  line-height: 41px
+  @include media(1240)
+    font-size: 32px
+    line-height: 36px
+
+.tile__price-info
+  margin-bottom: 5px
+
+.tile__price-old
+  position: relative
+  display: inline-block
+  font-weight: 500
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    font-size: 13px
+    line-height: 14px
+  &::before
+    content: ""
+    position: absolute
+    top: 9px
+    height: 1px
+    left: 0
+    right: 0
+    background-color: rgba($fc_black, .5)
+    @include media(1240)
+      top: 8px
+
+.tile__price-rouble
+  font-weight: 500
+  font-size: 16px
+  line-height: 16px
+  @include media(1240)
+    font-size: 13px
+    line-height: 14px
+
+.tile__info-line
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: 8px
+
+.tile__rating
+  flex-shrink: 0
+  margin-right: 5px
+  width: 80px
+  height: 16px
+  overflow: hidden
+  +bgImg('ic_star_grey.svg')
+  background-size: 16px 16px
+
+.tile__rating-fill
+  height: 16px
+  +bgImg('ic_star_orange.svg')
+  background-size: 16px 16px
+
+.tile__rating-value
+  margin-right: 8px
+  color: rgba($fc_black, .5)
+
+.tile__availability
+  @include media(520)
+    display: block
+    width: 100%
+    margin-top: 8px
+
+.tile__text
+  margin-bottom: 10px
+  color: rgba($fc_black, .5)
+
+.tile__buttons
+  display: flex
+  margin-top: auto
+
+.tile__button
+  opacity: 0
+  @include media(1240)
+    opacity: 1
+    margin-right: 4px
+    width: 32px
+    height: 32px
+    border-radius: 12px
+    background-size: 16px 16px
+
+.tile__button_basket
+  margin-right: 8px
+  border-radius: 16px
+  padding: 12px 16px
+  @include media(1240)
+    padding: 0
+  &::after
+    content: "В корзину"
+    font-size: 16px
+    line-height: 24px
+    font-weight: 500
+    @include media(1240)
+      content: none
+  &::before
+    content: ""
+    display: inline-block
+    vertical-align: top
+    margin-right: 6px
+    width: 24px
+    height: 24px
+    +bgIcon("ic_basket_black.svg", 24px, 24px)
+    @include media(1240)
+      margin-right: 0
+      width: 32px
+      height: 32px
+      +bgIcon("ic_basket_black.svg", 16px, 16px)
+
+.tile__button_basket-add
+  &::after
+    content: "В корзине"
+  &::before
+    +bgIcon("ic_basket_add_orange.svg", 24px, 24px)
+    @include media(1240)
+      margin-right: 0
+      +bgIcon("ic_basket_add_orange.svg", 16px, 16px)
+
+.tile__button_compare
+  border-radius: 16px
+  width: 48px
+  height: 48px
+  +bgIcon("ic_compare.svg", 24px, 24px)
+
+.tile__button_favorite
+  border-radius: 12px
+  position: absolute
+  z-index: 10
+  top: 0
+  left: 0
+  opacity: 0
+  width: 32px
+  height: 32px
+  transition-property: opacity
+  transition-duration: .2s
+  @include media(1240)
+    opacity: 1
+    position: relative
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    +bgIcon('ic_heart_black.svg', 16px, 16px)
+    opacity: .3
+    transition-property: opacity
+    transition-duration: .2s
+
+.tile__button_favorite-active
+  opacity: 1
+  &::before
+    +bgIcon("ic_heart_orange.svg", 16px, 16px)
+    opacity: 1
+
+.tile__link
+  margin: 0 auto
+  width: 177px
+  display: block
+  padding: 16px 20px 16px 20px
+  text-decoration: none
+  text-align: center
+  @include media(1240)
+    width: 100%
+  &::after
+    content: ""
+    margin-left: 6px
+    display: inline-block
+    vertical-align: top
+    width: 24px
+    height: 24px
+    +bgIcon('ic_arrow_right.svg', 24px, 24px)
+
+.tile__pagination-list
+  display: flex
+  justify-content: center
+
+.tile__pagination-link
+  text-decoration: none
+  padding: 12px 20px
+  font-size: 16px
+  line-height: 24px
+  font-weight: 500
+  border-radius: 16px
+  display: inline-block
+  transition-property: background-color
+  transition-duration: .2s
+  @include media(1240)
+    border-radius: 12px
+    padding: 8px 12px
+    font-size: 13px
+    line-height: 16px
+
+span.tile__pagination-link
+  background: rgba(0, 0, 0, 0.07)
+
+a.tile__pagination-link
+  &:hover
+    @include hover
+      background: rgba(0, 0, 0, 0.07)

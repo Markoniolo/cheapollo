@@ -1,0 +1,91 @@
+.personal
+  padding-bottom: 40px
+  padding-top: 65px
+  border-radius: 0
+  @include media(1240)
+    padding-top: 32px
+    border-radius: 24px 24px 0 0
+
+.personal__cont
+
+.personal__caption
+  margin-bottom: 40px
+  @include media(1240)
+    margin-bottom: 32px
+
+.personal__list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -6px 40px
+  @include media(1240)
+    margin-bottom: 28px
+
+.personal__link
+  margin: 0 6px
+  display: block
+  width: 288px
+  padding: 24px
+  background: #F7F7F7
+  border-radius: 24px
+  text-decoration: none
+  transition: background-color .2s, box-shadow .2s
+  &:hover
+    background: #FFFFFF
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  @include media(1240)
+    width: calc(33% - 10px)
+    border-radius: 20px
+    margin-bottom: 12px
+    padding: 16px
+  @include media(950)
+    width: calc(50% - 12px)
+  @include media(700)
+    width: 100%
+
+.personal__area
+  display: flex
+  align-items: center
+  position: relative
+
+.personal__box
+  max-width: 180px
+
+.personal__headline
+
+.personal__note
+  display: block
+  margin-top: 4px
+  color: rgba($fc_black, .5)
+
+.personal__icon
+  position: absolute
+  right: 0
+  top: 50%
+  transform: translateY(-50%)
+  width: 60px
+  height: 60px
+  flex-shrink: 0
+
+.personal__gallery
+  margin-top: 20px
+  display: flex
+  @include media(1240)
+    margin-top: 12px
+
+.personal__picture
+  margin-right: -20px
+  width: 80px
+  flex-shrink: 0
+  background-color: $white
+  border-radius: 50%
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  &:nth-child(1)
+    z-index: 3
+  &:nth-child(2)
+    z-index: 2
+  &:nth-child(3)
+    z-index: 1
+
+.personal__image
+  height: 80px
+  border-radius: 50%

@@ -1,0 +1,10 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Ошибка 404')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("", "Ошибка 404")
+  include ../components/info-empty-page
+  +info-empty-page("Спасибо за покупку!", "", "Мои заказы")

@@ -1,0 +1,38 @@
+.footer-mobile
+  display: none
+  @include media(1240)
+    display: block
+    position: fixed
+    z-index: 100
+    width: 100%
+    bottom: 0
+    background-color: white
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.05)
+    border-radius: 20px 20px 0 0
+
+.footer-mobile__cont
+
+.footer-mobile__list
+  display: flex
+  justify-content: space-between
+
+.footer-mobile__item
+  text-decoration: none
+  padding: 9px 0 10px
+
+span.footer-mobile__item
+  .footer-mobile__image
+    opacity: 1
+  .footer-mobile__text
+    color: rgba($fc_black, 1)
+
+.footer-mobile__image
+  opacity: .4
+  width: 24px
+  height: 24px
+  margin: 0 auto 1px
+
+.footer-mobile__text
+  font-size: 11px
+  line-height: 12px
+  color: rgba($fc_black, .5)

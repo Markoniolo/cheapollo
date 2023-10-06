@@ -1,0 +1,34 @@
+-
+  const deliveryTypeList1 = [
+    { text: "Доставка мелкогабаритного груза общей стоимостью более 4 989 ₽ (с учётом всех скидок)", time: "08:00—20:00", price: "Бесплатно" },
+    { text: "Доставка мелкогабаритного груза общей стоимостью менее 4 989 ₽", time: "08:00—20:00", price: "290 ₽" },
+    { text: "Доставка мелкогабаритного груза общей стоимостью менее 4 989 ₽", time: "08:00—20:00", price: "290 ₽" },
+    { text: "Доставка крупногабаритного груза ", time: "08:00—20:00", price: "390 ₽" },
+  ]
+
+article.delivery-type
+  .delivery-type__cont.cont
+    h2.delivery-type__title.headline Доставка по Кирову
+    .delivery-type__area
+      .delivery-type__box.delivery-type__box_1
+        h3.delivery-type__headline Стандартная доставка
+        each item in deliveryTypeList1
+          p.delivery-type__text.text= item.text
+          .delivery-type__info
+            .delivery-type__time.text= item.time
+            .delivery-type__price.text(class = item.price==="Бесплатно" ? "fc_green": false)= item.price
+      .delivery-type__box
+        h3.delivery-type__subtitle Доставка в определённое время
+        p.delivery-type__text.text Выбери удобное время
+        table.delivery-type__table
+          each item in [{name: "Утром", value: "08:00—12:00"},{name: "Днём", value: "12:00—17:00"},{name: "Вечером", value: "17:00—20:00"}]
+            tr.delivery-type__row
+              td.delivery-type__name.text= item.name
+              td.delivery-type__value.text= item.value
+    h2.delivery-type__title.headline Доставка от Кирова до 50 км
+    h3.delivery-type__headline Стандартная доставка
+    each item in deliveryTypeList1
+      p.delivery-type__text.text= item.text
+      .delivery-type__info
+        .delivery-type__time.text= item.time
+        .delivery-type__price.text(class = item.price==="Бесплатно" ? "fc_green": false)= item.price

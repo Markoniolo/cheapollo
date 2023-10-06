@@ -1,0 +1,19 @@
+.tile-search__list
+  - for (let i = 0; i < 5; i++)
+    a.tile-search__item(href="#" data-element="tile-search__item")
+      picture.tile-search__picture
+        .tile-search__discount.text-small −23%
+        source(srcset=placeholder(48,48,2) type="image/webp" media="(max-width: 1240px)")
+        source(srcset=placeholder(140) type="image/webp")
+        img.tile-search__image(src=placeholder(140) alt="" loading="lazy")
+      .tile-search__price-box
+        .tile-search__price 16
+        .tile-search__price-info
+          .tile-search__price-old 18 ₽
+          .tile-search__price-rouble ₽/шт.
+      .tile-search__info-line
+        .tile-search__rating
+          .tile-search__rating-fill(style="width: 70%")
+        .tile-search__rating-value.text-small 132
+        .tile-search__availability.fc_green.text-small В наличии
+      p.tile-search__text.text-small Лента тефлоновая уплотнительная чёрная

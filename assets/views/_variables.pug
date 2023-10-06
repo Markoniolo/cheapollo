@@ -1,0 +1,69 @@
+-
+  const pathStatics = PRODUCTION ? 'statics' : '/statics'
+  const phone = { link: 'tel:79127001393', mask: '+7 912 700 13 93' }
+  const mail = { link: 'mailto:mailer@cheapollo.ru', mask: 'mailer@cheapollo.ru' }
+
+  function staticImg (image) {
+    return `${pathStatics}/img/${image}`
+  }
+
+  function placeholder(width, height = width, x) {
+    if (x) {
+      return `https://via.placeholder.com/${width}x${height} 1x, https://via.placeholder.com/${Math.round(width * x)}x${Math.round(height * x)} ${x}x`
+    }
+    return `https://via.placeholder.com/${width}x${height}`
+  }
+
+  const pages = [
+    { view: 'product-card', style: 'product-card' },
+    { view: 'index', style: 'index' },
+    { view: 'login', style: 'login' },
+    { view: 'enter-password', style: 'enter-password' },
+    { view: 'login-password', style: 'enter-password' },
+    { view: 'create-password', style: 'create-password' },
+    { view: 'name-and-phone', style: 'name-and-phone' },
+    { view: 'mail-open', style: 'info-page' },
+    { view: 'mail-send', style: 'info-page' },
+    { view: 'forgot-password', style: 'forgot-password' },
+    { view: 'new-password', style: 'create-password' },
+    { view: 'orders-empty', style: 'info-empty-page' },
+    { view: 'favorites-empty', style: 'info-empty-page' },
+    { view: '404', style: 'info-empty-page' },
+    { view: 'thanks', style: 'info-empty-page' },
+    { view: 'favorites', style: 'favorites' },
+    { view: 'basket', style: 'basket' },
+    { view: 'catalog', style: 'catalog' },
+    { view: 'category_3', style: 'category' },
+    { view: 'category_2', style: 'category' },
+    { view: 'search', style: 'search' },
+    { view: 'order', style: 'order' },
+    { view: 'search-articles', style: 'search-articles' },
+    { view: 'policy', style: 'policy' },
+    { view: 'payment', style: 'payment' },
+    { view: 'contacts', style: 'contacts' },
+    { view: 'delivery', style: 'delivery' },
+    { view: 'agreement', style: 'agreement' },
+    { view: 'terms-of-use', style: 'terms-of-use' },
+    { view: 'guarantee', style: 'guarantee' },
+    { view: 'personal', style: 'personal' },
+    { view: 'order-about', style: 'order-about' },
+    { view: 'my-orders', style: 'my-orders' },
+    { view: 'order-about', style: 'order-about' },
+  ]
+
+  function getPage (view) {
+    return pages.find(page => page.view === view)
+  }
+
+  function prefetchStyle() {
+    const style = []
+    const list = pages
+    const currentPage = getPage(VIEW)
+    list.forEach(page => {
+      if (page.view === currentPage.view) return
+      if (page.style && page.style === currentPage.style) return
+      if (!page.style) return style.push(page.view)
+      if (!style.includes(page.style)) style.push(page.style)
+    })
+    return style
+  }

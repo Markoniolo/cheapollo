@@ -1,0 +1,55 @@
+-
+  const inputListTransport = [
+    { placeholder: "Населённый пункт", dataElement: "city", name: "city", value: "Самара", required: true, list: false },
+    { placeholder: "Улица", name: "street", dataElement: "street", value: "Костюшко", required: true, list: false },
+    { list:
+      [
+        {placeholder: "Дом", name: "house", dataElement: "house", value: "16", required: true, list: false},
+        {placeholder: "Квартира", name: "room", dataElement: "room", value: "25", required: false, list: false},
+      ]
+    },
+    { list:
+      [
+        {placeholder: "Подъезд", name: "entrance", dataElement: "entrance", value: "1", required: false, list: false},
+        {placeholder: "Этаж", name: "floor", dataElement: "floor", value: "7", required: false, list: false},
+      ]
+    }
+  ]
+
+.modal-box(data-role="modal-box" id="modal-transport")
+  .modal-box__inner.modal-box__inner_transport
+    .modal-box__layer(data-role="modal-box__layer")
+    .modal-transport.modal-box__form
+      .modal-transport__cont
+        .modal-box__close(data-role="modal-box__close")
+        h4.modal-transport__headline Куда привезти заказ?
+        .modal-transport__label.modal-transport__label_select(data-element="modal-transport__label_select")
+          .modal-transport__box.modal-transport__box_select.input-animate-box(data-element="modal-transport__box_select")
+            input.modal-transport__input.input.text.input-animate(type="text" form="main-form" name="transport" data-role="delivery-transport" data-element="transport" placeholder=" " readonly value="СДЭК" required)
+            span.input-animate-placeholder Траснпортная компания
+          .modal-transport__list-box
+            ul.modal-transport__select-list
+              each item, index in ["СДЭК", "Компания 2", "Компания 3"]
+                li.modal-transport__select-item
+                  if index === 0
+                    span.modal-transport__select-span.modal-transport__select-span_active(data-element="modal-transport__select-span")= item
+                  else
+                    span.modal-transport__select-span(data-element="modal-transport__select-span")= item
+        each item in inputListTransport
+          if item.list
+            ul.modal-transport__list
+              each elem in item.list
+                li.modal-transport__item
+                  label.modal-transport__label
+                    .modal-transport__box.input-animate-box
+                      input.modal-transport__input.input.text.input-animate(type="text" form="main-form" data-element=elem.dataElement name=elem.name placeholder=" " value=elem.value required=elem.required ? elem.required: false)
+                      span.input-animate-placeholder= elem.placeholder
+          else
+            label.modal-transport__label
+              .modal-transport__box.input-animate-box
+                if item.name === "comment"
+                  textarea.modal-transport__input.modal-transport__input_textarea.input.text.input-animate(data-element=item.dataElement form="main-form" name=item.name placeholder=" " value=item.value required=item.required ? item.required : false)
+                else
+                  input.modal-transport__input.input.text.input-animate(type="text" form="main-form" data-element=item.dataElement name=item.name placeholder=" " value=item.value required=item.required ? item.required : false)
+                span.input-animate-placeholder= item.placeholder
+        button.modal-transport__button.text.button-orange(type="button" disabled data-element="modal-transport__button") Продолжить

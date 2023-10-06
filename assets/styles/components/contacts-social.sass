@@ -1,0 +1,76 @@
+.contacts-social
+  padding-top: 65px
+  padding-bottom: 60px
+  border-radius: 0
+  @include media(1240)
+    padding-top: 32px
+    padding-bottom: 40px
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+    border-radius: 24px 24px 0 0
+  @include media(950)
+    padding-bottom: 20px
+
+.contacts-social__cont
+
+.contacts-social__title
+  margin-bottom: 40px
+  @include media(1240)
+    display: none
+
+.contacts-social__list
+  display: flex
+  @include media(950)
+    flex-wrap: wrap
+
+.contacts-social__item
+  flex-shrink: 0
+  @include media(1240)
+    margin-right: 50px
+  @include media(950)
+    margin-bottom: 20px
+
+.contacts-social__item_1
+  margin-right: 72px
+
+.contacts-social__item_2
+  margin-right: 46px
+
+.contacts-social__item_3
+  margin-right: 88px
+
+.contacts-social__item_4
+  @include media(1240)
+    margin-right: 0
+
+.contacts-social__name
+  display: block
+  margin-bottom: 12px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    margin-bottom: 8px
+
+.contacts-social__value
+  text-decoration: none
+  transition-property: color
+  transition-duration: .2s
+  &:hover
+    @include hover
+      color: $fc_orange
+
+.contacts-social__gallery
+  display: flex
+  margin: 0 -10px
+  @include media(1240)
+    margin: 0 -9pxS
+
+.contacts-social__link
+  display: block
+  margin: 0 10px
+  @include media(1240)
+    margin: 0 9px
+
+.contacts-social__image
+  width: 24px
+  height: 24px

@@ -1,0 +1,22 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Корзина')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Корзина", "6 товаров на сумму 12 050 ₽")
+  include ../components/info-empty-page
+  +info-empty-page("В корзине пока пусто", "Все ваши покупки будут сохранены в этом разделе.", "За покупками", "orders", "basket")
+  include ../components/basket
+  include ../components/modals/modal-form
+  +modal-form(
+    "modal-order",
+    "Оформить заказ",
+    ["Менеджер свяжется с Вами для уточнения Оплаты и Доставки. Онлайн оплата будет доступна совсем скоро"],
+    false,
+    true,
+    true,
+    "Оформить заказ",
+    "basket"
+  )

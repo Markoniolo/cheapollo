@@ -1,0 +1,115 @@
+.modal-box__inner_courier
+  overflow-y: scroll
+
+.modal-courier
+  width: 390px
+  padding: 32px
+  @include media(1240)
+    padding: 24px 20px
+
+.modal-courier__cont
+
+.modal-courier__headline
+  margin-bottom: 24px
+  font-size: 20px
+  line-height: 24px
+  @include media(1240)
+    margin-bottom: 20px
+
+.modal-courier__headline_last
+  margin-top: 32px
+  @include media(1240)
+    margin-top: 24px
+
+.modal-courier__list
+  display: flex
+  margin: 0 -6px
+
+.modal-courier__item
+  margin: 0 6px
+
+.modal-courier__label
+  display: block
+  margin-bottom: 12px
+
+.modal-courier__input
+  width: 100%
+
+.modal-courier__input_textarea
+  resize: none
+  height: 61px
+
+.modal-courier__button
+  padding: 16px
+  width: 100%
+  font-weight: 500
+
+.modal-courier__box_select
+  cursor: pointer
+  &:hover
+    @include hover
+      .modal-courier__input
+        border: 1px solid $orange
+
+.modal-courier__input
+  transition-property: border-color
+  transition-duration: .2s
+
+.modal-courier__label_select
+  position: relative
+  &::before
+    content: ""
+    position: absolute
+    z-index: 1
+    opacity: .4
+    top: 16px
+    right: 16px
+    width: 24px
+    height: 24px
+    +bgIcon('ic_arrow_bottom_black.svg', 24px, 24px)
+  .modal-courier__input
+    cursor: pointer
+
+.modal-courier__list-box
+  display: none
+  position: absolute
+  z-index: 10
+  padding-top: 15px
+  padding-bottom: 50px
+  top: 55px
+  width: 100%
+  left: 0
+  @include media(1240)
+    top: 60px
+    padding-top: 0
+
+.modal-courier__list-box_active
+  display: block
+
+.modal-courier__select-list
+  padding: 20px 0
+  border-radius: 16px
+  background-color: $white
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+
+.modal-courier__select-item
+  &:not(:last-of-type)
+    margin-bottom: 20px
+
+.modal-courier__select-span
+  cursor: pointer
+  padding: 10px 20px
+  font-size: 16px
+  line-height: 20px
+  transition-duration: .2s
+  transition-property: color
+  &:hover
+    @include hover
+      color: $fc_orange
+
+.modal-courier__select-span_active
+  cursor: default
+  color: rgba($fc_black, .5)
+  &:hover
+    @include hover
+      color: rgba($fc_black, .5)

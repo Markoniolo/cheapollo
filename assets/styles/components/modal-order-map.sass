@@ -1,0 +1,169 @@
+.modal-box__inner_order-map
+  overflow-y: scroll
+  @include media(520)
+    padding: 16px 0
+
+.modal-order-map
+  width: 1188px
+  padding: 32px 0 0
+  @include media(1240)
+    padding: 24px 0 0
+    width: calc(100% - 1px)
+  @include media(950)
+    width: 500px
+    overflow: hidden
+
+.modal-transport__cont
+
+.modal-order-map__headline
+  margin-bottom: 12px
+  padding: 0 30px
+  font-size: 20px
+  line-height: 24px
+  @include media(1240)
+    margin-bottom: 10px
+    padding: 0 20px
+
+.modal-order-map__area
+  display: flex
+  border-radius: 40px
+  overflow: hidden
+  margin-top: 32px
+  background-color: #F7F7F7
+  height: 584px
+  @include media(1240)
+    height: 500px
+    border-radius: 24px
+  @include media(950)
+    border-radius: 0
+    display: block
+    height: auto
+
+.modal-order-map__list
+  width: 400px
+  flex-shrink: 0
+  padding: 40px 30px
+  overflow: auto
+  @include media(1240)
+    padding: 20px
+  @include media(950)
+    width: 100%
+
+.modal-order-map__item
+  margin-bottom: 32px
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  @include media(1240)
+    margin-bottom: 24px
+
+.modal-order-map__map
+  flex-shrink: 0
+  width: 788px
+  height: 584px
+  @include media(1240)
+    width: calc(100% - 400px)
+    height: 500px
+  @include media(950)
+    width: 100%
+    height: 360px
+
+.modal-order-map__address
+  display: inline-block
+  margin-bottom: 8px
+  font-weight: 500
+  cursor: pointer
+  text-decoration: none
+  transition-duration: .2s
+  transition-property: color
+  &:hover
+    @include hover
+      color: $fc_orange
+
+.modal-order-map__time
+  margin-bottom: 8px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+
+.modal-order-map__contacts
+  margin-bottom: 8px
+  display: flex
+
+.modal-order-map__phone
+  text-decoration: none
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+
+.modal-order-map__mail
+  text-decoration: none
+  position: relative
+  margin-left: 20px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+  &::before
+    content: ""
+    position: absolute
+    top: 6px
+    left: -12px
+    width: 4px
+    height: 4px
+    border-radius: 50%
+    background-color: rgba($black, .5)
+
+.modal-order-map__info
+  display: none
+
+.modal-order-map__info_active
+  display: block
+
+.modal-order-map__gallery
+  display: flex
+  margin: 0 -2px 12px
+  overflow: auto
+
+.modal-order-map__picture
+  margin: 0 2px
+  width: 105px
+
+.modal-order-map__image
+  height: 80px
+  border-radius: 8px
+
+.modal-order-map__info-text
+  margin-bottom: 8px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+  b
+    color: $fc_black
+
+.modal-order-map__button
+  margin-top: 16px
+  display: inline-block
+  padding: 8px 16px
+
+.modal-order-map__show-info
+  cursor: pointer
+  transition-property: color
+  transition-duration: .2s
+  &:hover
+    @include hover
+      color: $fc_orange
+      &::after
+        +bgIcon("ic_arrow_bottom_orange.svg", 16px, 16px)
+  &::after
+    content: ""
+    display: inline-block
+    vertical-align: top
+    width: 16px
+    height: 16px
+    transition-duration: .2s
+    transition-property: background
+    +bgIcon("ic_arrow_bottom_black.svg", 16px, 16px)
+
+.modal-order-map__show-info_active
+  &::after
+    transform: rotate(180deg)

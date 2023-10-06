@@ -1,0 +1,72 @@
+@mixin button
+  border: none
+  background-color: transparent
+
+button:disabled
+  opacity: .7
+  cursor: default
+
+.button
+  +button
+
+.button-white
+  +button
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+  border-radius: 20px
+  font-weight: 500
+  background-color: $white
+  text-align: center
+  text-decoration: none
+  transition-property: box-shadow
+  transition-duration: .2s
+  @include media(1240)
+    border-radius: 16px
+  &:not(:disabled):hover
+    @include hover
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15)
+
+.button-orange
+  +button
+  font-weight: 500
+  background-color: $orange
+  color: $fc_white
+  box-shadow: 0 4px 15px rgba(255, 153, 0, 0.07)
+  border-radius: 20px
+  transition-duration: .2s
+  transition-property: background-color
+  &:not(:disabled):hover
+    @include hover
+      background-color: #FF4427
+
+.button-arrow
+  box-shadow: 0 4px 15px rgba(255, 153, 0, 0.07)
+  border-radius: 20px
+  text-decoration: none
+  text-align: center
+  @include media(1240)
+    border-radius: 12px
+  &::after
+    content: ""
+    margin-left: 6px
+    display: inline-block
+    vertical-align: top
+    width: 24px
+    height: 24px
+    +bgIcon('ic_arrow_right.svg', 24px, 24px)
+
+.button-grey
+  background-color: $grey
+  border-radius: 20px
+  color: $fc_black
+  border: none
+  transition-property: background-color, color
+  transition-duration: .2s
+  @include media(1240)
+    border-radius: 16px
+  &:hover:not(:disabled)
+    @include hover
+      background-color: $orange
+      color: $fc_white
+  &:disabled
+    color: rgba($fc_black, .25)
+    cursor: default

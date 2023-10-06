@@ -1,0 +1,56 @@
+.wrapper
+  position: relative
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+
+.cont
+  margin: 0 auto
+  max-width: 1188px + 30px
+  padding-right: 15px
+  padding-left: 15px
+  @include media(1240)
+    max-width: 852px + 30px
+  @include media(950)
+    max-width: 648px + 30px
+  @include media(700)
+    max-width: 468px + 30px
+  @include media(520)
+    padding-right: 20px
+    padding-left: 20px
+    max-width: 392px + 40px
+
+.caption
+  font-size: 34px
+  line-height: 44px
+  @include media(1240)
+    font-size: 30px
+    line-height: 36px
+
+.title
+  font-size: 48px
+  line-height: 56px
+  @include media(1240)
+    font-size: 36px
+    line-height: 40px
+
+.headline
+  font-size: 21px
+  line-height: 26px
+
+.text-big
+  letter-spacing: -0.015em
+  font-size: 24px
+  line-height: 32px
+  @include media(1240)
+    font-size: 20px
+    line-height: 28px
+
+.text
+  font-size: 16px
+  line-height: 24px
+
+.text-small
+  font-size: 13px
+  line-height: 16px
+  font-weight: 500

@@ -1,0 +1,9 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Мои заказы')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile('cabinet','Мои заказы')
+  include ../components/my-orders

@@ -1,0 +1,23 @@
+article.contacts-social
+  .contacts-social__cont.cont
+    h1.contacts-social__title.title Контакты
+    ul.contacts-social__list
+      li.contacts-social__item.contacts-social__item_1
+        span.contacts-social__name Телефон
+        a.contacts-social__value.text(href=phone.link)= phone.mask
+      li.contacts-social__item.contacts-social__item_2
+        span.contacts-social__name Почта
+        a.contacts-social__value.text(href=mail.link)= mail.mask
+      li.contacts-social__item.contacts-social__item_3
+        span.contacts-social__name Мессенджеры
+        .contacts-social__gallery
+          each item in ['telegram','whatsapp','viber']
+            a.contacts-social__link(href='' target="_blank" rel="noopener")
+              img.contacts-social__image(class=`contacts-social__image_${item}` src=staticImg(`ic_${item}_black.svg`) alt='' loading='lazy')
+      li.contacts-social__item
+        span.contacts-social__name Соцсети
+        .contacts-social__gallery
+          each item in ['vk','inst','facebook','ok','twitter','pinterest','youtube']
+            a.contacts-social__link
+              img.contacts-social__image(class=`contacts-social__image_${item}` src=staticImg(`ic_${item}_black.svg`) alt='' loading='lazy')
+

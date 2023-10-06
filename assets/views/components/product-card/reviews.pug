@@ -1,0 +1,68 @@
+article.reviews.desktop-white-border.mobile-white-border(data-element="reviews")
+  .reviews__cont.cont
+    h2.reviews__title.title
+      | Отзывы
+      |
+      span.reviews__span 15
+    .reviews__cage
+      .reviews__body
+        ul.reviews__list
+          each item in [1,2,3]
+            li.reviews__item.reviews__item_active(class = item === 1 ? "reviews__item_active": "" data-element="reviews__item")
+              .reviews__headline-line
+                if item === 1
+                  h3.reviews__headline.headline Ужасный товар
+                else
+                  h3.reviews__headline.headline Отличный товар
+                .reviews__rating-star
+                  .reviews__rating-fill(style="width: 70%")
+              .reviews__text-box(data-element="reviews__text-box")
+                if item === 1
+                  p.reviews__text.text В магазине Leroy Merlin можно приобрести клей для керамической плитки усиленный Keramik Pro (25 кг) отечественной торговой марки BERGAUF. Этот суперэластичный клей широко используется для прочного и надежного контакта стандартной и крупной керамической плитки, бетонной и клинкерной плитки, а также натурального камня с различными поверхностями, как внутри, так и снаружи помещения. Клей может быть использован для установки полов с подогревом, отделки фасадных частей, цоколей, лоджий и душевых.
+                  p.reviews__text.text В магазине Leroy Merlin можно приобрести клей для керамической плитки усиленный Keramik Pro (25 кг) отечественной торговой марки BERGAUF. Этот суперэластичный клей широко используется для прочного и надежного контакта стандартной и крупной керамической плитки, бетонной и клинкерной плитки, а также натурального камня с различными поверхностями, как внутри, так и снаружи помещения. Клей может быть использован для установки полов с подогревом, отделки фасадных частей, цоколей, лоджий и душевых.
+                else
+                  p.reviews__text.text В магазине Leroy Merlin можно приобрести клей для керамической плитки усиленный Keramik Pro (25 кг) отечественной торговой марки BERGAUF. Этот суперэластичный клей широко используется для прочного и надежного контакта стандартной и крупной керамической плитки, бетонной и клинкерной плитки, а также натурального камня с различными поверхностями, как внутри, так и снаружи помещения. Клей может быть использован для установки полов с подогревом, отделки фасадных частей, цоколей, лоджий и душевых.
+              button.reviews__text-more.button-white(data-element="reviews__text-more") Показать полностью
+              if item === 1
+                .reviews__gallery
+                  each picture in [1,2,3,4]
+                    picture.reviews__picture
+                      source(srcset=placeholder(100, 100, 2) type="image/webp" media="(max-width: 1240px)")
+                      source(srcset=placeholder(164, 164) type="image/webp")
+                      source(srcset=placeholder(100, 100, 2) media="(max-width: 1240px)")
+                      img.reviews__image(src=placeholder(164,164), alt="" loading="lazy")
+              .reviews__bottom-line
+                .reviews__info
+                  span.reviews__author.text Дмитрий
+                  span.reviews__time.text 12.06.2021
+                span.reviews__btn.reviews__btn_like 14
+                span.reviews__btn.reviews__btn_dislike 2
+        .reviews__more.text.button-white Показать еще
+      .reviews__sidebar
+        .reviews__sidebar-inner
+          .reviews__sort-box
+            span.reviews__sort-note Сортировка
+            span.reviews__sort Сначала последние
+            .reviews__sort-list-box
+              ul.reviews__sort-list
+                each item, index in ['Сначала последние', 'Сначала первые', 'Сначала отрицательные', 'Сначала положительные']
+                  li.reviews__sort-item
+                    if index === 0
+                      span.reviews__sort-link= item
+                    else
+                      a.reviews__sort-link(href="#")= item
+          .reviews__grade
+            .reviews__grade-mark
+              .reviews__grade-mark-number 4,3
+              .reviews__grade-mark-note На основании 161 оценки и 15 отзывов
+            ul.reviews__grade-list
+              each gradeItem in [1,2,3]
+                li.reviews__grade-item
+                  .reviews__grade-rating-star
+                    .reviews__grade-rating-fill(style="width: 70%")
+                  span.reviews__grade-rating-note 140 оценок, 10 отзывов
+          .reviews__share-box
+            h3.reviews__share-headline.headline Поделитесь мнением
+            p.reviews__share-text.text Поставьте оценку этому товару.
+            p.reviews__share-text.text Это поможет другим покупателям сделать правильный выбор.
+            .reviews__share-btn.button-orange.text Оценить и оставить отзыв

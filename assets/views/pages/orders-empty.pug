@@ -1,0 +1,10 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Пустые заказы')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Мои заказы")
+  include ../components/info-empty-page
+  +info-empty-page("Тут пока пусто", "Все ваши покупки будут сохранены в этом разделе.", "За покупками", "orders")

@@ -1,0 +1,9 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Оплата')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Оплата")
+  include ../components/payment

@@ -1,0 +1,12 @@
+mixin delivery-informer(title, text, span, list, mod)
+  article.delivery-informer(class = mod ? `delivery-informer_${mod}` : false)
+    .delivery-informer__cont.cont
+      .delivery-informer__area
+        .delivery-informer__box.delivery-informer__box_1
+          h2.delivery-informer__headline.headline= title
+          p.delivery-informer__text.text-big= text
+        .delivery-informer__box
+          span.delivery-informer__span= span
+          ul.delivery-informer__list
+            each item in list
+              li.delivery-informer__item.text= item

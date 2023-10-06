@@ -1,0 +1,86 @@
+-
+  const modalOrderMapList = [
+    { dataPrice: "100₽", dataResultAddress: "Киров, Чапаева, 17" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"], dataDate: "12.09", mapCaption: 'Преображенская, 32', dataButtonShablon: "Доставить сюда к ", dataCoords: [49.675282, 58.602851] },
+    { dataPrice: "200₽", dataResultAddress: "Киров, Чапаева, 17" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"],dataDate: "02.09", mapCaption: 'Преображенская, 35', dataButtonShablon: "Доставить сюда к ", dataCoords: [49.680326, 58.604209] },
+    { dataPrice: "300₽", dataResultAddress: "Киров, Чапаева, 17" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"],dataDate: "04.09", mapCaption: 'Преображенская, 34', dataButtonShablon: "Доставить сюда к ", dataCoords: [49.660326, 58.604209] },
+    { dataPrice: "400₽", dataResultAddress: "Киров, Чапаева, 17" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"],dataDate: "06.09", mapCaption: 'Преображенская, 33', dataButtonShablon: "Доставить сюда к ", dataCoords: [49.665326, 58.604209] },
+    { dataPrice: "500₽", dataResultAddress: "Киров, Чапаева, 17" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"],dataDate: "08.09", mapCaption: 'Преображенская, 39', dataButtonShablon: "Доставить сюда к ", dataCoords: [49.650326, 58.604209] },
+  ]
+
+  const modalOrderMapList1 = [
+    {dataPrice: "150₽", dataResultAddress: "Киров, Преображенская, 30" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"],dataDate: "11.09", mapCaption: 'Преображенская, 31', dataButtonShablon: "Забрать отсюда ", dataCoords: [49.675282, 58.602851]},
+    {dataPrice: "250₽", dataResultAddress: "Киров, Преображенская, 30" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"],dataDate: "01.09", mapCaption: 'Преображенская, 35', dataButtonShablon: "Забрать отсюда ", dataCoords: [49.680326, 58.604209]},
+    {dataPrice: "350₽", dataResultAddress: "Киров, Преображенская, 30" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"],dataDate: "03.09", mapCaption: 'Преображенская, 33', dataButtonShablon: "Забрать отсюда ", dataCoords: [49.660326, 58.604209]},
+    {dataPrice: "460₽", dataResultAddress: "Киров, Преображенская, 30" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"],dataDate: "05.09", mapCaption: 'Преображенская, 37', dataButtonShablon: "Забрать отсюда ", dataCoords: [49.665326, 58.604209]},
+    {dataPrice: "570₽", dataResultAddress: "Киров, Преображенская, 30" , dataResult: ["Срок хранения 7 дней", "+7 999 888 77 66", "по будням с 11 до 17, сб, вс — выходной"],dataDate: "09.09", mapCaption: 'Преображенская, 38', dataButtonShablon: "Забрать отсюда ", dataCoords: [49.650326, 58.604209]},
+  ]
+
+mixin modal-order-map(mod)
+  .modal-box(data-role="modal-box" data-element=`modal-box_map-${mod}` id=`modal-${mod}`)
+    .modal-box__inner.modal-box__inner_order-map
+      .modal-box__layer(data-role="modal-box__layer")
+      .modal-order-map.modal-box__form
+        .modal-order-map__cont
+          .modal-box__close(data-role="modal-box__close")
+          if mod === "pickup"
+            h4.modal-order-map__headline Выберите точку самовывоза
+          else
+            h4.modal-order-map__headline Получить из магазина
+          .modal-order-map__area
+            ul.modal-order-map__list
+              if mod === "pickup"
+                each item in modalOrderMapList
+                  li.modal-order-map__item(data-result=item.dataResult data-result-address=item.dataResultAddress data-element="modal-order-map__item" data-map-caption=item.mapCaption data-price=item.dataPrice data-date=item.dataDate, data-button-shablon=item.dataButtonShablon data-coords=item.dataCoords)
+                    a.modal-order-map__address.text(data-element="modal-order-map__address" href=`#modal-order-map__map_${mod}`) г. Киров, ул. Ленина, 1
+                    .modal-order-map__time Ежедневно 9:00 — 21:00
+                    .modal-order-map__contacts
+                      .modal-order-map__phone +7 912 000 00 00
+                      .modal-order-map__mail mail@mail.ru
+                    .modal-order-map__info
+                      .modal-order-map__gallery
+                        each picture in [1,2,3]
+                          picture.modal-order-map__picture
+                            source(srcset=placeholder(105, 80, 2))
+                            img.modal-order-map__image(src=placeholder(105, 80) alt='' loading='lazy')
+                      .modal-order-map__info-text
+                        b Как добраться:
+                        |
+                        | автобусы — 10, 23, 46, 67, 90, ул. Ленина находится в 10 м от остановки, зайти в главный вход
+                      .modal-order-map__info-text
+                        b Ограничения:
+                        |
+                        | вес заказа до 100 кг
+                      .modal-order-map__info-text
+                        b Возможность возврата:
+                        |
+                        | есть
+                    .modal-order-map__show-info.text-small(data-element="modal-order-map__show-info") Показать фото и описание пункта
+                    button.modal-order-map__button.text-small.button-orange(data-element="modal-order-map__button")
+              else
+                each item in modalOrderMapList1
+                  li.modal-order-map__item(data-result=item.dataResult data-result-address=item.dataResultAddress data-element="modal-order-map__item" data-map-caption=item.mapCaption data-price=item.dataPrice data-date=item.dataDate, data-button-shablon=item.dataButtonShablon data-coords=item.dataCoords)
+                    a.modal-order-map__address.text(data-element="modal-order-map__address" href=`#modal-order-map__map_${mod}`) г. Киров, ул. Ленина, 1
+                    .modal-order-map__time Ежедневно 9:00 — 21:00
+                    .modal-order-map__contacts
+                      a.modal-order-map__phone(href='tel:+79120000000') +7 912 000 00 00
+                      a.modal-order-map__mail(href='mailto:mail@mail.ru') mail@mail.ru
+                    .modal-order-map__info
+                      .modal-order-map__gallery
+                        each picture in [1,2,3]
+                          picture.modal-order-map__picture
+                            img.modal-order-map__image(src=placeholder(105, 80) alt='' loading='lazy')
+                      .modal-order-map__info-text
+                        b Как добраться:
+                        |
+                        | автобусы — 10, 23, 46, 67, 90, ул. Ленина находится в 10 м от остановки, зайти в главный вход
+                      .modal-order-map__info-text
+                        b Ограничения:
+                        |
+                        | вес заказа до 100 кг
+                      .modal-order-map__info-text
+                        b Возможность возврата:
+                        |
+                        | есть
+                    .modal-order-map__show-info.text-small(data-element="modal-order-map__show-info") Показать фото и описание пункта
+                    button.modal-order-map__button.text-small.button-orange(data-element="modal-order-map__button")
+            .modal-order-map__map(id=`modal-order-map__map_${mod}` data-coords-center=[49.675282, 58.602851])

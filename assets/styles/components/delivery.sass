@@ -1,0 +1,62 @@
+.delivery-section
+  display: none
+
+.delivery-section_show
+  display: block
+
+.delivery
+  border-radius: 0
+  padding-top: 65px
+  padding-bottom: 40px
+  @include media(1240)
+    padding-bottom: 0
+    padding-top: 0
+
+.delivery__cont
+
+.delivery__caption
+  margin-bottom: 40px
+  @include media(1240)
+    display: none
+
+.delivery__nav
+  display: flex
+  margin: 0 -12px
+  @include media(1240)
+    padding: 32px 0 24px
+    margin: 0 -20px
+    overflow: auto
+    -webkit-overflow-scrolling: auto
+    &::before, &::after
+      content: ""
+      flex-shrink: 0
+      width: 16px
+
+.delivery__nav-item
+  flex-shrink: 0
+  cursor: pointer
+  margin: 0 12px
+  padding: 16px 24px
+  font-size: 16px
+  line-height: 24px
+  font-weight: 500
+  background: #FFFFFF
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+  border-radius: 20px
+  transition-property: color, box-shadow
+  transition-duration: .2s
+  @include media(1240)
+    border-radius: 12px
+    margin: 0 4px
+    padding: 8px 12px
+    font-size: 13px
+    line-height: 16px
+  &:hover
+    @include hover
+      color: rgba($fc_black, .6)
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.07)
+
+.delivery__nav-item_active
+  cursor: default
+  color: rgba($fc_black, .6)
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.07)

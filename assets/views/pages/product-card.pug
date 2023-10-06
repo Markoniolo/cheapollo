@@ -1,0 +1,54 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Карточка товара')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile
+  include ../components/product-card/product
+  include ../components/modals/modal-form
+  include ../components/modals/modal-basket
+  +modal-form(
+    "modal-your-price",
+    "Предложите <br>свою цену",
+    ["Укажите ту, что считаете приемлемой. Продавец свяжется с вами в ближайшее время."],
+    true,
+    false,
+    true,
+    "Предложить цену"
+  )
+  +modal-form(
+    "modal-lowering",
+    "Узнайте <br>о снижении цены",
+    ["Сообщим, когда цена снизится."],
+    false,
+    true,
+    true,
+    "Отправить заявку"
+  )
+  +modal-form(
+    "modal-video-consultation",
+    "Заинтересовал<br> товар?",
+    ["Продавец покажет его онлайн и ответит на ваши вопросы в чате. Вам камеру включать не понадобится.", "Заполните заявку, чтобы договориться об онлайн-встрече."],
+    false,
+    true,
+    true,
+    "Хочу видеоконсультацию!"
+  )
+  +modal-form(
+    "modal-admission",
+    "Сообщим <br>о поступлении",
+    ["Как только товар поступит в продажу, Вам придёт уведомление"],
+    false,
+    true,
+    true,
+    "Сообщить о поступлении"
+  )
+  include ../components/product-card/about
+  include ../components/product-card/questions
+  include ../components/product-card/reviews
+  include ../components/tile
+  +tile("Рекомендуем", "", "Смотреть всё", 8)
+  +tile("Вот это <span class='tile__title-span'>находки!</span>", "Выбрали для вас лучшие товары на этой неделе", "Смотреть всё")
+  include ../components/why-we

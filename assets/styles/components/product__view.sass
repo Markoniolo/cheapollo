@@ -1,0 +1,97 @@
+.product__view
+  margin-bottom: 60px
+
+.product__view-subtitle
+  margin-bottom: 16px
+
+.product__view-span
+  margin-right: 4px
+  font-weight: 500
+
+.product__view-list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -8px 32px
+  @include media(1240)
+    flex-wrap: nowrap
+    margin: 0 -16px 24px
+    overflow: auto
+    &::before, &::after
+      content: ""
+      width: 12px
+      flex-shrink: 0
+
+.product__view-link
+  display: block
+  margin: 0 8px 8px
+  border: 1px solid transparent
+  width: 90px
+  border-radius: 20px
+  overflow: hidden
+  flex-shrink: 0
+  height: 90px
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+  transition-property: border-color, box-shadow, border-radius
+  transition-duration: .2s
+  @include media(1240)
+    margin: 0 4px 16px
+  &:hover
+    @include hover
+      border: 1px solid $orange
+      box-shadow: none
+
+.product__view-link_active
+  border: 1px solid $orange
+  box-shadow: none
+
+.product__view-picture
+  width: 88px
+
+.product__view-image
+  height: 88px
+
+.product__select
+
+.product__select-subtitle
+  display: block
+  margin-bottom: 12px
+  font-weight: 500
+
+.product__select-list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -8px
+  @include media(1240)
+    flex-wrap: nowrap
+    margin: 0 -16px
+    overflow: auto
+    padding: 10px 0 15px
+    &::before, &::after
+      content: ""
+      flex-shrink: 0
+      width: 12px
+
+.product__select-link
+  display: block
+  flex-shrink: 0
+  font-weight: 500
+  border-radius: 16px
+  border: 1px solid transparent
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+  margin: 0 8px 16px
+  padding: 12px 20px
+  transition-property: border-color, box-shadow
+  transition-duration: .2s
+  @include media(1240)
+    margin: 0 4px
+
+a.product__select-link
+  &:hover
+    @include hover
+      border: 1px solid $orange
+
+.product__select-link_active
+  box-shadow: none
+  border: 1px solid $orange
+
+.product__select-item

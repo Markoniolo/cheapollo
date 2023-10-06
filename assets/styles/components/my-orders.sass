@@ -1,0 +1,218 @@
+.my-orders
+  padding-top: 65px
+  border-radius: 0
+  @include media(1240)
+    display: none
+
+.my-orders__cont
+
+.my-orders__caption
+  margin-bottom: 40px
+
+.my-orders__area
+  border-radius: 0
+  @include media(1240)
+    padding-top: 32px
+    border-radius: 24px
+    margin-bottom: 5px
+    padding-bottom: 32px
+  &:last-of-type
+    padding-bottom: 80px
+
+.my-orders__box
+  max-width: 738px
+  width: 100%
+
+.my-orders__top
+  display: flex
+  align-items: center
+  margin-bottom: 8px
+  @include media(1240)
+    margin-bottom: 20px
+    flex-wrap: wrap
+
+.my-orders__number
+  display: inline-block
+  font-size: 20px
+  line-height: 24px
+  font-weight: bold
+  @include media(1240)
+    margin-bottom: 4px
+
+.my-orders__data
+  display: inline-block
+  margin-left: auto
+  margin-right: 12px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    margin-bottom: 4px
+
+.my-orders__status
+  display: inline-block
+  border-radius: 8px
+  padding: 4px 6px
+  @include media(1240)
+    margin-bottom: 4px
+
+.my-orders__status_yellow
+  background-color: #FFC700
+
+.my-orders__status_black
+  background-color: $black
+  color: $fc_white
+
+.my-orders__status_green
+  background-color: #009D65
+  color: $fc_white
+
+.my-orders__status_orange
+  background-color: #FF9900
+
+.my-orders__status_purple
+  background-color: #C1A9FB
+
+.my-orders__info
+  font-weight: 500
+  & + .my-orders__list
+    margin-top: 24px
+    @include media(1240)
+      margin-top: 20px
+
+.my-orders__list
+
+.my-orders__info-single
+  margin-top: 8px
+  margin-bottom: 24px
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    margin-top: 6px
+    margin-bottom: 20px
+
+.my-orders__item
+  display: flex
+  align-items: flex-start
+  margin-bottom: 32px
+  @include media(1240)
+    margin-bottom: 16px
+  &:last-of-type
+    margin-bottom: 0
+    @include media(1240)
+      margin-bottom: 0
+
+.my-orders__picture
+  width: 72px
+  flex-shrink: 0
+  margin-right: 12px
+
+.my-orders__image
+  height: 72px
+
+.my-orders__item-box
+  flex-grow: 1
+  display: flex
+  align-items: flex-start
+  @include media(700)
+    flex-wrap: wrap
+    position: relative
+
+.my-orders__info-box
+  margin-right: 20px
+
+.my-orders__name
+  display: inline-block
+  margin-bottom: 8px
+  text-decoration: none
+  font-size: 16px
+  line-height: 20px
+  transition: color .2s
+  @include media(1240)
+    margin-bottom: 4px
+    font-size: 13px
+    line-height: 16px
+  &:hover
+    @include hover
+      color: $fc_orange
+
+.my-orders__seller
+  margin-bottom: 4px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+
+.my-orders__count
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+
+.my-orders__price-box
+  margin-top: 20px
+  margin-left: auto
+  margin-right: 40px
+  flex-shrink: 0
+  display: flex
+  align-items: flex-end
+  @include media(700)
+    order: -1
+    margin-top: 0
+    margin-left: 0
+    margin-bottom: 6px
+
+.my-orders__price
+  margin-right: 4px
+  font-size: 24px
+  line-height: 32px
+
+.my-orders__price-note
+  font-weight: 500
+  line-height: 26px
+
+.my-orders__favorite
+  position: relative
+  margin-top: 20px
+  flex-shrink: 0
+  border-radius: 12px
+  width: 32px
+  height: 32px
+  cursor: pointer
+  @include media(700)
+    margin-top: 0
+    position: absolute
+    top: 0
+    right: 0
+  &::before
+    content: ""
+    position: absolute
+    top: calc(50% - 8px)
+    left: calc(50% - 8px)
+    width: 16px
+    height: 16px
+    +bgIcon("ic_heart_black.svg", 16px, 16px)
+    opacity: .3
+
+.my-orders__favorite_active
+  &::before
+    +bgIcon("ic_heart_orange.svg", 16px, 16px)
+    opacity: 1
+
+.my-orders__btns
+  display: flex
+  margin: 24px -10px 60px
+  @include media(1240)
+    margin: 24px -20px -10px
+    padding-bottom: 10px
+    overflow-x: scroll
+    -webkit-overflow-scrolling: touch
+    &::before, &::after
+      content: ""
+      width: 14px
+      flex-shrink: 0
+
+.my-orders__btn
+  flex-shrink: 0
+  display: block
+  margin: 0 10px
+  padding: 8px 12px
+  @include media(1240)
+    margin: 0 6px

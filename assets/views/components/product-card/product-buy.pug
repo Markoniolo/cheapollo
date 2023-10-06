@@ -1,0 +1,38 @@
+mixin product-buy(mod)
+  .product__buy(class = mod ? "product__buy_empty": false)
+    if mod === "not-sale"
+      h3.product__buy-headline Пока не продаём
+      span.product__buy-last-price.text-small Последняя цена — 5 699 ₽
+      .product__buy-buttons.product__buy-buttons_empty
+        a.product__buy-button.product__buy-button_similar.button-orange.text(href="#") Смотреть похожие
+        button.product__buy-button.product__buy-button_like.button-white(type="button" data-id="1" data-element="product__buy-button_like")
+      button.product__buy-button.product__buy-button_admission.button-white(type="button" data-src='#modal-admission' data-modal-box="true") Сообщить о поступлении
+    else
+      .product__buy-box
+        .product__buy-price
+          span.product__buy-price-old.text-big 2 500 ₽
+          .product__buy-price-new
+            span.product__buy-price-new-value 1 200
+            span.product__buy-price-new-after ₽/шт.
+        picture.product__buy-picture
+          source(srcset=placeholder(60, 30, 2) type="image/webp" media="(max-width: 1240px)")
+          source(srcset=placeholder(100, 50) type="image/webp")
+          source(srcset=placeholder(60, 30, 2) media="(max-width: 1240px)")
+          img.product__buy-image(src=placeholder(100, 50) alt='' loading="lazy")
+      .product__buy-info-box
+        .product__buy-info
+          span.product__buy-info-span.text-small.fc_green 16 в наличии — доставка с 17 сентября
+          span.product__buy-info-span.text-small можно больше 16 - под заказ, от * дней
+        .product__buy-seller.text-small.link_grey Уютмаркет
+          .product__buy-seller-list
+            each item in ["Продавец — УютМаркет", "ИП Новиков Сергей Владимирович", "ИНН 321519000002322"]
+              .product__buy-seller-item= item
+            a.product__buy-seller-all.button-white(href="#") Все товары продавца
+      .product__buy-buttons
+        a.product__buy-button.product__buy-button_basket.button-orange.text(href="#" data-src="#modal-basket" data-id="1" data-modal-box="true" data-element="product__button-basket") Добавить в корзину
+        button.product__buy-button.product__buy-button_like.button-white(type="button" data-id="1" data-element="product__buy-button_like")
+      .product__buy-links
+        h2.product__buy-link-title
+          button.product__buy-link.product__buy-link_lowering-price.button.text-small.link_grey(type="button" data-src="#modal-lowering" data-modal-box="true") Сообщить о снижении цены
+        h2.product__buy-link-title
+          button.product__buy-link.product__buy-link_your-price.button.text-small.link_grey(type="button" data-src='#modal-your-price' data-modal-box="true") Предложить свою цену

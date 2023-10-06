@@ -1,0 +1,31 @@
+article.faq.desktop-white-border.mobile-white-border(data-element="faq")
+  .faq__cont.cont
+    h2.faq__title.title Частые вопросы
+    .faq__cage
+      .faq__main
+        ul.faq__list
+          each item in [1,2,3,4]
+            li.faq__item
+              p.faq__subtitle.text-big(data-element="faq__subtitle") Как купить тут что-нибудь?
+              .faq__inner
+                p.faq__text.text Без сомнения, всякое наше познание начинается с опыта; в самом деле, чем же пробуждалась бы к деятельности познавательная способность, если не предметами, которые действуют на наши чувства и отчасти сами производят представления, отчасти побуждают наш рассудок сравнивать их, связывать или разделять.
+                p.faq__text.text Без сомнения, всякое наше познание начинается с опыта; в самом деле, чем же пробуждалась бы к деятельности познавательная способность, если не предметами, которые действуют на наши чувства и отчасти сами производят представления, отчасти побуждают наш рассудок сравнивать их, связывать или разделять.
+      .faq__sidebar
+        .faq__sidebar-box
+          h3.faq__headline.headline Задайте вопрос
+          p.faq__sidebar-text.text Ответим сегодня до 19:00 или завтра в течение дня
+          form.faq__form(data-role="autocomplete-spam-form" action="url" method="POST")
+            input(type="hidden", name="Report_on_stock[is_spam]" data-role="input-spam")
+            label.faq__label
+              .faq__box.input-animate-box
+                textarea.faq__textarea.textarea.input-animate(placeholder=" " name="message" rows="3")
+                span.input-animate-placeholder Вопрос
+            label.faq__label
+              .faq__box.input-animate-box
+                input.faq__input.input.input-animate(placeholder=" " type="tel" name="phone" required data-role="autocomplete-spam-form-phone")
+                span.input-animate-placeholder Телефон*
+            button.faq__submit.button-orange.text(data-role="autocomplete-spam-form-button") Отправить вопрос
+            .faq__policy
+              | Нажимая на кнопку, вы соглашаетесь с
+              |
+              a.faq__policy-link(href="/policy" target="_blank") Политикой конфиденциальности

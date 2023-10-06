@@ -1,0 +1,10 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Избранное')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Избранное")
+  include ../components/tile
+  +tile("", "", "", 8, "Избранное", "favorites")

@@ -1,0 +1,25 @@
+mixin category-cap__list(mod, categoryName= "Категория 3 уровня")
+  .category-cap__list(
+    class = mod === "modal" ? "category-cap__list_hidden category-cap__list_modal": mod === "search" ? "category-cap__list_modal": "" data-element= mod === "modal" ? "category-cap__list": "")
+    if mod !== "modal"
+      each item in [1,2,3,4,5,6,7,8]
+        a.category-cap__link(href="#")
+          p.category-cap__link-text.text= categoryName
+          picture.category-cap__picture
+            source(srcset=placeholder(107, 80) type="image/webp")
+            img.category-cap__image(src=placeholder(107, 80) alt='' loading='lazy')
+    else
+      each category in catalogModalList
+        if category.categoryId
+          each item, index in category.arrayId
+            .category-cap__link.category-cap__link_hidden(data-element="category-cap__link" data-category-cap-link-all="true" data-category-cap-link-id=item data-inner-category-id-1=category.categoryId)
+              p.category-cap__link-text.text= category.categoryName + ` уровень2 категория ${item}`
+              picture.category-cap__picture
+                source(srcset=placeholder(107, 80) type="image/webp")
+                img.category-cap__image(src=placeholder(107, 80) alt='' loading='lazy')
+            each link in [1,2,3,4,5]
+              a.category-cap__link.category-cap__link_hidden(href='#' data-category-cap-link-all="true" data-inner-category-id-2=item)
+                p.category-cap__link-text.text= category.categoryName + ` уровень3 категория ${link}`
+                picture.category-cap__picture
+                  source(srcset=placeholder(107, 80) type="image/webp")
+                  img.category-cap__image(src=placeholder(107, 80) alt='' loading='lazy')

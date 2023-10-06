@@ -1,0 +1,41 @@
+-
+  const myOrdersArea = [
+    { status: 'yellow', statusText: 'Обрабатывается', buttons: ['Подробнее о заказе', 'Повторить заказ'] },
+    { status: 'black', statusText: 'Отклонён', buttons: ['Подробнее о заказе', 'Повторить заказ'] },
+    { status: 'green', statusText: 'Получен', buttons: ['Подробнее о заказе', 'Повторить заказ', 'Вернуть заказ'] },
+  ]
+
+article.my-orders
+  .my-orders__cont.cont
+    include crumbs
+    +crumbs(["Главная", "Профиль"])
+    h1.my-orders__caption.caption Мои заказы
+
+each box in myOrdersArea
+  article.my-orders__area.mobile-white-border
+    .my-orders__cont.cont
+      .my-orders__box
+        .my-orders__top
+          .my-orders__number №45432
+          .my-orders__data от 12.09.2021, 15:31
+          .my-orders__status.text-small(class=`my-orders__status_${box.status}`)= box.statusText
+        p.my-orders__info.text 15 250 ₽, доставка курьером 15.01.2022
+        .my-orders__list
+          each item in [1,2]
+            if box.status === 'black'
+              p.my-orders__info-single.text №45427-01, можно забирать с 21.01.2021
+            .my-orders__item
+              picture.my-orders__picture
+                img.my-orders__image(src=placeholder(72, 72) alt='' loading='lazy')
+              .my-orders__item-box
+                .my-orders__info-box
+                  a.my-orders__name(href="#") Лента тефлоновая уплотнительная чёрная
+                  .my-orders__seller Продавец: УютМаркет
+                  .my-orders__count 1 шт.
+                .my-orders__price-box
+                  .my-orders__price 379
+                  .my-orders__price-note.text ₽/шт.
+                .my-orders__favorite.button-white(data-element="my-orders__favorite" data-id="1")
+        .my-orders__btns 
+          each button in box.buttons
+            a.my-orders__btn.button-white.text-small(href='#')= button

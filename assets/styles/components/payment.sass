@@ -1,0 +1,41 @@
+.payment
+  border-radius: 0
+  padding-top: 60px
+  padding-bottom: 100px
+  @include media(1240)
+    padding: 32px 0 80px
+
+.payment__cont
+
+.payment__inner
+  max-width: 788px
+
+.payment__title
+  @include media(1240)
+    display: none
+
+.payment__headline
+  margin-top: 40px
+  margin-bottom: 12px
+  @include media(1240)
+    margin-top: 32px
+  &:first-of-type
+    @include media(1240)
+      margin-top: 0
+
+.payment__text
+  margin-bottom: 12px
+
+.payment__gallery
+  display: flex
+  margin: 0 -12px 20px
+  @include media(1240)
+    margin: 0 -6px 20px
+
+.payment__image
+  flex-shrink: 0
+  margin: 0 12px
+  width: 60px
+  height: 60px
+  @include media(1240)
+    margin: 0 6px

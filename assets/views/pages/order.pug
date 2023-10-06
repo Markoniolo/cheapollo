@@ -1,0 +1,9 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Заказ')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Оформление заказа", "6 товаров на сумму 15 250 ₽")
+  include ../components/order/order

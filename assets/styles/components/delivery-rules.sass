@@ -1,0 +1,50 @@
+.delivery-rules
+  padding-top: 40px
+  padding-bottom: 80px
+  border-radius: 0
+
+.delivery-rules__cont
+
+.delivery-rules__title
+  margin-bottom: 32px
+  font-size: 32px
+  line-height: 34px
+  @include media(1240)
+    margin-bottom: 24px
+
+.delivery-rules__list
+  margin: 0 -6px
+  display: flex
+  @include media(1240)
+    display: block
+    margin: 0
+
+.delivery-rules__item
+  margin: 0 6px
+  padding: 32px 40px
+  width: 388px
+  flex-shrink: 0
+  background: #F7F7F7
+  border-radius: 40px
+  @include media(1240)
+    border-radius: 24px
+    width: 100%
+    margin: 0 0 24px
+    padding: 24px 16px
+
+.delivery-rules__headline
+  margin-bottom: 16px
+  font-size: 20px
+  line-height: 24px
+
+.delivery-rules__text
+  margin-bottom: 16px
+
+.delivery-rules__link
+  color: $fc_orange
+  text-decoration: none
+  transition-property: color
+  transition-duration: .2s
+  &:hover
+    @include hover
+      color: #FF4427

@@ -1,0 +1,59 @@
+-
+  const whyWeList = [
+    [
+      {
+        size: "half",
+        mod: "choice",
+        headline: "Помогаем с выбором",
+        text: "Консультации специалистов и полная информация по товарам",
+        button: "Связаться"
+      },
+      {
+        size: "half",
+        mod: "guarantee",
+        headline: "Даём гарантию",
+        text: "Только проверенные продавцы",
+        button: "Подробнее"
+      },
+      {
+        size: "full",
+        mod: "discount",
+        headline: "Каждый день как праздник!",
+        text: "Выбираем лучшие товары по акции для вас, а ещё дарим скидки и промокоды",
+        button: "Акции"
+      },
+    ],
+    [
+      {
+        size: "full",
+        mod: "delivery",
+        headline: "Бесплатная доставка",
+        text: "0₽ за доставку к пункту самовывоза!",
+        button: "О доставке"
+      },
+      {
+        size: "half",
+        mod: "catalog",
+        headline: "54 215",
+        text: "товаров в каталоге",
+        text1: "Скорее подберите себе что-нибудь!"
+      },
+      {size: "half", mod: "like", headline: "Нас любят", text: "Помогаем сделать качественный ремонт, потратив на это разумные деньги"},
+    ]
+  ]
+
+article.why-we.desktop-white-border.mobile-white-border
+  .why-we__cont.cont
+    h2.why-we__title.title Почему Cheapollo?
+    each list in whyWeList
+      .why-we__list
+        each item in list
+          a.why-we__item(href="#" class = `why-we__item_${item.size} why-we__item_${item.mod}`)
+            h3.why-we__headline.headline= item.headline
+            p.why-we__text= item.text
+            if item.text1
+              p.why-we__text= item.text1
+            if item.button
+              .why-we__button.button-white= item.button
+
+

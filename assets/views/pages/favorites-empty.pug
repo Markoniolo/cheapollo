@@ -1,0 +1,10 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Избранное пустое')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Избранное")
+  include ../components/info-empty-page
+  +info-empty-page("Тут пока пусто", "Жмите на <span class='info-empty-page__heart-black'></span> и добавляйте в этот раздел всё, что понравится.", "В каталог", "favorites")

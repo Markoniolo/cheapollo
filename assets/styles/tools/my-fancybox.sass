@@ -1,0 +1,309 @@
+.my-fancybox
+  display: none
+  opacity: 0
+  transition-property: opacity
+  transition-duration: .3s
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 10000000
+  overflow: hidden
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+.my-fancybox_open
+  display: block
+
+.my-fancybox_open-opacity
+  opacity: 1
+
+.my-fancybox__cont
+  position: relative
+  display: flex
+  align-items: center
+  flex-direction: column
+  justify-content: space-around
+  height: 100%
+
+.my-fancybox__layer
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  background-color: rgba(#1e1e1e, .87)
+  cursor: pointer
+
+.my-fancybox__text
+  position: absolute
+  z-index: 1
+  padding: 25px 44px
+  bottom: 0
+  left: 0
+  font-size: 14px
+  line-height: 1.5
+  color: $fc_white
+  @include media(950)
+    z-index: -1
+    opacity: 0
+
+.my-fancybox__text_show
+  @include media(950)
+    z-index: 1
+    opacity: 1
+
+.my-fancybox__wrapper
+  position: relative
+  width: 100%
+  height: 100%
+  display: flex
+
+.my-fancybox__inner
+  position: relative
+  flex-grow: 1
+  height: 100%
+
+.my-fancybox__btn-menu
+  position: absolute
+  z-index: 10000
+  top: 28px
+  right: 88px
+  width: 50px
+  height: 50px
+  cursor: pointer
+  opacity: .7
+  +bgIcon("ic_my_fancybox_gallery.svg", 30px, 30px)
+  transition-property: opacity
+  transition-duration: .2s
+  @include media(1240)
+    top: 5px
+    right: 58px
+  &:hover
+    @include hover
+      opacity: 1
+
+.my-fancybox__btn-menu_hide
+  display: none
+
+.my-fancybox__btn-close
+  position: absolute
+  z-index: 10000
+  top: 28px
+  right: 26px
+  width: 50px
+  height: 50px
+  +bgIcon('ic_close_my_fancybox_white.svg', 22px, 22px)
+  opacity: .7
+  cursor: pointer
+  transition-property: opacity
+  transition-duration: .2s
+  &:hover
+    @include hover
+      opacity: 1
+  @include media(1240)
+    top: 11px
+    right: 13px
+    width: 40px
+    height: 40px
+
+.my-fancybox__button
+  position: absolute
+  z-index: 1000
+  top: calc(50% - 50px)
+  width: 100px
+  height: 100px
+  cursor: pointer
+  opacity: .7
+  transition-property: opacity
+  transition-duration: .2s
+  @include media(1240)
+    width: 50px
+    height: 50px
+    top: calc(50% - 25px)
+  @include media(950)
+    opacity: 0
+    z-index: -1
+  &:hover
+    @include hover
+      opacity: 1
+
+.my-fancybox__button_show
+  @include media(950)
+    z-index: 1000
+    opacity: 1
+
+.my-fancybox__button_hide
+  display: none
+
+.my-fancybox__button_next
+  right: 0
+  +bgIcon('ic_my-fancybox_next_white.svg', 40px, 40px)
+  background-position-y: center
+
+.my-fancybox__button_prev
+  left: 0
+  +bgIcon('ic_my-fancybox_prev_white.svg', 40px, 40px)
+  background-position-y: center
+
+.my-fancybox__area
+  height: 100%
+  display: flex
+
+.my-fancybox__box
+  display: none
+  width: 100%
+  height: 100%
+  margin: 0 auto
+  flex-shrink: 0
+  align-items: center
+
+.my-fancybox__box_active
+  display: flex
+
+.my-fancybox__picture-big
+  margin: 100px auto
+  position: relative
+  z-index: 1
+  display: flex
+  align-items: center
+  justify-content: center
+  @include media(1240)
+    margin: 70px auto
+
+.my-fancybox__picture-big_loading
+  position: relative
+  &::before
+    content: ""
+    position: absolute
+    z-index: 1
+    top: calc(50% - 25px)
+    left: calc(50% - 25px)
+    border-radius: 50%
+    width: 50px
+    height: 50px
+    border: 5px solid $grey
+    border-top: 5px solid $black
+    animation: 1s linear infinite my-fancybox__picture-big_loading-animation
+
+@keyframes my-fancybox__picture-big_loading-animation
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(360deg)
+
+.my-fancybox__image-big
+  width: auto
+  max-width: 100%
+  max-height: calc(100vh - 150px)
+  transition-property: transform
+  transition-duration: .5s
+  @include media(1240)
+    max-height: calc(100vh - 100px)
+
+.my-fancybox__iframe-box
+  max-width: 1240px
+  position: relative
+  //&::before
+  //  content: ""
+  //  position: absolute
+  //  z-index: 10
+  //  top: calc(50% - 110px)
+  //  left: calc(50% - 110px)
+  //  width: 220px
+  //  height: 220px
+  //  +bgIcon('ic_play_fancybox.svg')
+  //  cursor: pointer
+
+//.my-fancybox__iframe-box_play
+//  &::before
+//    content: none
+
+.my-fancybox__iframe-box, .my-fancybox__iframe
+  width: 100%
+  height: 100%
+
+.my-fancybox__iframe
+  border: none
+
+.my-fancybox__list-box
+  display: none
+  width: 205px
+  align-items: flex-start
+  flex-shrink: 0
+  position: absolute
+  top: 0
+  right: 0
+  padding: 35px 0
+  background-color: $white
+  @include media(1240)
+    padding: 16px 0
+    width: 107px
+
+.my-fancybox__list-box_show
+  display: flex
+  position: static
+
+.my-fancybox__list-container
+  margin-right: 5px
+  height: 100%
+  overflow: auto
+  @include media(1240)
+    margin-right: 7px
+  &::-webkit-scrollbar
+    width: 3px
+  &::-webkit-scrollbar-track
+    background: #D6DBDE
+  &::-webkit-scrollbar-thumb
+    background-color: $black
+  scrollbar-width: thin
+  scrollbar-color: $black #D6DBDE
+
+.my-fancybox__list
+  padding-right: 0
+  display: flex
+  flex-wrap: wrap
+
+.my-fancybox__item
+  flex-shrink: 0
+  margin: 0 5px 10px
+  padding: 2px
+  border-radius: 6px
+  border: 2px solid transparent
+  width: 84px
+  height: 84px
+  cursor: pointer
+  transition-property: border-color
+  transition-duration: .2s
+  &:hover
+    @include hover
+      border: 2px solid $orange
+  @include media(1240)
+    margin: 0 6px
+
+.my-fancybox__item_active
+  border: 2px solid $orange
+
+.my-fancybox__picture
+  width: 76px
+
+.my-fancybox__thumb-video
+  position: relative
+  //&::before
+  //  content: ""
+  //  position: absolute
+  //  z-index: 1
+  //  top: calc(50% - 15px)
+  //  left: calc(50% - 15px)
+  //  width: 30px
+  //  height: 30px
+  //  +bgIcon('ic_play_fancybox.svg')
+
+.my-fancybox__image
+  border-radius: 4px
+  height: 76px

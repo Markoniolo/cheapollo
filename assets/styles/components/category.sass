@@ -1,0 +1,280 @@
+.category
+  border-radius: 0
+  padding-bottom: 80px
+  @include media(1240)
+    padding-bottom: 40px
+
+.category__cont
+
+.category__area
+  display: flex
+  justify-content: space-between
+
+.category__tile
+
+.category__filters
+  width: 288px
+  flex-shrink: 0
+  @include media(1240)
+    width: 320px
+    position: fixed
+    z-index: 100
+    padding: 20px 0
+    background-color: $white
+    top: 0
+    left: 0
+    bottom: 0
+    transform: translateX(-320px)
+    transition-property: transform
+    transition-duration: .2s
+
+.category__filters-inner
+  @include media(1240)
+    height: calc(100vh - 150px)
+    overflow-y: auto
+    padding: 0 20px
+    -webkit-overflow-scrolling: touch
+
+.category__filters_active
+  @include media(1240)
+    transform: translateX(0)
+
+.category__filters-close
+  @include media(1240)
+    position: absolute
+    z-index: 1
+    top: 4px
+    right: 4px
+    width: 48px
+    height: 48px
+    +bgIcon("ic_close_black.svg", 20px, 20px)
+
+.category__filters-layer
+  display: none
+  @include media(1240)
+    position: fixed
+    z-index: 10
+    top: -50px
+    bottom: -50px
+    left: 0
+    display: block
+    opacity: 0
+    background-color: rgba(26,49,77,.5)
+    cursor: pointer
+    transition-property: opacity
+
+.category__filters-layer_active
+  @include media(1240)
+    right: 0
+    opacity: 1
+    transition-duration: .2s
+
+.category__sort-box
+  position: relative
+  margin-bottom: 18px
+  border-radius: 20px
+  padding: 10px 16px
+  cursor: pointer
+  border: 1px solid $grey
+  background-color: $grey
+  transition-property: border-color
+  transition-duration: .2s
+  &:hover
+    border: 1px solid $orange
+    .category__sort-list-box
+      display: block
+  @include media(1240)
+    display: none
+  &::after
+    content: ""
+    position: absolute
+    top: calc(50% - 12px)
+    right: 16px
+    opacity: .4
+    width: 24px
+    height: 24px
+    +bgIcon("ic_arrow_bottom_black.svg", 24px, 24px)
+
+.category__sort-list-box
+  display: none
+  position: absolute
+  z-index: 10
+  padding-top: 15px
+  top: 55px
+  right: 0
+  left: 0
+  @include media(1240)
+    top: 50px
+    padding-top: 0
+
+.category__sort-list
+  padding: 20px 0
+  border-radius: 16px
+  background-color: $white
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+
+.category__sort-item
+  &:not(:last-of-type)
+    margin-bottom: 20px
+
+.category__sort-link
+  padding: 10px 20px
+
+a.category__sort-link
+  text-decoration: none
+  &:hover
+    @include hover
+      color: $fc_orange
+
+span.category__sort-link
+  color: $fc_orange
+
+.category__sort-note
+  display: block
+  margin-bottom: 4px
+  font-size: 11px
+  line-height: 12px
+  font-weight: 500
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    display: none
+
+.category__double-box
+  margin-bottom: 32px
+
+.category__filters-name
+  display: block
+  margin-bottom: 8px
+  font-weight: 500
+
+.category__double-price
+  display: flex
+  margin: 0 -4px
+  @include media(1240)
+    margin-bottom: 15px
+
+.category__double-field
+  position: relative
+  display: block
+  width: calc(50% - 4px)
+  margin: 0 4px
+  &::before
+    position: absolute
+    top: calc(50% - 9px)
+    left: 16px
+    font-size: 16px
+    line-height: 19px
+    color: rgba($fc_black, .5)
+
+.category__double-field_start
+  &::before
+    content: 'от'
+
+.category__double-field_end
+  &::before
+    content: 'до'
+
+.category__double-input
+  width: 100%
+  padding: 15px 16px 15px 40px
+
+.category__double-input_error
+  border-color: $red
+  &:focus
+    border-color: $red
+  &:hover
+    @include hover
+      border-color: $red
+
+.category__checkbox-box
+  margin-bottom: 32px
+
+.category__filters-name
+
+.category__checkbox-list
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+
+.category__checkbox-label
+  position: relative
+  cursor: pointer
+  margin-bottom: 8px
+  &:hover
+    @include hover
+      .category__checkbox-name
+        &::after
+          border: 2px solid $orange
+
+.category__checkbox-label_hidden
+  display: none
+
+.category__checkbox-input
+  position: absolute
+  z-index: -1
+  opacity: 0
+  &:checked + .category__checkbox-name::after
+    background-color: $orange
+    border: 2px solid $orange
+  &:checked + .category__checkbox-name::before
+    opacity: 1
+
+.category__checkbox-name
+  padding-left: 32px
+  &::after, &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    display: block
+  &::before
+    width: 24px
+    height: 24px
+    opacity: 0
+    z-index: 1
+    transition-property: opacity
+    transition-duration: .2s
+    +bgIcon("ic_filter_check_white.svg", 24px, 24px)
+  &::after
+    width: 20px
+    height: 20px
+    border: 2px solid rgba(0, 0, 0, 0.1)
+    border-radius: 8px
+    transition-property: border-color, background-color
+    transition-duration: .2s
+
+.category__checkbox-more
+  padding: 8px 12px
+  margin-left: -8px
+  color: $fc_orange
+  background-color: transparent
+  border: none
+  &::after
+    content: ""
+    display: inline-block
+    vertical-align: top
+    margin-left: 4px
+    width: 16px
+    height: 16px
+    transition-duration: .2s
+    transition-property: transform
+    +bgIcon('ic_arrow_bottom_orange.svg', 16px, 16px)
+
+.category__checkbox-more_active
+  &::after
+    transform: rotate(180deg)
+
+.category__filters-btn-box
+  display: flex
+  margin: 0 -5px
+  @include media(1240)
+    padding: 10px 20px 0
+
+.category__filters-btn
+  padding: 12px
+  margin: 0 5px
+  width: calc(50% - 5px)
+
+.category__filters-btn_cancel
+  text-decoration: none
+  text-align: center

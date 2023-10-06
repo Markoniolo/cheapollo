@@ -1,0 +1,14 @@
+article.payment.mobile-cabinet-white-border
+  .payment__cont.cont
+    .payment__inner
+      h1.payment__title.title Оплата
+      h2.payment__headline Безналичный расчет
+      p.payment__text.text Оплата осуществляется банковской картой, через Интернет.
+      p.payment__text.text Мы принимаем платежи с сайта по следующим банковским картам:
+      .payment__gallery
+        each item in ['visa', 'mastercard', 'jcb', 'mir']
+          img.payment__image(src=staticImg(`ic_${item}.svg`) alt='' loading='lazy')
+      p.payment__text.text Выбрав онлайн-оплату, после оформлени заказа, вы будете автоматически перенаправлены на страницу оплаты банка. Заполните все необходимые поля и нажмите кнопку «Оплатить».
+      p.payment__text.text После оплаты заказа вам на email придет электронный чек.
+      h2.payment__headline Для юридических лиц
+      p.payment__text.text Заказ можно оплатить банковской картой онлайн или переводом на расчетный счёт. Документы для бухгалтерии (счёт-договор и УПД) выдаются вместе с заказом.

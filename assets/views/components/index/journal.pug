@@ -1,0 +1,58 @@
+mixin bigItem(item)
+  picture.journal__picture-big
+    source(srcset=placeholder(328, 164, 2) media="(max-width: 520px)")
+    source(srcset=placeholder(468, 234) media="(max-width: 700px)")
+    source(srcset=placeholder(648, 324) media="(max-width: 950px)")
+    source(srcset=placeholder(421, 211) media="(max-width: 1240px)")
+    img.journal__image-big(src=placeholder(588, 294) loading="lazy")
+  .journal__category.text-small(class=`journal__category_${item.categoryColor}`)= item.category
+  h3.journal__headline.headline= item.text
+  .journal__info-line-big
+    span.journal__info-value.journal__info-value_views.text-small 1490
+    span.journal__info-value.journal__info-value_time.text-small 16.09.21
+
+mixin smallItem(item)
+  picture.journal__picture-small
+    source(srcset=placeholder(159, 80, 2) media="(max-width: 520px)")
+    source(srcset=placeholder(229, 115) media="(max-width: 700px)")
+    source(srcset=placeholder(319, 160) media="(max-width: 950px)")
+    source(srcset=placeholder(205, 103) media="(max-width: 1240px)")
+    img.journal__image-small(src=placeholder(288, 144) loading="lazy")
+  .journal__box
+    p.journal__text= item.text
+    .journal__info-line-small
+      .journal__category.journal__category_small.text-small(class=`journal__category_${item.categoryColor}`)= item.category
+      span.journal__info-value.journal__info-value_views.journal__info-value_views-grey.text-small 1490
+      span.journal__info-value.journal__info-value_time.journal__info-value_time-grey.text-small 16.09.21
+
+mixin journalTile(list, mod)
+  .journal__list(class = mod ? `journal__list_${mod}`: false)
+    each item in list
+      a.journal__item(href="#" class=`journal__item_${item.mod}`)
+        .journal__inner(class= item.mod === "small" ? `journal__inner_small`: "")
+          if item.mod === "big"
+            +bigItem(item)
+          else if item.mod === "small"
+            +smallItem(item)
+
+mixin journal(list, mod)
+  article.journal.desktop-white-border.mobile-white-border
+    .journal__cont.cont
+      h2.journal__title.title Идеальная квартира
+      p.journal__text-big.text-big Журнал об умном строительстве и выгодном ремонте. <br> Пишем и рекомендуем только полезное.
+      +journalTile(list)
+      .journal__btn-list
+        each item in [{text: "Как выбрать", color: "purple"}, {text: "Подборки", color: "orange"}, {text: "Обзоры", color: "yellow"}, {text: "Весь журнал", color: "white"}]
+          a.journal__link.button-arrow(href="#" class=`journal__link_${item.color}`)= item.text
+      .journal__informer
+        .journal__informer-box
+          h3.journal__informer-headline.headline Лучшее — в рассылке. Подпишитесь!
+          p.journal__informer-text.text Присылаем новые статьи журнала “Идеальная квартира”, специальные скидки и Находки недели.
+          p.journal__informer-text.text Только важное, без спама.
+        form.journal__informer-form(data-role="autocomplete-spam-form" action="url" method="POST")
+          input(type="hidden", name="Report_on_stock[is_spam]" data-role="input-spam")
+          label.journal__informer-label
+            .journal__informer-form-box.input-animate-box
+              input.journal__informer-input.input.text.input-animate(type="email" name="email" data-role="autocomplete-spam-form-mail" required placeholder=" ")
+              span.input-animate-placeholder Электронная почта
+          button.journal__informer-submit.button-orange.text(data-role="autocomplete-spam-form-button") Подписаться

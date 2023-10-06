@@ -1,0 +1,9 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Подробнее о заказе')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile('cabinet','Заказ №45432')
+  include ../components/order-about

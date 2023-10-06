@@ -1,0 +1,27 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Доставка')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Доставка")
+  include ../components/delivery/delivery
+  .delivery-section.delivery-section_show(data-element="delivery-section_pickup")
+    include ../components/contacts/contacts-map
+    +contacts-map(false, "delivery")
+    include ../components/delivery/delivery-informer
+    +delivery-informer("Получение заказа в пункте выдачи партнёра Cheapollo","Заберите заказ из ближайшего партнёрского пункта", "Доставляем сюда:",
+      ["Почта России — доставка от 200 ₽","Постаматы PickPoint — доставка от 100 ₽","Пункты выдачи Ozon — доставка от 150 ₽"],
+      "purple")
+    +delivery-informer("Закажи и забери","Ситуации бывают разные, поэтому мы предусмотрели супербыструю возможность получения заказа", "Получи заказ максимально быстро:",
+      ["Выбери товар на сайте ", "Оформи и оплати заказ онлайн", "Забери заказ уже через 15 минут в магазине продавца, адрес будет указан при оформлении заказа"],
+      "green")
+    include ../components/delivery/delivery-rules
+  .delivery-section(data-element="delivery-section_courier")
+    +delivery-informer("Ежедневная доставка","Доставляем товары по городу Кирову, Кировской области и за ее пределами", "Всё просто:",
+      ["Оформи заказ на сайте, выбрав доставку курьером", "Стоимость доставки будет зависеть от суммы заказа и выбора дополнительных опций", "Оплати заказ на сайте и жди курьера"],
+      "light-blue")
+    include ../components/delivery/delivery-type
+  .delivery-section(data-element="delivery-section_another")
+    include ../components/delivery/delivery-another

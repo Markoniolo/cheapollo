@@ -1,0 +1,39 @@
+-
+  const personalList = [
+    [
+      { headline: "Мои заказы", img: "basket", note: "4 заказа", gallery: true },
+      { headline: "Избранное", img: "favorites", note: "4 заказа", gallery: true },
+      { headline: "Сравнения", img: "compare", note: "4 заказа", gallery: true },
+    ],
+    [
+      { headline: "Мои данные и настройки", img: "settings", note: false, gallery: false }
+    ],
+    [
+      { headline: "Бесплатная доставка", img: "basket", note: false, gallery: false },
+      { headline: "Удобная <br> оплата", img: "payment", note: false, gallery: false },
+      { headline: "Гарантия <br> и возврат", img: "guarantee", note: false, gallery: false },
+      { headline: "Вопрос? <br> Ответ!", img: "question", note: false, gallery: false },
+    ]
+  ]
+
+article.personal
+  .personal__cont.cont
+    h1.personal__caption.caption Привет, Мария!
+    each list in personalList
+      .personal__list
+        each item in list
+          a.personal__link(href="#")
+            .personal__area
+              .personal__box
+                h3.personal__headline!= item.headline
+                if item.note
+                  span.personal__note.text= item.note
+              img.personal__icon(src=staticImg(`personal/ic_${item.img}.svg`) alt='' loading='lazy')
+            if item.gallery
+              .personal__gallery
+                each picture in [1,2,3]
+                  picture.personal__picture
+                    source(srcset=placeholder(50, 50, 2) type="image/webp" media="(max-width: 1240px)")
+                    source(srcset=placeholder(80,80) type="image/webp" )
+                    img.personal__image(src=placeholder(80,80) alt='' loading='lazy')
+

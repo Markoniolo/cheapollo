@@ -1,0 +1,11 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Категория 2 уровня')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Категория 2 уровня")
+  include ../components/category/category-cap
+  +category-cap("Категория 2 уровня", "category_2")
+  include ../components/category/category

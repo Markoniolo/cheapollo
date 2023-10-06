@@ -1,0 +1,62 @@
+-
+  const orderAboutList = [
+    { name: 'Адрес', value: 'Киров, Московская, д. 150, кв. 145, подъезд 5, этаж 4' },
+    { name: 'Комментарий', value: 'Домофон иногда не работает, звоните' },
+    { name: 'Получатель', value: 'Мария Константинова, +7 999 888 77 66' },
+    { name: 'Оплата', value: 'Картой онлайн' },
+    { name: 'Вес товара', value: '16,4 кг' },
+    { name: 'Количество', value: '12 шт' },
+  ]
+
+  const orderAboutCostList = [
+    [ {name: 'Кол-во', value: '12 шт'}, {name: 'Вес заказа', value: '16,4 кг'} ],
+    [
+      { name: 'Сумма', value: '20 450 ₽' },
+      { name: 'Скидка', value: '−5 230 ₽' },
+      { name: 'Промокод newbee-10', value: '−1 000 ₽' },
+    ],
+    [ { name: 'Итого', value: '15 250 ₽', mod: 'result' } ]
+  ]
+
+article.order-about.mobile-white-border
+  .order-about__cont.cont
+    include crumbs
+    +crumbs(["Главная", "Профиль", 'Заказы'])
+    h1.order-about__caption.caption Заказ №45432
+    .order-about__date.text От 12.09.2021, 15:31
+    .order-about__btns
+      span.order-about__btn.order-about__btn_yellow.text-small Обрабатывается
+      a.order-about__btn.order-about__btn_white.text-small.button-white(href="#") Отменить заказ
+    h2.order-about__title Доставка курьером
+    ul.order-about__list
+      each item in orderAboutList
+        li.order-about__item
+          span.order-about__name= item.name
+          p.order-about__value= item.value
+
+article.order-about-in.mobile-white-border
+  .order-about-in__cont.cont
+    h2.order-about-in__title В заказе
+    each item in [1,2]
+      .order-about-in__item
+        picture.order-about-in__picture
+          img.order-about-in__image(src=placeholder(72, 72) alt='' loading='lazy')
+        .order-about-in__item-box
+          .order-about-in__info-box
+            a.order-about-in__name(href="#") Лента тефлоновая уплотнительная чёрная
+            .order-about-in__seller Продавец: УютМаркет
+            .order-about-in__count 1 шт.
+          .order-about-in__price-box
+            .order-about-in__price 379
+            .order-about-in__price-note.text ₽/шт.
+          .order-about-in__favorite.button-white(data-element="order-about-in__favorite" data-id="1")
+
+article.order-about-cost.mobile-white-border
+  .order-about-cost__cont.cont
+    h2.order-about-in__title Стоимость
+    each list in orderAboutCostList
+      ul.order-about-cost__list
+        each item in list
+          li.order-about-cost__item
+            .order-about-cost__name.text(class=item.mod ? `order-about-cost__name_${item.mod}` : false)= item.name
+            .order-about-cost__value.text(class=item.mod ? `order-about-cost__value_${item.mod}` : false)= item.value

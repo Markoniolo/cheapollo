@@ -1,0 +1,18 @@
+.link_grey
+  position: relative
+  z-index: 1
+  &::after
+    content: ""
+    position: absolute
+    border-radius: 20px
+    z-index: 1
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    transition-property: background
+    transition-duration: .2s
+  &:hover
+    @include hover
+      &::after
+        background: rgba(0, 0, 0, 0.03)

@@ -1,0 +1,58 @@
+mixin category__sort-box(name, current, list)
+  .category__sort-box
+    span.category__sort-note= name
+    span.category__sort= current
+    .category__sort-list-box
+      ul.category__sort-list
+        each item, index in list
+          li.category__sort-item
+            if index === 0
+              span.category__sort-link= item
+            else
+              a.category__sort-link(href="#")= item
+
+mixin category__double-price
+  .category__double-box
+    span.category__filters-name.text Цена, ₽
+    .category__double-price(data-element="category__double-price")
+      each text, index in [6934, 33266]
+        label.category__double-field(class=`category__double-field_${index ? 'end' : 'start'}`)
+          input.category__double-input.input.text(
+            type="number",
+            placeholder=text,
+            min="6934",
+            max="33266",
+            value= text
+            data-element=`category__double-input_${index ? 'end' : 'start'}`
+          )
+
+mixin category__checkbox-box(name, list)
+  .category__checkbox-box(data-element="category__checkbox-box")
+    span.category__filters-name.text= name
+    .category__checkbox-list(data-element="category__checkbox-list")
+      each item in list
+        label.category__checkbox-label(data-element="category__checkbox-label")
+          input.category__checkbox-input(type="checkbox" name=name)
+          span.category__checkbox-name.text= item
+    button.category__checkbox-more.text-small(type="button" data-element="category__checkbox-more") Ещё 5
+
+article.category
+  .category__cont.cont
+    .category__area
+      .category__tile
+        include ../tile
+        +tileInner("", "", "", 15, '', '', true)
+      .category__filters-layer(data-element="category__filters-layer")
+      form.category__filters(data-element="category__filters" action="url" method="GET")
+        .category__filters-inner
+          .category__filters-close(data-element="category__filters-close")
+          +category__sort-box("Категория", "Категория 3 уровня", ['Категория 3 уровня один', 'Категория 3 уровня два', 'Категория 3 уровня три', 'Категория 3 уровня четыре', 'Категория 3 уровня пять'])
+          +category__sort-box("Сортировка", "Сначала последние", ['Сначала последние', 'Сначала первые', 'Сначала отрицательные', 'Сначала положительные'])
+          +category__double-price
+          +category__checkbox-box("Сорт", ["1/1","1/5","1/3","1/6","1/1","1/5","1/3","1/6","1/1","1/5","1/3","1/6","1/1","1/5","1/3","1/6"])
+          +category__checkbox-box("Место использования", ["Внутренний/Наружный (5)", "Внутренний","Внутренний/Наружный (5)"])
+          +category__checkbox-box("Толщина (мм)", ["11", "15", "7", "9", "13", "9", "13"])
+        .category__filters-btn-box
+          a.category__filters-btn.button-white.text(href='#') Сбросить
+          button.category__filters-btn.category__filters-btn_cancel.button-orange.text Применить
+

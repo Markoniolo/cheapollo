@@ -1,0 +1,10 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Подтвердите почту')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Подтвердите почту")
+  include ../components/info-page/info-page
+  +info-page("icon", "Осталось совсем чуть-чуть", ["Отправили на mail@mail.ru ссылку для подтверждения почты.", "Пожалуйста, пройдите по ней, чтобы воспользоваться кабинетом."])

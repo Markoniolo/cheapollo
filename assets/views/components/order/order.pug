@@ -1,0 +1,190 @@
+-
+  const orderListInfo = [
+    [
+      {name: "Кол-во", value: "12 шт"}, {name: "Вес заказа", value: "16,4 кг"},
+    ],
+    [
+      {name: "Сумма", value: "20 450 ₽"}, {name: "Скидка", value: "−5 230 ₽", mod: "red"}, {name: "Промокод", value: "−1 000 ₽", mod: "red"}
+    ],
+    [
+      {name: "Стоимость доставки", value: "350 ₽"}
+    ]
+  ]
+
+  const orderDeliveryList = [
+    { text: "Получить из магазина", dataElement: "order__item_map", dataMod: "magazine", dataSrc: "#modal-magazine", dataModalBox: "true", spanList: ["Можно забрать сегодня", "Киров, Пролетарская, 17, ТРЦ «Максимум»", "Ежедневно с 9 до 21"], value: "qwe1" },
+    { text: "Самовывоз", dataElement: "order__item_map", dataMod: "pickup", dataSrc: "#modal-pickup", dataModalBox: "true", spanList: ["От 0₽, от 1 дня"], value: "qwe2" },
+    { text: "Курьером", dataElement: "order__item_courier", dataElement: "order__item_courier", dataModalBox: "true", dataSrc: "#modal-courier", spanList: ["От 300₽, от 1 дня"], value: "qwe3" },
+    { text: "Транспортной компанией", dataElement: "order__item_transport", dataModalBox: "true", dataSrc: "#modal-transport", value: "qwe4" },
+    { text: "Обсудить с менеджером", dataElement: "order__item_manager", dataSrc: "#modal-order", value: "qwe5" },
+  ]
+
+article.order(data-element="order")
+  .order__cont.cont
+    h1.order__caption.headline Оформление заказа
+    p.order__main-text.text 6 товаров на сумму 15 250 ₽
+    .order__main
+      .order__body
+        .order__step.order__step_delivery.mobile-white-border-950(data-element="order__step")
+          h2.order__title(data-element="order__title_delivery") Шаг 1 — способ доставки
+          .order__mobile-hidden-block(data-role="order-mobile-hidden-block")
+            .order__delivery-result(data-element="order__delivery-result_courier")
+              p.order__text.text
+              span.order__span
+              .order__delivery-edit(data-modal-box="true" data-src="#modal-courier")
+              .order__delivery-change.text(data-element="order__delivery-change") Выбрать другой способ доставки
+            .order__delivery-result(data-element="order__delivery-result_transport")
+              p.order__text.text
+              span.order__span Менеджер свяжется, чтобы согласовать доставку и её стоимость.
+              span.order__span Ждите звонка или сообщения на почту с 9 до 19.
+              .order__delivery-edit(data-modal-box="true" data-src="#modal-transport")
+              .order__delivery-change.text(data-element="order__delivery-change") Выбрать другой способ доставки
+            .order__delivery-result.order__delivery-result_manager(data-element="order__delivery-result_manager")
+              p.order__text.text
+              span.order__span Менеджер свяжется, чтобы согласовать доставку и её стоимость.
+              span.order__span Ждите звонка или сообщения на почту с 9 до 19.
+              .order__input-my-active
+              .order__delivery-change.text(data-element="order__delivery-change") Выбрать другой способ доставки
+            .order__delivery-result.order__delivery-result_pickup(data-element="order__delivery-result_pickup")
+              p.order__text.text
+              span.order__span
+              span.order__span
+              span.order__span
+              .order__delivery-edit(data-modal-box="true" data-src="#modal-pickup")
+              .order__delivery-change.text(data-element="order__delivery-change") Выбрать другой способ доставки
+            ul.order__list(data-element="order__list_delivery")
+              each item, index in orderDeliveryList
+                li.order__item(data-mod= item.dataMod ? item.dataMod: false data-element=item.dataElement ? item.dataElement: false data-modal-box= item.dataModalBox ? item.dataModalBox : false data-src = item.dataSrc ? item.dataSrc : false)
+                  label.order__label
+                    input.order__input-radio(type="radio" name="delivery" value=item.value form="main-form")
+                    .order__input-my
+                    .order__box
+                      p.order__text.text= item.text
+                      if item.spanList
+                        each span in item.spanList
+                          span.order__span= span
+          button.order__dropdawn(type="button" data-element="order__dropdawn") Скрыть
+        .order__step.order__step_receiver.mobile-white-border-950(data-element="order__step")
+          h2.order__title Шаг 2 — получатель
+          .order__receiver-wrapper(data-role="order-mobile-hidden-block")
+            .order__receiver-result
+              .order__receiver-type
+                .order__receiver-type-btn.order__receiver-type-btn_active.text-small(data-element="order__receiver-type-btn" data-receiver-type="1") Физлицо
+                .order__receiver-type-btn.text-small(data-element="order__receiver-type-btn" data-receiver-type="2") Юрлицо
+              .order__receiver-box.order__receiver-box_individual.order__receiver-box_active(data-receiver-box="1")
+                p.order__text.text(data-element="user-name") Мария Константинова
+                span.order__span(data-element="user-phone") +7 999 888 77 66
+                .order__receiver-edit(data-src="#modal-user" data-modal-box="true")
+              .order__receiver-box(data-receiver-box="2")
+                ul.order__list
+                  each item, index in [1,2,3]
+                    li.order__item
+                      label.order__label
+                        input.order__input-radio(type="radio" name="legal" value=item.value required form="main-form")
+                        .order__input-my
+                        .order__box
+                          p.order__text.text Агрохолд-промстрой
+                          span.order__span Контактное лицо
+                          span.order__span-black Зимин Евгений Владимирович, +7 999 888 77 66
+            form.order__receiver-login.order__display-hidden(data-role="autocomplete-spam-form" data-element="order__receiver-login" action="url" method="POST")
+              p.order__receiver-text Войдите в кабинет, чтобы продолжить оформление заказа
+              label.order__receiver-label
+                .order__receiver-input-box.input-animate-box
+                  input.order__receiver-input.input.text.input-animate(type="email" name="email" required placeholder=" " data-role="autocomplete-spam-form-mail")
+                  span.input-animate-placeholder Электронная почта
+              label.order__receiver-label
+                .order__receiver-input-box.input-animate-box
+                  input.order__receiver-input.input.text.input-animate(type="password" minlength="8" required name="password" placeholder=" ")
+                  span.input-animate-placeholder Пароль
+              button.order__receiver-submit.button-grey.text(disabled data-role="autocomplete-spam-form-button") Продолжить
+              .order__receiver-links
+                a.order__receiver-link.text-small.link_grey(href="#") Забыли пароль?
+                button.order__receiver-link-button.text-small.link_grey(type="button" data-show="create-password__form" data-element="order__receiver-link-button") Войти в кабинет
+            form.order__receiver-register(data-role="autocomplete-spam-form" data-element="create-password__form" action="url" method="POST")
+              p.order__receiver-text Зарегистрируйтесь, чтобы продолжить оформление заказа
+              label.order__receiver-label
+                .order__receiver-input-box.input-animate-box
+                  input.order__receiver-input.input.text.input-animate(type="email" name="email" required placeholder=" " data-role="autocomplete-spam-form-mail")
+                  span.input-animate-placeholder Электронная почта
+              label.order__receiver-label
+                .name-and-phone__box.input-animate-box
+                  input.order__receiver-input.input.text.input-animate(type="text" name="name" placeholder=" ")
+                  span.input-animate-placeholder Имя и Фамилия
+              label.order__receiver-label
+                .name-and-phone__box.input-animate-box
+                  input.order__receiver-input.input.text.input-animate(type="tel" name="phone" placeholder=" " required data-role="autocomplete-spam-form-phone")
+                  span.input-animate-placeholder Телефон
+              label.order__receiver-label
+                .create-password__box.input-animate-box
+                  input.order__receiver-input.input.text.input-animate(type="password" data-element="password1" minlength="8" required name="password" placeholder=" ")
+                  span.input-animate-placeholder Пароль
+              label.order__receiver-label
+                .create-password__box.input-animate-box
+                  input.order__receiver-input.input.text.input-animate(type="password" data-element="password2" minlength="8" required name="password" placeholder=" ")
+                  span.input-animate-placeholder Повторите пароль
+              button.order__receiver-submit.button-grey.text(disabled data-role="autocomplete-spam-form-button" data-element="create-password__submit") Зарегистрироваться
+              .order__receiver-links
+                button.order__receiver-link-button.text-small.link_grey(type="button" data-element="order__receiver-link-button" data-show="order__receiver-login") Уже есть кабинет? Войдите
+          button.order__dropdawn(type="button" data-element="order__dropdawn") Скрыть
+        .order__step.order__step_payment.mobile-white-border-950(data-element="order__step")
+          h2.order__title Шаг 3 — способ оплаты
+          ul.order__list(data-role="order-mobile-hidden-block")
+            each item, index in [{text: "Картой онлайн, без комиссии", img: true}, {text: "СБП"}, {text: "Подарочным сертификатом"}]
+              li.order__item
+                label.order__label
+                  input.order__input-radio(type="radio" data-element="order__input-radio_payment" name="payment" value="qwe1" required form="main-form")
+                  .order__input-my
+                  .order__box
+                    p.order__text.text= item.text
+                    if item.img
+                      .order__payment-list
+                        each item in ["jcb", "mastercard", "mir", "visa"]
+                          img.order__payment-item(src=staticImg(`ic_${item}_black.svg`) loading="lazy")
+          button.order__dropdawn(type="button" data-element="order__dropdawn") Скрыть
+      .order__sidebar
+        form.order__sidebar-box.order__sidebar-box_order-info.mobile-white-border-950(id="main-form" action="order-url" method="POST")
+          .order__promocode-box
+            label.order__promocode-label.input-animate-box
+              // нужно обязательно писать placeholder=" " или работать не будет анимация плейсхолдера
+              input.order__promocode.input.input-animate(value="" type="number" placeholder=" ")
+              span.order__promocode-placeholder.input-animate-placeholder Промокод
+            .order__promocode-btn.button-white
+          each list in orderListInfo
+            ul.order__order-info-list
+              each item in list
+                li.order__order-info-item
+                  .order__order-info-item-name.text= item.name
+                  .order__order-info-item-value.text(class= item.mod ? "fc_red" : "")= item.value
+          .order__result
+            .order__result-name.text Итого
+            .order__result-value(data-element="order__result-value") 15 250 ₽
+          button.order__button.button-orange.text(type="button") Перейти к оплате
+          .order__policy
+            | Нажимая на кнопку, вы соглашаетесь с
+            |
+            a.order__policy-link(href="#" target="_blank") Политикой конфиденциальности
+            | ,
+            |
+            | а также с условиями
+            |
+            a.order__policy-link(href="#" target="_blank") Пользовательского соглашения
+        .order__sidebar-box.mobile-white-border-950
+          ul.order__sidebar-info-list
+            li.order__sidebar-info-item
+              .order__sidebar-info-item-name.text Оплата онлайн, без комисии
+              .order__sidebar-payment-list
+                each item in ["jcb", "mastercard", "mir", "visa"]
+                  img.order__sidebar-payment-item(src=staticImg(`ic_${item}_black.svg`) loading="lazy")
+            li.order__sidebar-info-item
+              .order__sidebar-info-item-name.text Доставка от 1 дня, от 0₽
+              .order__sidebar-info-item-value.text-small Пункты выдачи по городу, курьер или ТК.
+            li.order__sidebar-info-item
+              .order__sidebar-info-item-name.text Гарантия и лёгкий возврат
+              .order__sidebar-info-item-value.text-small Гарантия 12 месяцев от продавцов, если иное не предусмотрено договором
+          a.order__sidebar-info-btn.button-white.text-small(href="#") Покупателям
+include ../modals/modal-user
+include ../modals/modal-courier
+include ../modals/modal-transport
+include ../modals/modal-order-map
++modal-order-map("pickup")
++modal-order-map("magazine")

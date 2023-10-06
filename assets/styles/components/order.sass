@@ -1,0 +1,492 @@
+.order
+  border-radius: 0
+  padding-top: 65px
+  @include media(1240)
+    padding-top: 40px
+    padding-bottom: 110px
+  @include media(950)
+    padding-top: 0
+    background-color: $grey
+
+.order__cont
+
+.order__caption
+  margin-bottom: 8px
+  @include media(1240)
+    display: none
+
+.order__main-text
+  margin-bottom: 40px
+  @include media(1240)
+    display: none
+
+.order__main
+  display: flex
+  justify-content: space-between
+  @include media(950)
+    display: block
+
+.order__body
+  width: 768px
+  @include media(1240)
+    flex-grow: 1
+  @include media(950)
+    width: 100%
+
+.order__step
+  position: relative
+  margin-bottom: 32px
+  padding: 32px
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  border-radius: 32px
+  @include media(1240)
+    margin-right: 20px
+    margin-bottom: 20px
+    padding: 32px 20px 26px
+  @include media(950)
+    margin-bottom: 5px
+    margin-right: 0
+    padding: 24px 0
+  &::after
+    content: ""
+    position: absolute
+    top: 24px
+    right: 27px
+    width: 40px
+    height: 40px
+    +bgIcon("ic_step-done_grey.svg", 40px, 40px)
+    @include media(1240)
+      right: 15px
+    @include media(950)
+      top: 16px
+      right: -9px
+
+.order__step_done
+  &::after
+    +bgIcon("ic_step-done_green.svg", 40px, 40px)
+
+.order__step_delivery
+
+.order__step_receiver
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+
+.order__title
+  margin-bottom: 24px
+  font-size: 20px
+  line-height: 24px
+  padding-right: 30px
+  @include media(1240)
+    margin-bottom: 20px
+
+.order__delivery-result
+  display: none
+
+.order__delivery-result_show
+  position: relative
+  display: block
+  padding-right: 50px
+
+.order__delivery-result_manager
+  padding-left: 32px
+
+.order__list
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+
+.order__list_hide
+  display: none
+
+.order__item
+  margin-bottom: 20px
+  @include media(1240)
+    margin-bottom: 16px
+    &:last-of-type
+      margin-bottom: 0
+
+.order__label
+  display: flex
+  position: relative
+  cursor: pointer
+  &:hover
+    @include hover
+      .order__input-my
+        border: 2px solid #FF4427
+        background-color: #FF4427
+
+.order__input-radio
+  position: absolute
+  top: 0
+  left: 0
+  z-index: -1
+  opacity: 0
+
+.order__input-radio:checked + .order__input-my
+  border: 2px solid $orange
+  background-color: $orange
+
+.order__input-my
+  position: relative
+  margin-right: 8px
+  flex-shrink: 0
+  width: 24px
+  height: 24px
+  border: 2px solid rgba(0, 0, 0, 0.1)
+  border-radius: 12px
+  transition-duration: .2s
+  transition-property: background-color, border-color
+  &::after
+    content: ""
+    border-radius: 50%
+    position: absolute
+    z-index: 1
+    top: calc(50% - 4px)
+    left: calc(50% - 4px)
+    width: 8px
+    height: 8px
+    background-color: #E6E6E6
+
+.order__input-my-active
+  position: absolute
+  top: 0
+  left: 0
+  width: 24px
+  height: 24px
+  border: 2px solid $orange
+  background-color: $orange
+  border-radius: 12px
+  transition-duration: .2s
+  transition-property: background-color, border-color
+  &::after
+    content: ""
+    border-radius: 50%
+    position: absolute
+    z-index: 1
+    top: calc(50% - 4px)
+    left: calc(50% - 4px)
+    width: 8px
+    height: 8px
+    background-color: #E6E6E6
+
+.order__box
+
+.order__text
+  margin-bottom: 4px
+
+.order__span
+  margin-bottom: 4px
+  display: block
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+
+.order__delivery-edit
+  position: absolute
+  top: -4px
+  right: 0
+  width: 32px
+  height: 32px
+  cursor: pointer
+  +bgIcon('ic_edit_black.svg', 16px, 16px)
+
+.order__delivery-change
+  display: inline-block
+  margin-top: 20px
+  cursor: pointer
+  margin-bottom: 16px
+  font-weight: 500
+  &::after
+    content: ""
+    display: inline-block
+    vertical-align: top
+    margin-top: 4px
+    width: 20px
+    height: 20px
+    margin-left: 6px
+    +bgIcon('ic_delivery_change_bottom.svg', 20px, 20px)
+
+.order__delivery-change_active
+  &::after
+    transform: rotate(180deg)
+
+.order__span-black
+  font-size: 13px
+  line-height: 16px
+
+.order__receiver-text
+  margin-bottom: 24px
+  @include media(1240)
+    margin-bottom: 20px
+
+.order__receiver-login, .order__receiver-register
+  max-width: 324px
+  width: 100%
+
+.order__receiver-label
+  display: block
+  margin-bottom: 12px
+
+.order__receiver-input
+  width: 100%
+
+.order__receiver-submit
+  padding: 16px
+  width: 100%
+
+.order__receiver-links
+  margin-top: 16px
+  display: flex
+  justify-content: center
+
+.order__receiver-link
+  margin-right: 12px
+  padding: 8px 12px
+  text-decoration: none
+
+.order__receiver-link-button
+  padding: 8px 12px
+  background-color: transparent
+  border: none
+
+.order__dropdawn
+  display: none
+  @include media(1240)
+    display: block
+    border: none
+    background-color: transparent
+    margin-top: 24px
+    font-size: 13px
+    line-height: 16px
+    &::after
+      content: ""
+      margin-left: 4px
+      display: inline-block
+      vertical-align: top
+      width: 18px
+      height: 18px
+      +bgIcon("ic_arrow_bottom_black.svg", 18px, 18px)
+      transform: rotate(180deg)
+      transition-duration: .2s
+      transition-property: transform
+
+.order__dropdawn_hidden
+  @include media(1240)
+    margin-top: -12px
+    &::after
+      transform: rotate(0)
+      +bgIcon("ic_arrow_bottom_black.svg", 18px, 18px)
+
+.order__receiver-result
+
+.order__receiver-type
+  display: flex
+  margin: 0 -2px 20px
+  @include media(1240)
+    margin: 0 -2px 16px
+
+.order__receiver-type-btn
+  padding: 8px 12px
+  margin: 0 2px
+  cursor: pointer
+  border-radius: 12px
+  transition-property: background-color
+  transition-duration: .2s
+  &:hover
+    @include hover
+      background: rgba(0, 0, 0, 0.07)
+
+.order__receiver-type-btn_active
+  background: rgba(0, 0, 0, 0.07)
+  cursor: default
+
+.order__receiver-box
+  display: none
+
+.order__receiver-box_individual
+  position: relative
+  padding-right: 50px
+
+.order__receiver-edit
+  position: absolute
+  top: -2px
+  right: 0
+  width: 32px
+  height: 32px
+  cursor: pointer
+  +bgIcon('ic_edit_black.svg', 16px, 16px)
+
+.order__receiver-box_active
+  display: block
+
+.order__payment-list
+  display: flex
+  margin: 0 -6px -4px
+
+.order__payment-item
+  margin: 0 6px
+  width: 40px
+  height: 40px
+  opacity: .5
+
+.order__sidebar
+  width: 388px
+  flex-shrink: 0
+  @include media(950)
+    width: 100%
+
+.order__sidebar-box
+  padding: 32px
+  @include media(950)
+    padding: 32px 0
+
+.order__sidebar-box_order-info
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  border-radius: 32px
+
+.order__promocode-box
+  display: flex
+  margin-bottom: 32px
+
+.order__promocode-label
+  margin-right: 4px
+  flex-grow: 1
+
+.order__promocode-placeholder
+
+.order__promocode
+  width: 100%
+  height: 100%
+
+.order__promocode-btn
+  flex-shrink: 0
+  width: 56px
+  height: 56px
+  +bgIcon("ic_check_black.svg", 24px, 24px)
+
+.order__order-info-list
+  margin-bottom: 12px
+
+.order__order-info-item
+  display: flex
+  justify-content: space-between
+
+.order__order-info-item-name
+
+.order__order-info-item-value
+
+.order__result
+  display: flex
+  justify-content: space-between
+  margin-bottom: 32px
+  @include media(950)
+    margin-bottom: 12px
+
+.order__result-name
+
+.order__result-value
+  font-weight: bold
+  font-size: 24px
+  line-height: 26px
+
+.order__button
+  width: 100%
+  padding: 16px
+
+.order__sidebar-info-list
+
+.order__sidebar-info-item
+  margin-bottom: 20px
+
+.order__sidebar-info-item-name
+  margin-bottom: 4px
+
+.order__sidebar-payment-list
+  display: flex
+  margin: 0 -6px -4px
+
+.order__sidebar-payment-item
+  margin: 0 6px
+  width: 40px
+  height: 40px
+  opacity: .5
+
+.order__sidebar-info-item-value
+  color: rgba($fc_black, .7)
+
+.order__sidebar-info-btn
+  display: inline-block
+  padding: 8px 12px
+  &::after
+    content: ""
+    width: 16px
+    height: 16px
+    display: inline-block
+    vertical-align: top
+    +bgIcon("ic_arrow_right.svg", 16px, 16px)
+
+.order__fixed-line
+  display: none
+  @include media(950)
+    display: block
+    padding: 6px 0 16px
+    background-color: $white
+    position: fixed
+    z-index: 100
+    bottom: 45px
+    left: 0
+    right: 0
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.05)
+    border-radius: 20px 20px 0 0
+
+.order__fixed-cont
+  display: flex
+  justify-content: space-between
+  align-items: center
+  min-height: 51px
+
+.order__fixed-price-box
+
+.order__fixed-price-old
+  position: relative
+  display: inline-block
+  color: rgba($fc_black, .5)
+  &::before
+    content: ""
+    position: absolute
+    bottom: 6px
+    left: 0
+    right: 0
+    height: 1px
+    background-color: rgba($fc_black, .5)
+
+.order__fixed-price
+  display: flex
+  align-items: flex-end
+
+.order__fixed-price-current
+  margin-right: 7px
+  font-size: 24px
+  line-height: 32px
+
+.order__fixed-rouble
+  font-size: 16px
+  line-height: 24px
+  margin-bottom: 2px
+
+.order__fixed-button
+  padding: 8px 12px
+
+.order__display-hidden
+  display: none
+
+.order__policy
+  margin-top: 12px
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+
+.order__policy-link
+  color: $fc_orange
+  text-decoration: none

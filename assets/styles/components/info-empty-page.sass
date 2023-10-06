@@ -1,0 +1,66 @@
+.info-empty-page
+  border-radius: 0
+  padding-top: 125px
+  padding-bottom: 170px
+  text-align: center
+  @include media(1240)
+    padding: 50px 0 200px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    flex-grow: 1
+
+.info-empty-page_hidden
+  display: none
+  @include media(1240)
+    display: none
+
+.info-empty-page__cont
+
+.info-empty-page__caption
+  margin-bottom: 16px
+  @include media(1240)
+    margin-bottom: 12px
+  & + .info-empty-page__link
+    margin-top: 16px
+    @include media(1240)
+      margin-top: 12px
+
+.info-empty-page__text
+  max-width: 400px
+  margin: 0 auto 32px
+  @include media(1240)
+    margin: 0 auto 24px
+
+.info-empty-page__heart-black
+  display: inline-block
+  vertical-align: top
+  width: 32px
+  height: 32px
+  +bgIcon("ic_heart_black.svg", 32px, 32px)
+  @include media(1240)
+    width: 24px
+    height: 24px
+    +bgIcon("ic_heart_black.svg", 24px, 24px)
+
+.info-empty-page__link
+  padding: 16px 20px
+  display: inline-block
+  text-decoration: none
+
+.info-empty-page__link_orders, .info-empty-page__link_favorites, .info-empty-page__link_err404
+  &::before
+    content: ""
+    display: inline-block
+    margin-right: 6px
+    vertical-align: top
+    width: 24px
+    height: 24px
+
+.info-empty-page__link_orders, .info-empty-page__link_favorites
+  &::before
+    +bgIcon("ic_catalog.svg", 24px, 24px)
+
+.info-empty-page__link_err404
+  &::before
+    +bgIcon("ic_home_white.svg", 24px, 24px)

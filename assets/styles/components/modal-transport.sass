@@ -1,0 +1,115 @@
+.modal-box__inner_transport
+  overflow-y: scroll
+
+.modal-transport
+  width: 390px
+  padding: 32px
+  @include media(1240)
+    padding: 24px 20px
+
+.modal-transport__cont
+
+.modal-transport__headline
+  margin-bottom: 24px
+  font-size: 20px
+  line-height: 24px
+  @include media(1240)
+    margin-bottom: 20px
+
+.modal-transport__headline_last
+  margin-top: 32px
+  @include media(1240)
+    margin-top: 24px
+
+.modal-transport__list
+  display: flex
+  margin: 0 -6px
+
+.modal-transport__item
+  margin: 0 6px
+
+.modal-transport__label
+  display: block
+  margin-bottom: 12px
+
+.modal-transport__input
+  width: 100%
+
+.modal-transport__input_textarea
+  resize: none
+  height: 61px
+
+.modal-transport__button
+  padding: 16px
+  width: 100%
+  font-weight: 500
+
+.modal-transport__box_select
+  cursor: pointer
+  &:hover
+    @include hover
+      .modal-transport__input
+        border: 1px solid $orange
+
+.modal-transport__input
+  transition-property: border-color
+  transition-duration: .2s
+
+.modal-transport__label_select
+  position: relative
+  &::before
+    content: ""
+    position: absolute
+    z-index: 1
+    opacity: .4
+    top: 16px
+    right: 16px
+    width: 24px
+    height: 24px
+    +bgIcon('ic_arrow_bottom_black.svg', 24px, 24px)
+  .modal-transport__input
+    cursor: pointer
+
+.modal-transport__list-box
+  display: none
+  position: absolute
+  z-index: 10
+  padding-top: 15px
+  padding-bottom: 50px
+  top: 55px
+  width: 100%
+  left: 0
+  @include media(1240)
+    top: 60px
+    padding-top: 0
+
+.modal-transport__list-box_active
+  display: block
+
+.modal-transport__select-list
+  padding: 20px 0
+  border-radius: 16px
+  background-color: $white
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+
+.modal-transport__select-item
+  &:not(:last-of-type)
+    margin-bottom: 20px
+
+.modal-transport__select-span
+  cursor: pointer
+  padding: 10px 20px
+  font-size: 16px
+  line-height: 20px
+  transition-duration: .2s
+  transition-property: color
+  &:hover
+    @include hover
+      color: $fc_orange
+
+.modal-transport__select-span_active
+  cursor: default
+  color: rgba($fc_black, .5)
+  &:hover
+    @include hover
+      color: rgba($fc_black, .5)

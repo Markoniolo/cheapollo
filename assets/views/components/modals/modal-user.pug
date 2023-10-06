@@ -1,0 +1,16 @@
+.modal-box(data-role="modal-box" id="modal-user")
+  .modal-box__inner
+    .modal-box__layer(data-role="modal-box__layer")
+    .modal-user.modal-box__form
+      .modal-user__cont
+        .modal-box__close(data-role="modal-box__close")
+        h4.modal-user__headline Редактирование данных физлица
+        label.modal-user__label
+          .modal-user__box.input-animate-box
+            input.modal-user__input.input.text.input-animate(type="text" name="name" placeholder=" " data-element="modal-user__input-name" value="Мария Константинова" required)
+            span.input-animate-placeholder Имя и Фамилия*
+        label.modal-user__label
+          .modal-user__box.input-animate-box
+            input.modal-user__input.input.text.input-animate(type="tel" name="phone" placeholder=" " data-element="modal-user__input-phone" value="+7 999 888 77 66" required)
+            span.input-animate-placeholder Телефон*
+        button.modal-user__button.button-orange(data-element="modal-user__button") Продолжить

@@ -1,0 +1,78 @@
+-
+  const catalogModalList = [
+    {
+      name: "Находки дня",
+      mod: "finds-of-the-day",
+      image: "catalog-modal-1"
+    },
+    {
+      name: "Новинки каталога",
+      mod: "new-catalog",
+      image: "catalog-modal-2"
+    },
+    { name: "Стройка", categoryId: "1", categoryName: "Категории про стройку", arrayId: [1,2,3,4] },
+    { name: "Техника", categoryId: "2", categoryName: "Категории про технику", arrayId: [5,6,7,8] },
+    { name: "Ванная комната", categoryId: "3", categoryName: "Категории про ванные комнаты", arrayId: [9,10,11,12]  },
+    { name: "Всё для дома", categoryId: "4", categoryName: "Категории про всё для дома", arrayId: [13,14,15,16]  },
+    { name: "Сад и досуг", categoryId: "5", categoryName: "Категории про сад и досуг", arrayId: [17,18,19,20]  },
+    { name: "Кухня", categoryId: "6", categoryName: "Категории про кухню", arrayId: [21,22,23,24]  },
+    { name: "Подборка" },
+    { name: "Подборка" },
+    { name: "Подборка" },
+    {
+      name: "Весь каталог →",
+      mod: "all-catalog",
+      image: "catalog-modal-3"
+    },
+  ]
+
+.header__layer(data-element="header__layer")
+include header-fixed
+header.header(data-element="header")
+  .header__cont.cont(data-element="header__cont")
+    .header__top
+      a.header__top-item.header__top-item_delivery.text-small.link_grey(href="#") Бесплатная доставка
+      a.header__top-item.text-small.header__top-item_payment.link_grey(href="#") Удобная оплата
+      .header__top-select
+        span.header__top-select-name.text-small Покупателям
+        .header__top-select-box
+          ul.header__top-select-list
+            each item in [{text: "Гарантия и возврат", img: "shield"}, {text: "Вопрос-ответ", img: "chat"}]
+              li.header__top-select-item
+                a.header__top-select-link(href='#')
+                  img.header__top-select-image(src=staticImg(`ic_${item.img}.svg`) alt="" loading="lazy")
+                  span.header__top-select-span= item.text
+      .header__top-select
+        span.header__top-select-name.text-small Партнёрам
+        .header__top-select-box
+          ul.header__top-select-list
+            each item in [{text: "Как продавать?", img: "bag"}, {text: "Реклама на сервисе", img: "bullhorn"}]
+              li.header__top-select-item
+                a.header__top-select-link(href='#')
+                  img.header__top-select-image(src=staticImg(`ic_${item.img}.svg`) alt="" loading="lazy")
+                  span.header__top-select-span= item.text
+      a.header__top-item.text-small.header__top-item_geo.link_grey(href="#") Киров
+      a.header__top-item.text-small.header__top-item_contacts.link_grey(href="#") Контакты
+    .header__bottom
+      if VIEW === "index"
+        .header__logo
+          img.header__logo-img(src=staticImg("logo.svg") alt="")
+      else
+        a.header__logo(href="#")
+          img.header__logo-img(src=staticImg("logo.svg") alt="")
+      button.header__catalog.button-orange.text(href="#" data-element="header__catalog") Каталог
+      form.header__search-form(action="search-url" method="POST" id="header__search-form" data-element="header__search-form")
+        label.header__search-label
+          .header__search-box.input-animate-box
+            input.header__search-input.text.input.input-animate(type="search" placeholder=" " name="search" data-element="header__search-input")
+            span.input-animate-placeholder Поиск
+        button.header__search-btn.header__search-btn_submit.button-orange.text(type="submit") Все результаты
+        button.header__search-btn.header__search-btn_close.button-white.text(type="button" data-element="header__search-btn_close") Закрыть
+      .header__search-close-mobile(data-element="header__search-close-mobile")
+      a.header__button.header__button_compare.button-white.button-white(href="#")
+      a.header__button.header__button_like.button-white.button-white(href="#")
+      a.header__button.header__button_sign-in.button-white.button-white.text(href="#") Войти
+      a.header__button.header__button_basket.button-white.button-white.text(href="#") 5 товаров
+    include ../catalog-modal
+    +catalog-modal("modal")
+    include header-search

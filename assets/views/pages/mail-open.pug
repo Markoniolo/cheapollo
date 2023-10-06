@@ -1,0 +1,10 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Кабинет зарегистрирован')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Кабинет зарегистрирован")
+  include ../components/info-page/info-page
+  +info-page("", "Спасибо за регистрацию!", ["Ваш кабинет готов.", "С помощью него вы сможете узнать информацию о заказе, получать и копить бонусы."])

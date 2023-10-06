@@ -1,0 +1,149 @@
+.index-cap
+  padding-top: 65px
+  border-radius: 0 0 40px 40px
+  @include media(1240)
+    padding-top: 24px
+
+.index-cap__cont
+
+.index-cap__area
+  position: relative
+  margin-bottom: 40px
+  @include media(1240)
+    margin-bottom: 24px
+
+.index-cap__arrow
+  position: absolute
+  top: calc(50% - 28px)
+  width: 56px
+  height: 56px
+  cursor: pointer
+  @include media(1240)
+    display: none
+
+.index-cap__arrow_next
+  right: -28px
+  +bgIcon("ic_arrow_slider_right.svg", 24px, 24px)
+
+.index-cap__arrow_prev
+  left: -28px
+  +bgIcon("ic_arrow_slider_left.svg", 24px, 24px)
+
+.index-cap__slider
+  @include media(1240)
+    display: flex
+    overflow: auto
+    margin: 0 -20px
+    padding-bottom: 10px
+    -webkit-overflow-scrolling: auto
+    &::before, &::after
+      content: ""
+      width: 16px
+      flex-shrink: 0
+
+.index-cap__picture
+  display: none
+  @include media(1240)
+    width: 320px
+    flex-shrink: 0
+    margin: 0 4px
+    display: block
+
+.index-cap__picture_active
+  display: block
+
+.index-cap__image
+  border-radius: 40px
+  height: 288px
+  @include media(1240)
+    border-radius: 20px
+    height: 213px
+
+.index-cap__nav
+  margin: 8px auto 0
+  display: flex
+  justify-content: center
+  @include media(1240)
+    display: none
+
+.index-cap__nav-item
+  cursor: pointer
+  margin: 0 2px
+  width: 8px
+  height: 8px
+  border-radius: 50%
+  transition-property: background-color
+  transition-duration: .2s
+  background-color: rgba($black, .1)
+  &:hover
+    @include hover
+      background-color: rgba($black, .5)
+
+.index-cap__nav-item_active
+  background-color: rgba($black, .5)
+
+.index-cap__catalog
+  margin-top: 14px
+  margin-bottom: 15px
+
+.index-cap__catalog-cont
+
+.index-cap__catalog-list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -6px
+  @include media(1240)
+    flex-wrap: nowrap
+    margin: 0 -20px
+    overflow-x: auto
+    -webkit-overflow-scrolling: auto
+    &::before, &::after
+      content: ""
+      width: 18px
+      flex-shrink: 0
+
+.index-cap__catalog-item
+  display: block
+  margin: 0 6px 12px
+  flex-shrink: 0
+  width: 188px
+  text-decoration: none
+  border-radius: 32px
+  overflow: hidden
+  background-color: $grey
+  @include media(1240)
+    border-radius: 16px
+    width: 120px
+    margin: 0 2px
+
+.index-cap__catalog-item_finds-of-the-day
+  background-color: $orange
+  .index-cap__catalog-name
+    color: $fc_white
+
+.index-cap__catalog-item_new-catalog
+  background: linear-gradient(135deg, #FA00FF 0%, #5200FF 100%)
+  .index-cap__catalog-name
+    color: $fc_white
+
+.index-cap__catalog-item_all-catalog
+  background-color: $orange
+  .index-cap__catalog-name
+    color: $fc_white
+
+.index-cap__catalog-name
+  display: block
+  padding: 20px 20px 7px 20px
+  font-size: 16px
+  line-height: 20px
+  @include media(1240)
+    padding: 10px 8px 10px 10px
+    font-size: 11px
+    line-height: 12px
+
+.index-cap__catalog-picture
+
+.index-cap__catalog-image
+  height: 141px
+  @include media(1240)
+    height: 90px

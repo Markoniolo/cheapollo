@@ -1,0 +1,184 @@
+.why-we
+  padding-top: 80px
+  padding-bottom: 80px
+  @include media(1240)
+    padding-top: 40px
+    padding-bottom: 40px
+
+.why-we__cont
+
+.why-we__title
+  margin-bottom: 60px
+  text-align: center
+  @include media(1240)
+    margin-bottom: 24px
+    text-align: left
+
+.why-we__list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -6px
+  @include media(1240)
+    margin: 0 -4px
+  @include media(700)
+    overflow: auto
+    margin: 0 -16px
+    flex-wrap: nowrap
+  @include media(520)
+    margin: 0 -20px
+  &::before, &::after
+    @include media(700)
+      content: ""
+      flex-shrink: 0
+      width: 12px
+    @include media(520)
+      width: 16px
+
+.why-we__item
+  position: relative
+  z-index: 1
+  overflow: hidden
+  display: flex
+  flex-shrink: 0
+  align-items: flex-start
+  flex-direction: column
+  margin: 0 6px 12px
+  border-radius: 40px
+  padding: 32px
+  height: 288px
+  text-decoration: none
+  @include media(1240)
+    border-radius: 28px
+    margin: 0 4px 8px
+    padding: 16px
+    width: 278px
+    height: 278px
+  @include media(950)
+    width: 210px
+    height: 210px
+  @include media(700)
+    width: 202px
+    height: 202px
+  &::before
+    z-index: -1
+    @include media(1240)
+      right: 4px
+      bottom: 5px
+      width: 119px
+      height: 119px
+  &:hover
+    @include hover
+      .why-we__button
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15)
+
+.why-we__item_half
+  width: 288px
+
+.why-we__item_full
+  width: 588px
+  padding-right: 278px
+
+.why-we__item_choice
+  background: linear-gradient(135deg, #FF5C00 0%, #FFE600 100%)
+  &::before
+    content: ""
+    position: absolute
+    bottom: -36px
+    right: -36px
+    width: 264px
+    height: 264px
+    +bgIcon("why-we/ic_choice.svg", 264px, 264px)
+    @include media(1240)
+      +bgIcon("why-we/ic_choice.svg", 119px, 119px)
+
+.why-we__item_guarantee
+  background: linear-gradient(315deg, #00FFF0 0%, #000691 100%)
+  &::before
+    content: ""
+    position: absolute
+    bottom: -36px
+    right: -36px
+    width: 264px
+    height: 264px
+    +bgIcon("why-we/ic_guarantee.svg", 264px, 264px)
+    @include media(1240)
+      +bgIcon("why-we/ic_guarantee.svg", 119px, 119px)
+
+.why-we__item_discount
+  background: radial-gradient(100% 204.17% at 100% 0%, #FF9F87 0%, #FF5C00 100%)
+  &::before
+    content: ""
+    position: absolute
+    bottom: 20px
+    right: 20px
+    width: 248px
+    height: 248px
+    +bgIcon("why-we/ic_discount.svg", 248px, 248px)
+    @include media(1240)
+      +bgIcon("why-we/ic_discount.svg", 119px, 119px)
+
+.why-we__item_delivery
+  background: linear-gradient(283.49deg, #98D508 0%, #28C00C 100%)
+  &::before
+    content: ""
+    position: absolute
+    bottom: 20px
+    right: 20px
+    width: 248px
+    height: 248px
+    +bgIcon("why-we/ic_delivery.svg", 248px, 248px)
+    @include media(1240)
+      +bgIcon("why-we/ic_delivery.svg", 119px, 119px)
+
+.why-we__item_catalog
+  background: linear-gradient(315deg, #E6E6E6 0%, #FF4D4D 100%)
+  .why-we__headline
+    margin-bottom: 0
+    font-size: 40px
+    line-height: 50px
+    @include media(1240)
+      margin-bottom: 8px
+      font-size: 24px
+      line-height: 26px
+  .why-we__text
+    margin-bottom: 12px
+    @include media(1240)
+      margin-bottom: 8px
+
+.why-we__item_like
+  background: linear-gradient(135deg, #FF38EB 0%, #7622FF 100%)
+  &::before
+    content: ""
+    position: absolute
+    bottom: -36px
+    right: -36px
+    width: 264px
+    height: 264px
+    +bgIcon("why-we/ic_like.svg", 264px, 264px)
+    @include media(1240)
+      +bgIcon("why-we/ic_like.svg", 119px, 119px)
+
+.why-we__headline
+  margin-bottom: 12px
+  color: $fc_white
+  @include media(1240)
+    margin-bottom: 8px
+
+.why-we__text
+  font-size: 16px
+  line-height: 24px
+  color: rgba($fc_white, .9)
+  @include media(1240)
+    font-size: 13px
+    line-height: 16px
+
+.why-we__button
+  margin-top: auto
+  display: inline-block
+  padding: 16px 50px 16px 20px
+  font-weight: bold
+  +bgIcon('ic_arrow_right.svg', 24px, 24px)
+  background-position: top 14px right 18px
+  @include media(1240)
+    padding: 8px 32px 8px 12px
+    background-position: top 7px right 6px

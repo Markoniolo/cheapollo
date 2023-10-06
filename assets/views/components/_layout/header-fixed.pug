@@ -1,0 +1,26 @@
+-
+  const headerFixed = [
+    [ { text: "Каталог", img: "ic_catalog_black" }, { text: "Находки", img: "ic_fire_orange" }, { text: "Новинки", img: "ic_diamond_purple" } ],
+    [ { text: "Вход в кабинет", img: "ic_user_black" }, { text: "Заказы", img: "ic_card_black" }, { text: "Избранное", img: "ic_heart_black" }, { text: "Сравнение товаров", img: "ic_compare_black" }, { text: "Мои данные и настройки", img: "ic_edit_black"} ],
+    [ { text: "Бесплатная доставка", img: "ic_card_black" }, { text: "Удобная оплата", img: "ic_payment_black" }, { text: "Гарантия и возврат", img: "ic_shield_black" }, { text: "Вопрос-ответ", img: "ic_chat_black" } ],
+    [ { text: "Как продавать?", img: "ic_bag_black" }, { text: "Реклама на сервисе", img: "ic_bullhorn_black" } ],
+    [ { text: "Киров", img: "ic_location_black" }, { text: "Контакты", img: "ic_phone_black" } ]
+  ]
+
+.header-fixed(data-element="header-fixed")
+  .header-fixed__top
+    .header-fixed__close(data-element="header-fixed__close")
+    if VIEW === "index"
+      .header-fixed__logo
+        img.header-fixed__logo-image(src=staticImg("logo.svg") alt="")
+    else
+      a.header-fixed__logo(href="#")
+        img.header-fixed__logo-image(src=staticImg("logo.svg") alt="")
+  .header-fixed__area
+    each list in headerFixed
+      ul.header-fixed__list
+        each item in list
+          li.header-fixed__item
+            a.header-fixed__link(href="#")
+              img.header-fixed__image(src=staticImg(`header-fixed/${item.img}.svg`) alt='' loading='lazy')
+              span.header-fixed__link-text.text= item.text

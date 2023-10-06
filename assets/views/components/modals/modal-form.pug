@@ -1,0 +1,38 @@
+mixin modal-form(id, headline, text, price, mail, phone, button, mod)
+  .modal-box(data-role="modal-box" id=id)
+    .modal-box__inner
+      .modal-box__layer(data-role="modal-box__layer")
+      .modal-form.modal-box__form
+        .modal-form__cont
+          .modal-box__close(data-role="modal-box__close")
+          h2.modal-form__headline.headline!= headline
+          if text
+            each item in text
+              p.modal-form__text.text= item
+          form.modal-form__form(action="url" method="POST" data-role="autocomplete-spam-form")
+            input(type="hidden", name="Report_on_stock[is_spam]" data-role="input-spam")
+            if price
+              label.modal-form__label
+                .modal-form__box.input-animate-box
+                  input.modal-form__input.input.text.input-animate(type="text" name="your-price" placeholder=" ")
+                  span.input-animate-placeholder Ваша цена
+              span.modal-form__span-info.text-small На сайте — от 1600₽
+              label.modal-form__label
+                .modal-form__box.input-animate-box
+                  input.modal-form__input.input.text.input-animate(type="text" name="comment" placeholder=" ")
+                  span.input-animate-placeholder Комментарий
+            if mail
+              label.modal-form__label
+                .modal-form__box.input-animate-box
+                  input.modal-form__input.input.text.input-animate(type="email" name="email" required placeholder=" " data-role="autocomplete-spam-form-mail")
+                  span.input-animate-placeholder Электронная почта*
+            if phone
+              label.modal-form__label
+                .modal-form__box.input-animate-box
+                  input.modal-form__input.input.text.input-animate(type="tel" name="phone" placeholder=" " required data-role="autocomplete-spam-form-phone")
+                  span.input-animate-placeholder Телефон*
+            button.modal-form__button.button-grey.text(data-role="autocomplete-spam-form-button" data-mod = mod ? mod: false)= button
+            .modal-form__policy
+              | Нажимая на кнопку, вы соглашаетесь с
+              |
+              a.modal-form__policy-link(href="/policy" target="_blank") Политикой конфиденциальности

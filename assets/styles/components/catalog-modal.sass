@@ -1,0 +1,149 @@
+.catalog-modal
+  position: absolute
+  z-index: 1
+  top: 145px
+  left: 0
+  right: 0
+  justify-content: center
+  background-color: $white
+  padding-bottom: 28px
+  display: none
+  opacity: 0
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05)
+  border-radius: 0 0 32px 32px
+  @include media(1240)
+    background-color: $white
+    box-shadow: none
+    border-radius: 0
+  @include media(1240)
+    display: none
+
+.catalog-modal_catalog
+  display: block
+  opacity: 1
+
+.catalog-modal_display-active
+  display: block
+
+.catalog-modal_opacity-active
+  opacity: 1
+
+.catalog-modal__cont
+
+.catalog-modal__list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -6px
+
+.catalog-modal__list_hidden
+  display: none
+
+.catalog-modal__list_index
+  @include media(1240)
+    flex-wrap: nowrap
+    margin: 0 -20px -10px
+    padding-bottom: 10px
+    overflow-x: auto
+    -webkit-overflow-scrolling: auto
+    &::before, &::after
+      content: ""
+      width: 18px
+      flex-shrink: 0
+  .catalog-modal__item
+    margin: 0 6px 12px
+    flex-shrink: 0
+    width: 188px
+    text-decoration: none
+    border-radius: 32px
+    overflow: hidden
+    background-color: $grey
+    @include media(1240)
+      border-radius: 16px
+      width: 120px
+      margin: 0 2px
+  .catalog-modal__image
+    height: 141px
+    @include media(1240)
+      height: 90px
+  .catalog-modal__name
+    display: block
+    padding: 20px 20px 7px 20px
+    font-size: 16px
+    line-height: 20px
+    @include media(1240)
+      padding: 16px 8px 7px 10px
+      font-size: 11px
+      line-height: 12px
+
+.catalog-modal__list_modal, .catalog-modal__list_catalog
+  @include media(1240)
+    margin: 0 -9px
+  @include media(950)
+    margin: 0 -4px
+  @include media(700)
+    justify-content: center
+  .catalog-modal__item
+    margin: 0 6px 12px
+    width: 188px
+    text-decoration: none
+    border-radius: 32px
+    overflow: hidden
+    background-color: $grey
+    @include media(1240)
+      width: 156px
+      margin: 0 9px 8px
+      border-radius: 20px
+    @include media(950)
+      margin: 0 4px 8px
+    @include media(520)
+      width: calc(50% - 8px)
+      position: relative
+      padding-bottom: 50%
+  .catalog-modal__name
+    display: block
+    padding: 20px 20px 7px 20px
+    font-size: 16px
+    line-height: 20px
+    @include media(1240)
+      padding: 16px 8px 7px 10px
+      font-size: 13px
+      line-height: 16px
+    @include media(520)
+      position: absolute
+      top: 0
+  .catalog-modal__picture
+    @include media(520)
+      width: auto
+  .catalog-modal__image
+    height: 141px
+    @include media(1240)
+      height: 117px
+    @include media(520)
+      position: absolute
+      bottom: 0
+      height: auto
+
+.catalog-modal__list
+  .catalog-modal__item_finds-of-the-day
+    background-color: $orange
+    .catalog-modal__name
+      color: $fc_white
+
+  .catalog-modal__item_new-catalog
+    background: linear-gradient(135deg, #FA00FF 0%, #5200FF 100%)
+    .catalog-modal__name
+      color: $fc_white
+
+  .catalog-modal__item_all-catalog
+    background-color: $orange
+    .catalog-modal__name
+      color: $fc_white
+
+.catalog-modal__item
+  flex-shrink: 0
+  cursor: pointer
+  display: flex
+  flex-direction: column
+
+.catalog-modal__picture
+  margin-top: auto

@@ -1,0 +1,12 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Контакты')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Контакты")
+  include ../components/contacts/contacts-social
+  include ../components/contacts/contacts-map
+  +contacts-map("Пункты выдачи заказов")
+  include ../components/contacts/contacts-requisites

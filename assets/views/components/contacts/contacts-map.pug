@@ -1,0 +1,39 @@
+mixin contacts-map(title, mod)
+  article.contacts-map(data-element="contacts-map" class = mod ? `contacts-map_${mod}`: false)
+    .contacts-map__cont.cont
+      if title
+        h2.contacts-map__headline= title
+      if mod
+        .contacts-map__top
+          h2.contacts-map__title.headline Пункты выдачи заказов Cheapollo
+          p.contacts-map__text.text-big Бесплатно и быстро — заказ будет готов к выдаче в течение 24 часов с момента подтверждения заказа
+          img.contacts-map__top-image(src=staticImg('ic_delivery_white.svg') alt='' loading='lazy')
+      .contacts-map__area
+        ul.contacts-map__list
+          each item in [{dataCoords: [49.675282, 58.602851]},{dataCoords: [49.680326, 58.604209]},{dataCoords: [49.660326, 58.604209]},{dataCoords: [49.665326, 58.604209]},{dataCoords: [49.650326, 58.604209]},]
+            li.contacts-map__item(data-coords=item.dataCoords data-element="contacts-map__item")
+              a.contacts-map__address.text(data-element="contacts-map__address" href="#contacts-map__map") г. Киров, ул. Ленина, 1
+              span.contacts-map__span Ежедневно 9:00 — 21:00
+              .contacts-map__contacts
+                a.contacts-map__phone(href='tel:+79120000000') +7 912 000 00 00
+                a.contacts-map__mail(href='mailto:mail@mail.ru') mail@mail.ru
+              .contacts-map__info
+                .contacts-map__gallery
+                  each picture in [1,2,3]
+                    picture.contacts-map__picture
+                      source(srcset=placeholder(105, 80, 2))
+                      img.contacts-map__image(src=placeholder(105, 80) alt='' loading='lazy')
+                .contacts-map__info-text
+                  b Как добраться:
+                  |
+                  | автобусы — 10, 23, 46, 67, 90, ул. Ленина находится в 10 м от остановки, зайти в главный вход
+                .contacts-map__info-text
+                  b Ограничения:
+                  |
+                  | вес заказа до 100 кг
+                .contacts-map__info-text
+                  b Возможность возврата:
+                  |
+                  | есть
+              .contacts-map__show-info.text-small(data-element="contacts-map__show-info") Показать фото и описание пункта
+        .contacts-map__map#contacts-map__map(data-coords-center="[49.675282, 58.602851]")

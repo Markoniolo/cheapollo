@@ -1,0 +1,28 @@
+.product__view.mobile-white-border
+  .product__view-subtitle
+    span.product__view-span.text Цвет:
+    span.product__view-span.text Ocean Blue
+  .product__view-list
+    each link, index in [1,2,3,4,5,6,7,8]
+      if index === 0
+        span.product__view-link.product__view-link_active
+          picture.product__view-picture
+            source(srcset=placeholder(74, 74, 1.5) type="image/webp")
+            source(srcset=placeholder(74) type="image/webp")
+            source(srcset=placeholder(74, 74, 1.5))
+            img.product__view-image(src=placeholder(74) alt="" loading="lazy")
+      else
+        a.product__view-link(href='#')
+          picture.product__view-picture
+            source(srcset=placeholder(74, 74, 1.5) type="image/webp")
+            source(srcset=placeholder(74) type="image/webp")
+            source(srcset=placeholder(74, 74, 1.5))
+            img.product__view-image(src=placeholder(74) alt="" loading="lazy")
+  .product__select
+    span.product__select-subtitle.text Вилка
+    .product__select-list
+      each text, index in ["Европа", "Америка", "Китай"]
+        if index === 0
+          span.product__select-link.product__select-link_active.text= text
+        else
+          a.product__select-link.button-white.text(href='#' class = index === 0 ? "product__select-link_active" : "")= text

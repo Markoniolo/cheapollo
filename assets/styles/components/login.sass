@@ -1,0 +1,79 @@
+.login
+  margin-top: 0
+  padding-top: 90px
+  border-radius: 0
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  @include media(1240)
+    padding-top: 32px
+    background-color: $white
+
+article.login
+  @include media(1240)
+    padding-bottom: 90px
+
+.login__cont
+  @include media(1240)
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+  @include media(520)
+    margin: 0 0
+    max-width: 100%
+
+.login__headline
+  margin-bottom: 24px
+  text-align: center
+  @include media(1240)
+    display: none
+
+.login__form
+  width: 320px
+  flex-shrink: 0
+  margin: 0 auto
+  @include media(1240)
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+  @include media(520)
+    width: 100%
+
+.login__label
+  display: block
+  margin-bottom: 12px
+
+.login__box
+
+.login__input
+  width: 100%
+
+.login__link
+  padding: 16px
+  display: block
+  text-align: center
+  text-decoration: none
+  &::before
+    content: ""
+    margin-right: 6px
+    display: inline-block
+    vertical-align: top
+    width: 24px
+    height: 24px
+
+.login__link_google
+  margin-bottom: 8px
+  &::before
+    +bgIcon("ic_google_black.svg")
+
+.login__link_vk
+  &::before
+    +bgIcon("ic_vk_black.svg")
+
+.login__submit
+  margin-top: 20px
+  width: 100%
+  padding: 16px
+  @include media(1240)
+    margin-top: auto
+    margin-bottom: 0

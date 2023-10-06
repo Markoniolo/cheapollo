@@ -1,0 +1,69 @@
+-
+  const inputList = [
+    { placeholder: "Населённый пункт", dataElement: "city", name: "city", value: "Киров", required: true, list: false },
+    { placeholder: "Улица", name: "street", dataElement: "street", value: "Московская", required: true, list: false },
+    { list:
+      [
+        {placeholder: "Дом", name: "house", dataElement: "house", value: "150", required: true, list: false},
+        {placeholder: "Квартира", name: "room", dataElement: "room", value: "145", required: false, list: false},
+      ]
+    },
+    { list:
+      [
+        {placeholder: "Подъезд", name: "entrance", dataElement: "entrance", value: "5", required: false, list: false},
+        {placeholder: "Этаж", name: "floor", dataElement: "floor", value: "4", required: false, list: false},
+      ]
+    },
+    { placeholder: "Комментарий курьеру", name: "comment", dataElement: "comment", value: "Домофон иногда не работает, звоните", required: false, list: false },
+  ]
+
+.modal-box(data-role="modal-box" id="modal-courier")
+  .modal-box__inner.modal-box__inner_courier
+    .modal-box__layer(data-role="modal-box__layer")
+    .modal-courier.modal-box__form
+      .modal-courier__cont
+        .modal-box__close(data-role="modal-box__close")
+        h4.modal-courier__headline Куда привезти заказ?
+        each item in inputList
+          if item.list
+            ul.modal-courier__list
+              each elem in item.list
+                li.modal-courier__item
+                  label.modal-courier__label
+                    .modal-courier__box.input-animate-box
+                      input.modal-courier__input.input.text.input-animate(type="text" form="main-form" data-element=elem.dataElement name=elem.name placeholder=" " value=elem.value required=elem.required ? elem.required: false)
+                      span.input-animate-placeholder= elem.placeholder
+          else
+            label.modal-courier__label
+              .modal-courier__box.input-animate-box
+                if item.name === "comment"
+                  textarea.modal-courier__input.modal-courier__input_textarea.input.text.input-animate(data-element=item.dataElement form="main-form" name=item.name placeholder=" " value=item.value required=item.required ? item.required : false)
+                else
+                  input.modal-courier__input.input.text.input-animate(type="text" form="main-form" data-element=item.dataElement name=item.name placeholder=" " value=item.value required=item.required ? item.required : false)
+                span.input-animate-placeholder= item.placeholder
+        h4.modal-courier__headline.modal-courier__headline_last Дата и время доставки
+        .modal-courier__label.modal-courier__label_select(data-element="modal-courier__label_select")
+          .modal-courier__box.modal-courier__box_select.input-animate-box(data-element="modal-courier__box_select")
+            input.modal-courier__input.input.text.input-animate(type="text" form="main-form" name="date" data-role="delivery-date" data-element="date" placeholder=" " readonly value="Четверг, 14 сентября" required)
+            span.input-animate-placeholder Дата
+          .modal-courier__list-box
+            ul.modal-courier__select-list
+              each item, index in ["Четверг, 14 сентября", "Пятница, 15 сентября", "Суббота, 16 сентября"]
+                li.modal-courier__select-item
+                  if index === 0
+                    span.modal-courier__select-span.modal-courier__select-span_active(data-element="modal-courier__select-span")= item
+                  else
+                    span.modal-courier__select-span(data-element="modal-courier__select-span")= item
+        .modal-courier__label.modal-courier__label_select(data-element="modal-courier__label_select")
+          .modal-courier__box.modal-courier__box_select.input-animate-box(data-element="modal-courier__box_select")
+            input.modal-courier__input.input.text.input-animate(type="text" form="main-form" name="time" data-role="delivery-time" data-element="time" placeholder=" " readonly value="с 9 до 22" required)
+            span.input-animate-placeholder Время
+          .modal-courier__list-box
+            ul.modal-courier__select-list
+              each item, index in ["с 9 до 22", "с 10 до 20", "с 15 до 16"]
+                li.modal-courier__select-item
+                  if index === 0
+                    span.modal-courier__select-span.modal-courier__select-span_active(data-element="modal-courier__select-span")= item
+                  else
+                    span.modal-courier__select-span(data-element="modal-courier__select-span")= item
+        button.modal-courier__button.text.button-orange(type="button" disabled data-element="modal-courier__button") Продолжить

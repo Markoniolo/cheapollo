@@ -1,0 +1,342 @@
+.basket
+  border-radius: 0
+  padding-top: 65px
+  @include media(1240)
+    padding-top: 0
+    padding-bottom: 110px
+    background-color: $grey
+
+.basket__cont
+
+.basket__title
+  margin-bottom: 8px
+  @include media(1240)
+    display: none
+
+.basket__text-main
+  margin-bottom: 40px
+  @include media(1240)
+    display: none
+
+.basket__form
+  display: flex
+  @include media(1240)
+    display: block
+
+.basket__body
+  flex-grow: 1
+  margin-right: 60px
+  @include media(1240)
+    margin-right: 0
+
+.basket__box
+  margin-bottom: 40px
+  @include media(1240)
+    padding-top: 32px
+    padding-bottom: 24px
+
+.basket__headline-small
+  margin-bottom: 26px
+  font-size: 20px
+  line-height: 24px
+  @include media(1240)
+    margin-bottom: 24px
+
+.basket__list
+
+.basket__item
+  display: flex
+  align-items: flex-start
+  &:not(:last-of-type)
+    margin-bottom: 24px
+  @include media(950)
+    position: relative
+
+.basket__product
+  display: flex
+  flex-grow: 1
+  align-items: flex-start
+  @include media(950)
+    flex-wrap: wrap
+
+.basket__picture
+  margin-right: 12px
+  flex-shrink: 0
+  width: 72px
+
+.basket__image
+  height: 72px
+
+.basket__descr
+  margin-right: 48px
+  width: 295px
+  flex-shrink: 0
+  @include media(950)
+    margin-right: 0
+    width: 100%
+    margin-bottom: 12px
+
+.basket__name
+  display: block
+  text-decoration: none
+  margin-bottom: 4px
+
+.basket__seller
+  margin-bottom: 4px
+  color: rgba($fc_black, .5)
+
+.basket__availability
+  color: rgba($fc_black, .5)
+
+.basket__availability_orange
+  color: $fc_orange
+
+.basket__counter
+  display: flex
+  background: rgba(0, 0, 0, 0.03)
+  border-radius: 12px
+
+.basket__btn
+  flex-shrink: 0
+  width: 32px
+  height: 32px
+  cursor: pointer
+
+.basket__btn_down
+  +bgIcon("ic_minus_black.svg", 16px, 16px)
+
+.basket__btn_delete
+  +bgIcon("ic_close_black.svg", 16px, 16px)
+
+.basket__input-counter
+  text-align: center
+  flex-shrink: 0
+  width: 32px
+  background-color: transparent
+  border: none
+
+.basket__btn_up
+  +bgIcon("ic_plus_black.svg", 16px, 16px)
+
+.basket__price-box
+  margin-left: auto
+  margin-right: 40px
+  display: flex
+  flex-direction: column
+  align-items: center
+  @include media(1240)
+    margin-right: 80px
+  @include media(950)
+    margin-right: 40px
+    margin-left: 0
+    order: -1
+    width: 100%
+    align-items: flex-start
+
+.basket__price
+  margin-bottom: 4px
+  display: flex
+  align-items: flex-end
+
+.basket__price-current
+  margin-right: 4px
+  font-size: 24px
+  line-height: 32px
+
+.basket__price-rouble
+  margin-bottom: 1px
+  width: 100%
+
+.basket__price-old
+  display: inline-block
+  position: relative
+  text-align: center
+  font-size: 13px
+  line-height: 14px
+  color: rgba($fc_black, .5)
+  @include media(950)
+    order: -1
+  &::before
+    content: ""
+    position: absolute
+    height: 1px
+    bottom: 7px
+    left: 0
+    right: 0
+    background-color: rgba($black, .5)
+
+.basket__favorite
+  position: relative
+  border-radius: 12px
+  flex-shrink: 0
+  width: 32px
+  height: 32px
+  cursor: pointer
+  @include media(950)
+    position: absolute
+    top: 0
+    right: 0
+  &::before
+    content: ""
+    position: absolute
+    top: calc(50% - 8px)
+    left: calc(50% - 8px)
+    width: 16px
+    height: 16px
+    +bgIcon("ic_heart_black.svg", 16px, 16px)
+    opacity: .3
+
+.basket__favorite_active
+  &::before
+    +bgIcon("ic_heart_orange.svg", 16px, 16px)
+    opacity: 1
+
+.basket__sidebar
+  width: 388px
+  flex-shrink: 0
+  @include media(1240)
+    width: 100%
+
+.basket__sidebar-box
+  padding: 32px
+  @include media(1240)
+    padding: 32px 0
+
+.basket__sidebar-box_order-info
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  border-radius: 32px
+
+.basket__promocode-box
+  display: flex
+  margin-bottom: 32px
+
+.basket__promocode-label
+  margin-right: 4px
+  flex-grow: 1
+
+.basket__promocode-placeholder
+
+.basket__promocode
+  width: 100%
+  height: 100%
+
+.basket__promocode-btn
+  flex-shrink: 0
+  width: 56px
+  height: 56px
+  +bgIcon("ic_check_black.svg", 24px, 24px)
+
+.basket__order-info-list
+  margin-bottom: 12px
+
+.basket__order-info-item
+  display: flex
+  justify-content: space-between
+
+.basket__order-info-item-name
+
+.basket__order-info-item-value
+
+.basket__result
+  display: flex
+  justify-content: space-between
+  margin-bottom: 32px
+  @include media(1240)
+    margin-bottom: 0
+
+.basket__result-name
+
+.basket__result-value
+  font-weight: bold
+  font-size: 24px
+  line-height: 26px
+
+.basket__button
+  width: 100%
+  padding: 16px
+  @include media(1240)
+    display: none
+
+.basket__sidebar-info-list
+
+.basket__sidebar-info-item
+  margin-bottom: 20px
+
+.basket__sidebar-info-item-name
+  margin-bottom: 4px
+
+.basket__sidebar-payment-list
+  display: flex
+  margin: 0 -6px -4px
+
+.basket__sidebar-payment-item
+  margin: 0 6px
+  width: 40px
+  height: 40px
+  opacity: .5
+
+.basket__sidebar-info-item-value
+  color: rgba($fc_black, .7)
+
+.basket__sidebar-info-btn
+  display: inline-block
+  padding: 8px 12px
+  &::after
+    content: ""
+    width: 16px
+    height: 16px
+    display: inline-block
+    vertical-align: top
+    +bgIcon("ic_arrow_right.svg", 16px, 16px)
+
+.basket__fixed-line
+  display: none
+  @include media(1240)
+    display: block
+    padding: 6px 0 16px
+    background-color: $white
+    position: fixed
+    z-index: 100
+    bottom: 45px
+    left: 0
+    right: 0
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.05)
+    border-radius: 20px 20px 0 0
+
+.basket__fixed-cont
+  display: flex
+  justify-content: space-between
+  align-items: center
+  min-height: 51px
+
+.basket__fixed-price-box
+
+.basket__fixed-price-old
+  position: relative
+  display: inline-block
+  color: rgba($fc_black, .5)
+  &::before
+    content: ""
+    position: absolute
+    bottom: 6px
+    left: 0
+    right: 0
+    height: 1px
+    background-color: rgba($fc_black, .5)
+
+.basket__fixed-price
+  display: flex
+  align-items: flex-end
+
+.basket__fixed-price-current
+  margin-right: 7px
+  font-size: 24px
+  line-height: 32px
+
+.basket__fixed-rouble
+  font-size: 16px
+  line-height: 24px
+  margin-bottom: 2px
+
+.basket__fixed-button
+  padding: 8px 12px

@@ -1,0 +1,23 @@
+.product__price.mobile-white-border
+  .product__price-list
+    each label, index in [1,2,3,4]
+      if index === 0
+        span.product__price-link.product__price-link_active
+          .product__price-box
+            span.product__price-price.text-big 1 200 ₽/шт.
+            span.product__price-note.text-small.fc_green 16 в наличии
+            span.product__price-note.text-small.fc_orange УютМаркет
+          .product__price-inner
+            picture.product__price-picture
+              img.product__price-image(src=placeholder(99, 29) alt='' loading="lazy")
+            button.product__price-basket.button-white(type="submit")
+      else
+        a.product__price-link(href="#")
+          .product__price-box
+            span.product__price-price.text-big 1 200 ₽/шт.
+            span.product__price-note.text-small.fc_green 16 в наличии
+            span.product__price-note.text-small.fc_orange УютМаркет
+          .product__price-inner
+            picture.product__price-picture
+              img.product__price-image(src=placeholder(99, 29) alt='' loading="lazy")
+            button.product__price-basket.button-white(type="submit")

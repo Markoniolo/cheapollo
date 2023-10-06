@@ -1,0 +1,46 @@
+.content_2
+  max-width: 788px
+
+  .download
+    display: inline-block
+    padding: 16px 51px
+    color: $fc_white
+    &:hover
+      @include hover
+        color: $fc_white
+
+  .note
+    color: rgba($fc_black, .5)
+
+  h2
+    margin-top: 32px
+    margin-bottom: 12px
+    font-size: 20px
+    line-height: 24px
+
+  p, li
+    margin-bottom: 12px
+    font-size: 16px
+    line-height: 24px
+
+  li
+    padding-left: 25px
+    position: relative
+    &::before
+      content: ""
+      position: absolute
+      top: 12px
+      left: 10px
+      width: 4px
+      height: 4px
+      border-radius: 50%
+      background-color: $black
+
+  a
+    color: $fc_orange
+    text-decoration: none
+    transition-duration: .2s
+    transition-property: color
+    &:hover
+      @include hover
+        color: #FF4427

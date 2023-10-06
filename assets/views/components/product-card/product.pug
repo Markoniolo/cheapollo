@@ -1,0 +1,71 @@
+-
+  const productListButtons = [
+    { text: "4.6", mod: "rating" },
+    { text: "Видеоконсультация", mod: "video" },
+    { text: "Сравнить", mod: "compare" },
+    { text: "Поделиться", mod: "share", dropdown: true }
+  ]
+  const dropdownList = [
+    {text: "Скопировать ссылку", img: "ic_copy_black"},
+    {text: "Вконтакте", img: "ic_vk_black"},
+    {text: "Facebook", img: "ic_facebook_black"},
+    {text: "Одноклассники", img: "ic_user_black"},
+    {text: "Telegram", img: "ic_telegram_black"},
+    {text: "Twitter", img: "ic_twitter_black"},
+  ]
+
+article.product.desktop-white-border(data-element="product")
+  .product__cont.cont
+    include ../crumbs
+    +crumbs(["Главная", "Каталог", "Для дома", "Для дома"])
+    .product__box
+      .product__nav
+        .product__nav-inner
+          each picture, index in ["03e1ff", "000000", "FF0000", "0000FF", "008000"]
+            picture.product__nav-picture(class = index === 0 ? "product__nav-picture_active": "" data-id=index data-element="product__nav-picture")
+              source(srcset=placeholder(70, 70, 1.5) + `/${picture}` type="image/webp")
+              source(srcset=placeholder(70) + `/${picture}` type="image/webp")
+              source(srcset=placeholder(70, 70, 1.5) + `/${picture}`)
+              img.product__nav-image(src=placeholder(70) + `/${picture}`, alt="", loading="lazy")
+      .product__gallery-box.mobile-white-border
+        .product__gallery
+          each picture, index in ["03e1ff", "000000", "FF0000", "0000FF", "008000"]
+            picture.product__gallery-picture(
+              class = index === 0 ? "product__gallery-picture_active": ""
+              data-element="product__gallery-picture"
+              data-thumb="https://via.placeholder.com/100",
+              data-role="data-my-fancybox-item",
+              data-my-fancybox-name="card",
+              data-href="https://via.placeholder.com/1000"
+              )
+              source(srcset=placeholder(231, 231, 2) type="image/webp" media="(max-width: 1240px)")
+              source(srcset=placeholder(564, 564) type="image/webp")
+              source(srcset=placeholder(231, 231, 2) media="(max-width: 1240px)")
+              img.product__gallery-image(src=placeholder(418, 564), alt="", loading="lazy")
+      .product__card
+        .product__card-main.mobile-white-border
+          h1.product__headline.text-big Лампа Chicago, Ocean Blue, e27
+          .product__list-btns-box
+            .product__list-btns
+              each item in productListButtons
+                if item.dropdown
+                  .product__item-btns-box
+                    button.product__item-btns.text-small.button-white(class=`product__item-btns_${item.mod}`)= item.text
+                    .product__dropdown
+                      ul.product__dropdown-list
+                        each item in dropdownList
+                          li.product__dropdown-item
+                            a.product__dropdown-link(href='#')
+                              img.product__dropdown-image(src=staticImg(`${item.img}.svg`) alt="" loading="lazy")
+                              span.product__dropdown-span= item.text
+                else
+                  if item.mod === "video"
+                    button.product__item-btns.text-small.button-white(class=`product__item-btns_${item.mod}` data-src='#modal-video-consultation' data-modal-box="true")= item.text
+                  else
+                    button.product__item-btns.text-small.button-white(class=`product__item-btns_${item.mod}`)= item.text
+          include product-buy
+          +product-buy
+          +product-buy("not-sale")
+        include product-view
+        include product-price
+

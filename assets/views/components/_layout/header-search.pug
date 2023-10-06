@@ -1,0 +1,54 @@
+-
+  const headerSearchList = [
+    {
+      name: "Находки дня",
+      mod: "finds-of-the-day",
+      image: "catalog-modal-1"
+    },
+    {
+      name: "Новинки каталога",
+      mod: "new-catalog",
+      image: "catalog-modal-2"
+    },
+    {
+      name: "Весь каталог →",
+      mod: "all-catalog",
+      image: "catalog-modal-3"
+    },
+    {
+      name: "Доставка",
+      mod: "delivery",
+      image: "catalog-modal-3"
+    },
+  ]
+
+.header-search(data-element="header-search")
+  .header-search__cont.search-cont(data-element="header-search__cont")
+    .header-search__you-looking-for(data-element="header-search__you-looking-for")
+      span.header-search__note Вы искали
+      .header-search__tile
+        each item in headerSearchList
+          a.header-search__tile-item(href="#" class=`header-search__tile-item_${item.mod}`)
+            span.header-search__name= item.name
+            picture.header-search__picture
+              source(srcset=staticImg(`catalog-modal/${item.image}_156.webp`) + " 1x, " + staticImg(`catalog-modal/${item.image}_312.webp`) + " 2x" type="image/webp" media="(max-width: 1240px)")
+              img.header-search__image(src=staticImg(`catalog-modal/${item.image}.png`), alt="", loading="lazy")
+    //.header-search__main-box
+    //.header-search__menu
+      .header-search__menu-link.header-search__menu-link_active.text-small(data-element="header-search__menu-link") В каталоге — 1620
+      .header-search__menu-link.text-small(data-element="header-search__menu-link") Новости и статьи — 3
+      .header-search__menu-link.text-small.header-search__menu-link_disactive Полезная информация — 0
+    //.header-search__journal-box(data-element="header-search__journal-box")
+      include ../index/journal
+      +journalTile([{mod: "small", category: "обзор", text: "Как выбрать газонокосилку...", categoryColor: "yellow"},{mod: "small", category: "обзор", text: "Как выбрать газонокосилку...", categoryColor: "yellow"},{mod: "small", category: "обзор", text: "Как выбрать газонокосилку...", categoryColor: "yellow"},{mod: "small", category: "обзор", text: "Как выбрать газонокосилку...", categoryColor: "yellow"}], "search")
+    //.header-search__products-box
+      .header-search__category-list
+        each item in ["Бензопилы", "Бензопилы", "Бензопилы Бензопилы Бензопилы", "Бензопилы", "Бензопилы Бензопилы", "Бензопилы Бензопилы ", "Бензопилы", "Бензопилы Бензопилы", "Бензопилы Бензопилы Бензопилы"]
+          a.header-search__category-item(href='#')
+            span.header-search__category-text= item
+            picture.header-search__category-picture
+              source(srcset=placeholder(32, 24, 2) type="image/webp" media="(max-width: 1240px)")
+              source(srcset=placeholder(32, 24) type="image/webp")
+              img.header-search__category-image(src=placeholder(32, 24))
+      include ../tile-search
+      button.header-search__all-result.button-white(type='submit' form="header__search-form") Все результаты

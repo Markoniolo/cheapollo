@@ -1,0 +1,93 @@
+mixin category-cap(title, mod)
+  article.category-cap
+    .category-cap__cont.cont
+      if mod === "search" || mod === "search-articles"
+        .category-cap__subsections-box
+          h1.category-cap__title.title= title
+          .category-cap__subsections
+            if mod === "search-articles"
+              a.category-cap__subsections-link.text-small(href='#') В каталоге — 1620
+              span.category-cap__subsections-link.text-small(href='#') Новости и статьи — 3
+            else
+              span.category-cap__subsections-link.text-small(href='#') В каталоге — 1620
+              a.category-cap__subsections-link.text-small(href='#') Новости и статьи — 3
+            .category-cap__subsections-link.text-small.category-cap__subsections-link_disactive(href='#') Полезная информация — 0
+      else
+        include ../crumbs
+        +crumbs(["Главная", "Каталог", "Для дома", "Для дома"])
+        h1.category-cap__title.title= title
+      if mod === "search"
+        include category-cap__list
+        +category-cap__list("search")
+      .category-cap__filters-mob-box
+        .category-cap__filters-mob
+          if mod !== "search-articles"
+            .category-cap__sort-box.button-white
+              span.category-cap__sort.text-small Категория 3 уровня
+              .category-cap__sort-list-box
+                .category-cap__sort-list
+                  ul.category-cap__sort-list-inner
+                    each item, index in ['Категория 3 уровня', 'Категория 3 уровня', 'Категория 3 уровня', 'Категория 3 уровня','Категория 3 уровня', 'Категория 3 уровня', 'Категория 3 уровня', 'Категория 3 уровня']
+                      li.category-cap__sort-item
+                        if index === 0
+                          span.category-cap__sort-link= item
+                        else
+                          a.category-cap__sort-link(href="#")= item
+          .category-cap__sort-box.category-cap__sort-box_sort.button-white
+            span.category-cap__sort.text-small Сначала последние
+            .category-cap__sort-list-box
+              ul.category-cap__sort-list
+                each item, index in ['Сначала последние', 'Сначала первые', 'Сначала отрицательные', 'Сначала положительные']
+                  li.category-cap__sort-item
+                    if index === 0
+                      span.category-cap__sort-link= item
+                    else
+                      a.category-cap__sort-link(href="#")= item
+          button.category-cap__filters-open.button-white.text-small(type="button" data-element="category-cap__filters-open") Фильтры
+      if mod === "category_2"
+        include category-cap__list
+        +category-cap__list
+      if mod === "search-articles"
+        include ../index/journal
+        -
+          const journalListDefault = [
+            {mod: "small", category: "обзор", text: "Как выбрать газонокосилку...", categoryColor: "yellow"},
+            {
+              mod: "small",
+              category: "подборка",
+              text: "Выбираем мебель для дачи, террасы и балкона: виды...",
+              categoryColor: "orange"
+            },
+            {
+              mod: "small",
+              category: "обзор",
+              text: "Как выбрать грязезащитный коврик в квартиру...",
+              categoryColor: "yellow"
+            },
+            {
+              mod: "small",
+              category: "подборка",
+              text: "Как выбрать навесное оборудование для...",
+              categoryColor: "orange"
+            },
+            {mod: "small", category: "обзор", text: "Как выбрать газонокосилку...", categoryColor: "yellow"},
+            {
+              mod: "small",
+              category: "подборка",
+              text: "Выбираем мебель для дачи, террасы и балкона: виды...",
+              categoryColor: "orange"
+            },
+            {
+              mod: "small",
+              category: "обзор",
+              text: "Как выбрать грязезащитный коврик в квартиру...",
+              categoryColor: "yellow"
+            },
+            {
+              mod: "small",
+              category: "подборка",
+              text: "Как выбрать навесное оборудование для...",
+              categoryColor: "orange"
+            },
+          ]
+        +journalTile(journalListDefault, "search")

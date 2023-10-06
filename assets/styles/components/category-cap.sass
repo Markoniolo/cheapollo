@@ -1,0 +1,237 @@
+.category-cap
+  padding-top: 65px
+  border-radius: 0
+  @include media(1240)
+    padding-top: 24px
+
+.category-cap__cont
+
+.category-cap__subsections-box
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  @include media(1240)
+    display: block
+    & + .category-cap__list
+      margin-bottom: 32px
+
+.category-cap__subsections
+  margin: 20px -4px 0
+  display: flex
+  flex-shrink: 0
+  @include media(1240)
+    margin: 0 -20px 10px
+    overflow: auto
+    padding-bottom: 10px
+    -webkit-overflow-scrolling: auto
+    &::before, &::after
+      content: ""
+      width: 16px
+      flex-shrink: 0
+
+.category-cap__subsections-link
+  margin: 0 4px
+  flex-shrink: 0
+  padding: 8px 12px
+  text-decoration: none
+  border-radius: 12px
+  transition-duration: .2s
+  transition-property: background
+  &:hover
+    @include hover
+      background: rgba(0, 0, 0, 0.03)
+
+.category-cap__subsections-link_disactive
+  background-color: $grey
+  opacity: .3
+
+span.category-cap__subsections-link
+  background: rgba(0, 0, 0, 0.07)
+  &:hover
+    @include hover
+      background: rgba(0, 0, 0, 0.07)
+
+.category-cap__title
+  margin-bottom: 40px
+  padding-right: 20px
+  @include media(1240)
+    display: none
+
+.category-cap__filters-mob-box
+  position: relative
+
+.category-cap__filters-mob
+  display: none
+  @include media(1240)
+    display: flex
+    overflow-x: auto
+    margin: -16px -20px 16px
+    padding: 16px 0
+    &::before, &::after
+      content: ""
+      flex-shrink: 0
+      width: 16px
+
+.category-cap__sort-box
+  flex-shrink: 0
+  border-radius: 20px
+  margin-right: 8px
+  padding: 6px 12px 10px
+  cursor: pointer
+  &:hover
+    .category-cap__sort-list-box
+      display: block
+  @include media(1240)
+    margin: 0 4px
+  @include media(520)
+    margin-right: 4px
+
+.category-cap__sort-box_sort
+  &::before
+    content: ""
+    display: inline-block
+    vertical-align: bottom
+    margin-right: 4px
+    width: 16px
+    height: 16px
+    +bgIcon("ic_sort_mob_black.svg", 16px, 16px)
+
+.category-cap__sort-list-box
+  display: none
+  position: absolute
+  z-index: 10
+  padding-top: 15px
+  top: 55px
+  width: 250px
+  left: 0
+  @include media(1240)
+    top: 60px
+    padding-top: 0
+
+.category-cap__sort-list
+  padding: 20px 0
+  border-radius: 16px
+  background-color: $white
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+
+.category-cap__sort-list-inner
+  max-height: 256px
+  overflow-y: auto
+
+.category-cap__sort-item
+  text-align: left
+  &:not(:last-of-type)
+    margin-bottom: 20px
+
+.category-cap__sort-link
+  padding: 10px 20px
+  font-size: 16px
+  line-height: 20px
+
+a.category-cap__sort-link
+  text-decoration: none
+  &:hover
+    @include hover
+      color: $fc_orange
+
+span.category-cap__sort-link
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+
+.category-cap__filters-open
+  flex-shrink: 0
+  padding: 8px 12px
+  @include media(1240)
+    margin: 0 4px
+  &::before
+    content: ""
+    display: inline-block
+    vertical-align: bottom
+    margin-right: 4px
+    width: 16px
+    height: 16px
+    +bgIcon("ic_filter_mob_black.svg", 16px, 16px)
+
+.category-cap__back
+  display: none
+  background-color: transparent
+  border: none
+  padding: 8px 12px
+  margin-bottom: 16px
+  @include media(1240)
+    margin-bottom: 10px
+  &::before
+    content: ""
+    margin-right: 4px
+    display: inline-block
+    vertical-align: top
+    width: 16px
+    height: 16px
+    transform: rotate(180deg)
+    +bgIcon('ic_arrow_right.svg', 16px, 16px)
+
+.category-cap__back_active
+  display: block
+
+.category-cap__list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -21px 48px
+  @include media(1240)
+    display: none
+    margin: 0 -4px 48px
+  @include media(700)
+    margin: 0 0 48px
+
+.category-cap__list_hidden
+  display: none
+
+.category-cap__list_modal
+  @include media(1240)
+    display: flex
+
+.category-cap__link
+  cursor: pointer
+  margin: 0 21px 12px
+  display: flex
+  background: rgba(0, 0, 0, 0.03)
+  border-radius: 20px
+  overflow: hidden
+  width: 368px
+  height: 80px
+  flex-shrink: 0
+  text-decoration: none
+  @include media(1240)
+    height: 50px
+    margin: 0 4px 4px
+    width: calc(50% - 8px)
+  @include media(700)
+    width: 100%
+    margin: 0 0 4px
+
+.category-cap__link_hidden
+  display: none
+
+.category-cap__link-text
+  font-weight: 500
+  display: flex
+  align-items: center
+  padding: 5px 10px 5px 27px
+  @include media(1240)
+    font-size: 13px
+    line-height: 16px
+    padding-left: 16px
+
+.category-cap__picture
+  margin-left: auto
+  width: 107px
+  flex-shrink: 0
+  @include media(1240)
+    width: 67px
+
+.category-cap__image
+  height: 80px
+  @include media(1240)
+    height: 50px
+

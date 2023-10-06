@@ -1,0 +1,21 @@
+article.name-and-phone.mobile-cabinet-white-border
+  .name-and-phone__cont.cont
+    h3.name-and-phone__headline.headline Введите пароль
+    p.name-and-phone__text.text Пожалуйста, укажите ваше имя, фамилию и телефон.
+    p.name-and-phone__text.text Данные используем только для заказа товара и не передаём третьим лицам.
+    form.name-and-phone__form(action="url" method="POST" data-role="autocomplete-spam-form")
+      label.name-and-phone__label
+        .name-and-phone__box.input-animate-box
+          input.name-and-phone__input.input.text.input-animate(type="text" name="name" placeholder=" ")
+          span.input-animate-placeholder Имя и Фамилия
+      label.name-and-phone__label
+        .name-and-phone__box.input-animate-box
+          input.name-and-phone__input.input.text.input-animate(type="tel" name="phone" placeholder=" " required data-role="autocomplete-spam-form-phone")
+          span.input-animate-placeholder Телефон
+      p.name-and-phone__note
+        | Нажимая на «Продолжить», вы принимаете условия
+        |
+        a.name-and-phone__policy(href="#" target="_blank") политики конфиденциальности
+      .name-and-phone__buttons
+        a.name-and-phone__skip.button-white.text(href="#") Позже
+        button.name-and-phone__submit.button-grey.text(disabled data-role="autocomplete-spam-form-button") Продолжить

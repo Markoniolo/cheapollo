@@ -1,0 +1,35 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Главная')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile
+  include ../components/index/index-cap
+  include ../components/tile
+  +tile("Вот это <span class='tile__title-span'>находки!</span>", "Выбрали для вас лучшие товары на этой неделе", "Смотреть всё")
+  +tile("Новинки", "Что нового в каталоге?", "Смотреть всё", 8)
+  include ../components/index/journal
+  -
+    const journalList = [
+      {mod: "big", category: "как выбрать", text: "Как выбрать биметаллический...", categoryColor: "purple"},
+      {mod: "small", category: "обзор", text: "Как выбрать газонокосилку...", categoryColor: "yellow"},
+      {
+        mod: "small",
+        category: "подборка",
+        text: "Выбираем мебель для дачи, террасы и балкона: виды...",
+        categoryColor: "orange"
+      },
+      {
+        mod: "small",
+        category: "обзор",
+        text: "Как выбрать грязезащитный коврик в квартиру...",
+        categoryColor: "yellow"
+      },
+      {mod: "small", category: "подборка", text: "Как выбрать навесное оборудование для...", categoryColor: "orange"},
+      {mod: "big", category: "обзор", text: "Выбираем мебель для дачи, террасы...", categoryColor: "yellow"},
+    ]
+  +journal(journalList)
+  include ../components/why-we
+  include ../components/index/faq

@@ -1,0 +1,165 @@
+.tile-search__list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -14px
+  @include media(1240)
+    margin: 0 -5px
+    justify-content: space-between
+
+.tile-search__item
+  position: relative
+  z-index: 1
+  display: block
+  margin: 0 14px 36px
+  width: 156px
+  flex-shrink: 0
+  text-decoration: none
+  @include media(1240)
+    margin: 0 5px 10px 5px
+    padding-right: 60px
+    width: 48%
+    display: flex
+    flex-direction: column
+  @include media(950)
+    width: 100%
+  &::before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: -20px
+    right: -16px
+    bottom: -20px
+    left: -16px
+    background-color: $white
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+    border-radius: 32px
+    opacity: 0
+    transition-property: opacity
+    transition-duration: .2s
+    @include media(1240)
+      content: none
+  &:hover
+    @include hover
+      .tile-search__button
+        opacity: 1
+      &::before
+        opacity: 1
+
+.tile-search__picture
+  position: relative
+  width: 140px
+  margin-bottom: 10px
+  @include media(1240)
+    width: 48px
+    position: absolute
+    top: 5px
+    right: 5px
+
+.tile-search__discount
+  position: absolute
+  z-index: 1
+  top: -4px
+  right: -4px
+  width: 44px
+  height: 44px
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  color: $fc_white
+  background-color: $orange
+  @include media(1240)
+    display: none
+
+.tile-search__image
+  height: 140px
+  @include media(1240)
+    height: 48px
+
+.tile-search__price-box
+  display: flex
+  align-items: flex-end
+  margin-bottom: 6px
+  @include media(1240)
+    margin-bottom: 4px
+    order: 1
+
+.tile-search__price
+  margin-right: 5px
+  font-size: 36px
+  line-height: 41px
+  @include media(1240)
+    font-size: 32px
+    line-height: 36px
+
+.tile-search__price-info
+  margin-bottom: 5px
+
+.tile-search__price-old
+  position: relative
+  display: inline-block
+  font-weight: 500
+  font-size: 13px
+  line-height: 16px
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    font-size: 13px
+    line-height: 14px
+  &::before
+    content: ""
+    position: absolute
+    top: 9px
+    height: 1px
+    left: 0
+    right: 0
+    background-color: rgba($fc_black, .5)
+    @include media(1240)
+      top: 8px
+
+.tile-search__price-rouble
+  font-weight: 500
+  font-size: 16px
+  line-height: 16px
+  @include media(1240)
+    font-size: 13px
+    line-height: 14px
+
+.tile-search__info-line
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: 8px
+  @include media(1240)
+    display: none
+
+.tile-search__rating
+  flex-shrink: 0
+  margin-right: 5px
+  width: 80px
+  height: 16px
+  overflow: hidden
+  +bgImg('ic_star_grey.svg')
+  background-size: 16px 16px
+
+.tile-search__rating-fill
+  height: 16px
+  +bgImg('ic_star_orange.svg')
+  background-size: 16px 16px
+
+.tile-search__rating-value
+  margin-right: 8px
+  color: rgba($fc_black, .5)
+
+.tile-search__availability
+  @include media(520)
+    display: block
+    width: 100%
+    margin-top: 8px
+
+.tile-search__text
+  margin-bottom: 10px
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    margin-bottom: 0
+    font-size: 16px
+    line-height: 20px
+    color: $fc_black

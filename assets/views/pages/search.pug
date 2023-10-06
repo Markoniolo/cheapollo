@@ -1,0 +1,11 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Поиск')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Результаты поиска")
+  include ../components/category/category-cap
+  +category-cap("Результаты поиска", "search")
+  include ../components/category/category

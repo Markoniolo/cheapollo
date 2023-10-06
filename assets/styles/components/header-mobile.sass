@@ -1,0 +1,71 @@
+.header-mobile
+  display: none
+  @include media(1240)
+    display: block
+    padding: 6px 0
+
+.header-mobile_cabinet
+  .header-mobile__logo, .header-mobile__burger
+    display: none
+  .header-mobile__back, .header-mobile__box
+    display: block
+
+.header-mobile__cont
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.header-mobile__back
+  display: none
+  margin-left: -14px
+  width: 48px
+  height: 48px
+  +bgIcon("ic_back_black.svg", 24px, 24px)
+
+.header-mobile__box
+  display: none
+  text-align: center
+  max-width: 100%
+  width: 212px
+  flex-shrink: 0
+
+.header-mobile__title
+  font-weight: 500
+
+.header-mobile__text
+  color: rgba($fc_black, .5)
+
+.header-mobile__burger
+  position: relative
+  margin-left: -14px
+  width: 48px
+  height: 48px
+  &::before
+    content: ""
+    top: 18px
+  &::after
+    content: ""
+    top: 22px
+
+.header-mobile__burger-line
+  top: 26px
+
+.header-mobile__burger-line, .header-mobile__burger::before, .header-mobile__burger::after
+  position: absolute
+  left: 16px
+  width: 16px
+  height: 2px
+  background-color: $black
+  border-radius: 1px
+
+.header-mobile__logo
+  width: 96px
+
+.header-mobile__logo-image
+  height: 48px
+
+.header-mobile__search
+  margin-right: -14px
+  width: 48px
+  height: 48px
+  +bgIcon("ic_search.svg", 24px, 24px)

@@ -1,0 +1,244 @@
+.product__buy
+  padding: 24px 32px 20px
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  border-radius: 40px
+  margin-bottom: 40px
+  @include media(1240)
+    box-shadow: none
+    border-radius: 0
+    padding: 0
+    margin-bottom: 0
+
+.product__buy_empty
+  padding-bottom: 28px
+
+.product__buy-headline
+  margin-bottom: 8px
+  font-size: 24px
+  line-height: 28px
+
+.product__buy-last-price
+  margin-bottom: 20px
+  display: block
+  color: rgba($fc_black, .5)
+
+.product__buy-buttons.product__buy-buttons_empty
+  margin-bottom: 8px
+
+.product__buy-button_similar
+  flex-grow: 1
+  &::before
+    content: ""
+    margin-right: 6px
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    +bgIcon('ic_diamond_white.svg', 24px, 24px)
+
+.product__buy-box
+  display: flex
+  align-items: flex-start
+
+.product__buy-price
+  flex-grow: 1
+
+.product__buy-price-old
+  color: rgba($fc_black, .5)
+  text-decoration: line-through
+
+.product__buy-price-new
+  margin-bottom: 8px
+
+.product__buy-price-new-value
+  margin-right: 8px
+  font-size: 48px
+  line-height: 56px
+
+.product__buy-price-new-after
+  font-weight: 500
+  font-size: 24px
+  line-height: 38px
+
+.product__buy-picture
+  width: 110px
+  flex-shrink: 0
+  padding: 5px
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+  border-radius: 12px
+  @include media(1240)
+    width: 70px
+
+.product__buy-image
+  width: 100px
+  height: 50px
+  @include media(1240)
+    width: 60px
+    height: 30px
+
+.product__buy-info-box
+  margin-bottom: 20px
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  flex-wrap: wrap
+  flex-shrink: 0
+
+.product__buy-info
+  padding-top: 8px
+  @include media(520)
+    width: 100%
+
+.product__buy-info-span
+  display: block
+  margin-bottom: 5px
+
+.product__buy-seller
+  padding: 8px 32px 20px 12px
+  cursor: pointer
+  position: relative
+  z-index: 10
+  flex-shrink: 0
+  &::after
+    bottom: 12px
+  &:hover
+    .product__buy-seller-list
+      display: block
+  @include media(520)
+    padding-bottom: 8px
+    margin-top: -5px
+    margin-bottom: -8px
+    margin-left: -12px
+    &::after
+      bottom: 4px
+  &::before
+    content: ""
+    position: absolute
+    z-index: 1
+    top: 8px
+    right: 12px
+    margin-left: 4px
+    width: 16px
+    height: 16px
+    display: inline-block
+    +bgIcon('ic_other_black.svg', 16px, 16px)
+
+.product__buy-seller-list
+  display: none
+  position: absolute
+  z-index: 100
+  top: 40px
+  right: 0
+  width: 320px
+  padding: 20px
+  background: $white
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+  border-radius: 16px
+  @include media(520)
+    right: unset
+    left: 0
+    width: 305px
+
+.product__buy-seller-item
+  margin-bottom: 20px
+  font-size: 16px
+  line-height: 20px
+
+.product__buy-seller-all
+  display: block
+  padding: 12px
+  font-weight: 500
+  font-size: 16px
+  line-height: 24px
+  &::before
+    content: ""
+    margin-right: 6px
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    +bgIcon('ic_basket_black.svg', 24px, 24px)
+
+.product__buy-buttons
+  display: flex
+  margin: 0 -4px 20px
+  @include media(1240)
+    margin: 0 -2px 20px
+
+.product__buy-button_basket
+  flex-grow: 1
+  &::before
+    content: ""
+    margin-right: 6px
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    +bgIcon('ic_basket_white.svg', 24px, 24px)
+
+.product__buy-button
+  margin: 0 4px
+  padding: 16px 2px
+  text-align: center
+  text-decoration: none
+  @include media(1240)
+    margin: 0 2px
+
+.product__buy-button_add
+  &::before
+    +bgIcon('ic_basket_add_white.svg', 24px, 24px)
+
+.product__buy-button_like
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 56px
+  height: 56px
+  border-radius: 20px
+  &::before
+    content: ""
+    width: 24px
+    height: 24px
+    opacity: .3
+    +bgIcon('ic_heart_black.svg', 24px, 24px)
+
+.product__buy-button_like-active
+  &::before
+    opacity: 1
+    +bgIcon('ic_heart_orange.svg', 24px, 24px)
+
+.product__buy-button_admission
+  display: block
+  margin: 0
+  width: 100%
+  font-size: 16px
+  line-height: 24px
+  @include media(1240)
+    margin: 0
+  &::before
+    content: ""
+    margin-right: 6px
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    +bgIcon('ic_lightning_black.svg', 24px, 24px)
+
+.product__buy-links
+  display: flex
+  @include media(520)
+    display: block
+
+.product__buy-link-title
+
+.product__buy-link
+  display: block
+  padding: 8px 12px 8px 29px
+
+.product__buy-link_lowering-price
+  +bgIcon('ic_notification.svg', 16px, 16px)
+  background-position: top 8px left 8px
+
+.product__buy-link_your-price
+  +bgIcon('ic_bullhorn.svg', 16px, 16px)
+  background-position: top 8px left 8px

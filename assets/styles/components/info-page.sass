@@ -1,0 +1,60 @@
+.info-page
+  margin-top: 0
+  padding-top: 90px
+  border-radius: 0
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  @include media(1240)
+    padding-top: 32px
+    background-color: $white
+
+article.info-page
+  @include media(1240)
+    padding-bottom: 90px
+
+.info-page__cont
+  @include media(1240)
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+  @include media(520)
+    margin: 0 0
+    max-width: 100%
+
+.info-page__headline
+  margin-bottom: 12px
+  font-size: 20px
+  line-height: 24px
+  text-align: center
+
+.info-page__text
+  max-width: 320px
+  margin: 0 auto 12px
+  text-align: center
+  @include media(520)
+    max-width: 100%
+    margin: 0 0 12px
+    text-align: left
+  &:last-of-type
+    margin-bottom: 24px
+
+.info-page__link
+  display: inline-block
+  width: 100%
+  padding: 16px
+  text-align: center
+  text-decoration: none
+  @include media(1240)
+    margin-top: auto
+    margin-bottom: 0
+
+.info-page__link_icon
+  &::before
+    content: ""
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    margin-right: 6px
+    +bgIcon("ic_subscribe_white.svg", 24px, 24px)

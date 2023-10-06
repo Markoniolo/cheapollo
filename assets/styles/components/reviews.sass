@@ -1,0 +1,405 @@
+.reviews
+  padding-top: 80px
+  padding-bottom: 80px
+  @include media(1240)
+    padding-top: 32px
+    padding-bottom: 32px
+
+.reviews__cont
+
+.reviews__title
+  margin-bottom: 60px
+  @include media(1240)
+    margin-bottom: 24px
+
+.reviews__span
+  color: rgba($fc_black, .2)
+
+.reviews__cage
+  display: flex
+  @include media(950)
+    flex-wrap: wrap
+
+.reviews__body
+  margin-right: 40px
+  width: 760px
+  flex-shrink: 0
+  @include media(1240)
+    margin-right: 20px
+    width: 460px
+  @include media(950)
+    width: 100%
+    order: 1
+
+.reviews__list
+
+.reviews__item
+  &:last-of-type
+    margin-bottom: 24px
+    @include media(1240)
+      margin-bottom: 32px
+  margin-bottom: 20px
+  border-radius: 40px
+  padding: 40px
+  background-color: $grey
+  @include media(1240)
+    display: none
+    padding: 24px 16px
+    border-radius: 24px
+
+.reviews__item_active
+  @include media(1240)
+    display: block
+
+.reviews__headline-line
+  margin-bottom: 20px
+  display: flex
+  align-items: center
+
+.reviews__headline
+
+.reviews__rating-star
+  margin-left: auto
+  flex-shrink: 0
+  width: 170px
+  height: 34px
+  overflow: hidden
+  +bgImg('ic_star_grey.svg')
+  background-size: 34px 34px
+  @include media(1240)
+    width: 80px
+    height: 16px
+    background-size: 16px 16px
+
+.reviews__rating-fill
+  height: 34px
+  +bgImg('ic_star_orange.svg')
+  background-size: 34px 34px
+  @include media(1240)
+    height: 16px
+    background-size: 16px 16px
+
+.reviews__text-box
+
+.reviews__text-box_scroll
+  position: relative
+  max-height: 300px
+  overflow: hidden
+  transition-property: max-height
+  transition-duration: .5s
+  &::before
+    content: ""
+    position: absolute
+    left: 0
+    bottom: 0
+    height: 88px
+    width: 100%
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, $grey 100%)
+
+.reviews__text-box_scroll-active
+  max-height: 100%
+  &::before
+    content: none
+
+.reviews__text
+  margin-bottom: 20px
+
+.reviews__text-more
+  margin-top: 12px
+  margin-bottom: 12px
+  display: none
+  padding: 8px 12px
+  text-align: center
+  &::after
+    content: ""
+    margin-left: 4px
+    display: inline-block
+    vertical-align: top
+    width: 16px
+    height: 16px
+    transition-property: transform
+    transition-duration: .2s
+    +bgIcon('ic_arrow_bottom_black.svg', 16px, 16px)
+
+.reviews__text-more_reverse
+  &::after
+    transform: rotate(180deg)
+
+.reviews__text-more_active
+  display: block
+
+.reviews__gallery
+  display: flex
+  margin: 32px -16px 22px
+  overflow: auto
+  -webkit-overflow-scrolling: auto
+  padding-bottom: 10px
+  &::before, &::after
+    content: ""
+    width: 12px
+    flex-shrink: 0
+
+.reviews__picture
+  width: 164px
+  flex-shrink: 0
+  margin: 0 4px
+  border-radius: 40px
+  overflow: hidden
+  @include media(1240)
+    border-radius: 24px
+    width: 100px
+
+.reviews__image
+  height: 164px
+  @include media(1240)
+    height: 100px
+
+.reviews__bottom-line
+  display: flex
+  align-items: center
+
+.reviews__info
+
+.reviews__author
+  margin-right: 12px
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    margin-right: 0
+    display: block
+
+.reviews__time
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    display: block
+
+.reviews__btn
+  padding: 12px 16px
+  font-weight: 500
+  font-size: 16px
+  line-height: 24px
+  @include media(1240)
+    padding: 8px 12px
+    font-size: 13px
+    line-height: 16px
+  &::before
+    content: ""
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    margin-right: 6px
+    @include media(1240)
+      margin-right: 4px
+      width: 16px
+      height: 16px
+
+.reviews__btn_like
+  margin-left: auto
+  margin-right: 4px
+  color: $fc_orange
+  &::before
+    +bgIcon("ic_like_orange.svg", 24px, 24px)
+    @include media(1240)
+      +bgIcon("ic_like_orange.svg", 16px, 16px)
+
+.reviews__btn_dislike
+  &::before
+    +bgIcon("ic_dislike_black.svg", 24px, 24px)
+    @include media(1240)
+      +bgIcon("ic_dislike_black.svg", 16px, 16px)
+
+.reviews__more
+  display: inline-block
+  padding: 16px 20px
+  cursor: pointer
+  text-align: center
+  @include media(950)
+    width: 100%
+  &::after
+    content: ""
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    margin-left: 4px
+    +bgIcon("ic_arrow_bottom_black.svg", 24px, 24px)
+
+
+.reviews__sidebar
+  width: 388px
+  flex-shrink: 0
+  @include media(1240)
+    width: 372px
+  @include media(950)
+    width: 100%
+    display: flex
+    flex-direction: column
+
+.reviews__sidebar-inner
+  position: sticky
+  top: 10px
+
+.reviews__sort-box
+  position: relative
+  margin-bottom: 18px
+  border-radius: 20px
+  padding: 10px 16px
+  cursor: pointer
+  border: 1px solid $grey
+  background-color: $grey
+  transition-property: border-color
+  transition-duration: .2s
+  &:hover
+    border: 1px solid $orange
+    .reviews__sort-list-box
+      display: block
+  @include media(950)
+    order: 1
+    margin-bottom: 20px
+  &::after
+    content: ""
+    position: absolute
+    top: calc(50% - 12px)
+    right: 16px
+    opacity: .4
+    width: 24px
+    height: 24px
+    +bgIcon("ic_arrow_bottom_black.svg", 24px, 24px)
+
+.reviews__sort-list-box
+  display: none
+  position: absolute
+  z-index: 10
+  padding-top: 15px
+  top: 55px
+  right: 0
+  left: 0
+  @include media(1240)
+    top: 50px
+    padding-top: 0
+
+.reviews__sort-list
+  padding: 20px 0
+  border-radius: 16px
+  background-color: $white
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+
+.reviews__sort-item
+  &:not(:last-of-type)
+    margin-bottom: 20px
+
+.reviews__sort-link
+  padding: 10px 20px
+
+a.reviews__sort-link
+  text-decoration: none
+  &:hover
+    @include hover
+      color: $fc_orange
+
+span.reviews__sort-link
+  color: $fc_orange
+
+.reviews__sort-note
+  display: block
+  margin-bottom: 4px
+  font-size: 11px
+  line-height: 12px
+  font-weight: 500
+  color: rgba($fc_black, .5)
+  @include media(1240)
+    display: none
+
+.reviews__sort
+  font-size: 16px
+  line-height: 20px
+
+.reviews__grade
+  margin-bottom: 20px
+  border-radius: 40px
+  padding: 24px 32px 32px
+  background-color: $grey
+  @include media(1240)
+    padding: 8px 16px 16px
+
+.reviews__grade-mark
+  display: flex
+  align-items: center
+  margin-bottom: 12px
+
+.reviews__grade-mark-number
+  margin-right: 12px
+  font-weight: bold
+  font-size: 48px
+  line-height: 56px
+  letter-spacing: -0.015em
+
+.reviews__grade-mark-note
+  max-width: 195px
+  font-size: 16px
+  line-height: 24px
+  @include media(1240)
+    font-size: 13px
+    line-height: 16px
+
+.reviews__grade-list
+
+.reviews__grade-item
+  margin-bottom: 12px
+  display: flex
+  align-items: center
+  @include media(1240)
+    margin-bottom: 8px
+
+.reviews__grade-rating-star
+  flex-shrink: 0
+  margin-right: 12px
+  width: 120px
+  height: 24px
+  overflow: hidden
+  +bgImg('ic_star_grey.svg')
+  background-size: 24px 24px
+  @include media(1240)
+    width: 80px
+    height: 16px
+    background-size: 16px 16px
+
+.reviews__grade-rating-fill
+  height: 24px
+  +bgImg('ic_star_orange.svg')
+  background-size: 24px 24px
+  @include media(1240)
+    height: 16px
+    background-size: 16px 16px
+
+.reviews__grade-rating-note
+
+.reviews__share-box
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  border-radius: 40px
+  padding: 32px
+  @include media(1240)
+    padding: 24px 16px
+  @include media(950)
+    margin-bottom: 32px
+
+.reviews__share-headline
+  margin-bottom: 12px
+
+.reviews__share-text
+  margin-bottom: 12px
+  &:last-of-type
+    margin-bottom: 20px
+
+.reviews__share-btn
+  padding: 16px 0
+  text-align: center
+  cursor: pointer
+  &::before
+    content: ""
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    margin-right: 6px
+    +bgIcon("ic_review_white.svg", 24px, 24px)

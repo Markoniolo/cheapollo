@@ -1,0 +1,63 @@
+.header-fixed
+  display: none
+  @include media(1240)
+    display: block
+    background-color: #F7F7F7
+    width: 320px
+    position: fixed
+    z-index: 10000
+    top: 0
+    left: -320px
+    bottom: 0
+    padding-bottom: 80px
+    transition-property: transform
+    transition-duration: .2s
+
+.header-fixed_active
+  @include media(1240)
+    transform: translateX(320px)
+
+.header-fixed__top
+  position: relative
+  display: flex
+  justify-content: center
+
+.header-fixed__close
+  position: absolute
+  top: 6px
+  left: 6px
+  width: 48px
+  height: 48px
+  +bgIcon("ic_close_black.svg", 20px, 20px)
+
+.header-fixed__logo
+  width: 120px
+  display: block
+
+.header-fixed__logo-image
+  height: 60px
+
+.header-fixed__area
+  padding: 28px 20px 40px
+  background-color: $white
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  border-radius: 24px
+  max-height: 100%
+  overflow: auto
+
+.header-fixed__list
+  margin-bottom: 24px
+
+.header-fixed__item
+
+.header-fixed__link
+  display: flex
+  padding: 4px 0
+  text-decoration: none
+
+.header-fixed__image
+  margin-right: 8px
+  width: 24px
+  height: 24px
+
+.header-fixed__link-text

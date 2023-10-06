@@ -1,0 +1,41 @@
+mixin indexPicture(image)
+  picture.catalog-modal__picture
+    if image
+      source(srcset=staticImg(`catalog-modal/${image}_120.webp`) + " 1x, " + staticImg(`catalog-modal/${image}_240.webp`) + " 2x" type="image/webp" media="(max-width: 1240px)")
+      img.catalog-modal__image(src=staticImg(`catalog-modal/${image}.png`), alt="", loading="lazy")
+    else
+      source(srcset=placeholder(120, 90, 2) media="(max-width: 1240px)" type="image/webp")
+      img.catalog-modal__image(src=placeholder(188, 141), alt="", loading="lazy")
+
+mixin picture(image)
+  picture.catalog-modal__picture
+    if image
+      source(srcset=staticImg(`catalog-modal/${image}_156.webp`) + " 1x, " + staticImg(`catalog-modal/${image}_312.webp`) + " 2x" type="image/webp" media="(max-width: 1240px)")
+      img.catalog-modal__image(src=staticImg(`catalog-modal/${image}.png`), alt="", loading="lazy")
+    else
+      source(srcset=placeholder(156, 117, 2) media="(max-width: 1240px)" type="image/webp")
+      img.catalog-modal__image(src=placeholder(188, 141), alt="", loading="lazy")
+
+mixin catalog-modal(mod)
+  if mod === "modal"
+    .catalog-modal(data-element="catalog-modal")
+      .catalog-modal__cont.cont
+        include ../components/category/category-cap__list
+        button.category-cap__back.link_grey.text-small(href='#' data-element="category-cap__back") Назад
+        .catalog-modal__list.catalog-modal__list_modal(data-element="catalog-modal__list_modal")
+          each item, index in catalogModalList
+            if item.mod || item.name === "Подборка"
+              a.catalog-modal__item(href="#" class=item.mod ? `catalog-modal__item_${item.mod}`: false)
+                span.catalog-modal__name= item.name
+                +picture(item.image)
+            else
+              .catalog-modal__item(data-category="true" data-category-id=item.categoryId)
+                span.catalog-modal__name= item.name
+                +picture(item.image)
+        +category-cap__list("modal")
+  else
+    .catalog-modal__list(class= mod ? `catalog-modal__list_${mod}`: false)
+      each item in catalogModalList
+        a.catalog-modal__item(href="#" class= item.mod ? `catalog-modal__item_${item.mod}`: "")
+          span.catalog-modal__name= item.name
+          +indexPicture(item.image)

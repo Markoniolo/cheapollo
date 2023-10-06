@@ -1,0 +1,301 @@
+.header
+  margin-bottom: -25px
+  padding-bottom: 13px
+  position: relative
+  z-index: 1000
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05)
+  border-radius: 0 0 32px 32px
+  @include media(1240)
+    position: absolute
+    display: none
+    top: 0
+    padding-top: 6px
+    padding-bottom: 35px
+    background-color: #F7F7F7
+    border-radius: 0
+    left: 0
+    width: 100%
+    .header__top, .header__logo, .header__catalog, .header__button, .header__search-btn
+      display: none
+    .header__search-label
+      margin-right: 0
+
+.header_catalog-active
+  border-radius: 0
+  box-shadow: none
+
+.header_search-active
+  box-shadow: none
+  border-radius: 0
+  @include media(1240)
+    display: block
+  .header__search-close-mobile
+    @include media(1240)
+      display: block
+      background-color: $grey
+  .header__search-btn
+    display: block
+  .header__button, .header__catalog
+    display: none
+
+.header__layer
+  position: fixed
+  top: -50px
+  right: 0
+  left: 0
+  z-index: 1000
+  opacity: 0
+  background-color: rgba($black, .7)
+  transition-property: opacity
+  transition-duration: .25s
+  transition-delay: .05s
+  cursor: pointer
+  @include media_min(1240)
+    position: absolute
+    top: 120px
+    z-index: 1000
+
+.header__layer_active
+  bottom: -50px
+  opacity: 1
+  @include media_min(1240)
+    bottom: 0
+
+.header__cont
+  max-width: 1326px
+
+.header__top
+  display: flex
+  align-items: center
+  margin: 0 -10px 9px
+  height: 40px
+  &::before
+    content: ""
+    height: 40px
+    width: 100%
+    position: absolute
+    z-index: -1
+    left: 0
+    background-color: rgba($black, .03)
+
+.header__top-item
+  padding: 8px 12px
+  text-decoration: none
+  &::before
+    content: ""
+    display: inline-block
+    vertical-align: top
+    margin-right: 4px
+    width: 16px
+    height: 16px
+
+.header__top-item_delivery
+  &::before
+    +bgIcon("ic_basket_black.svg", 16px, 16px)
+
+.header__top-item_payment
+  &::before
+    +bgIcon("ic_payment_black.svg", 16px, 16px)
+
+.header__top-item_geo
+  margin-left: auto
+  &::before
+    +bgIcon("ic_geo_black.svg", 16px, 16px)
+
+.header__top-item_contacts
+  &::before
+    +bgIcon("ic_phone_black.svg", 16px, 16px)
+
+.header__top-select
+  position: relative
+  cursor: pointer
+  &:hover
+    @include hover
+      .header__top-select-box
+        display: block
+      .header__top-select-name
+        &::after
+          transform: rotate(180deg)
+
+.header__top-select-box
+  display: none
+  position: absolute
+  z-index: 10
+  padding-top: 15px
+  top: 30px
+  left: -10px
+
+.header__top-select-list
+  padding: 10px 0
+  border-radius: 16px
+  background-color: $white
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07)
+
+.header__top-select-item
+
+.header__top-select-link
+  padding: 10px 20px
+  text-decoration: none
+  display: flex
+  &:hover
+    @include hover
+      .header__top-select-span
+        color: $fc_orange
+
+.header__top-select-image
+  margin-right: 4px
+  flex-shrink: 0
+  width: 20px
+  height: 20px
+
+.header__top-select-span
+  display: block
+  white-space: nowrap
+  font-size: 16px
+  line-height: 20px
+  transition-property: color
+  transition-duration: .2s
+
+.header__top-select-name
+  display: inline-block
+  padding: 8px 12px 8px 12px
+  &::after
+    content: ""
+    width: 16px
+    height: 16px
+    display: inline-block
+    vertical-align: top
+    margin-left: 4px
+    transition-property: transform
+    transition-duration: .2s
+    +bgIcon("ic_arrow_bottom_black.svg", 16px, 16px)
+
+.header__bottom
+  display: flex
+  align-items: center
+
+.header__logo
+  flex-shrink: 0
+  margin-right: 32px
+  width: 172px
+
+.header__logo-img
+  height: 86px
+
+.header__catalog
+  flex-shrink: 0
+  margin-right: 16px
+  padding: 16px 20px
+  text-decoration: none
+  &::before
+    content: ""
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    margin-right: 6px
+    +bgIcon("ic_catalog.svg", 24px, 24px)
+
+.header__catalog_active
+  background-color: rgba($orange, .05)
+  color: $fc_orange
+  box-shadow: none
+  &:hover
+    @include hover
+      background-color: rgba($orange, .1) !important
+  &::before
+    +bgIcon("ic_close_orange.svg", 24px, 24px)
+
+.header__search-form
+  flex-grow: 1
+  display: flex
+
+.header__search-label
+  display: block
+  width: 100%
+  margin-right: 32px
+  @include media(1240)
+    .input-animate-placeholder
+      display: none
+
+.header__search-box
+
+.header__search-input
+  width: 100%
+  transition-property: border-color, background-color
+  transition-duration: .2s
+  @include media(1240)
+    border-radius: 16px
+    background-color: #EFEFEF
+    padding: 11px 16px 11px
+    &:placeholder-shown
+      & + .input-animate-placeholder
+        display: block
+  &:focus
+    border: 1px solid rgba(0, 0, 0, 0.25)
+    background-color: $white
+    @include media(1240)
+      & + .input-animate-placeholder
+        display: none
+
+.header__search-btn
+  display: none
+  padding: 16px 20px
+  flex-shrink: 0
+  &::before
+    content: ""
+    width: 24px
+    height: 24px
+    margin-right: 6px
+    display: inline-block
+    vertical-align: top
+
+.header__search-btn_submit
+  margin-right: 32px
+  &::before
+    +bgIcon("ic_search_white.svg")
+
+.header__search-btn_close
+  &::before
+    +bgIcon("ic_close_black.svg")
+
+.header__search-close-mobile
+  display: none
+  margin-right: -15px
+  @include media(1240)
+    width: 48px
+    height: 48px
+    +bgIcon("ic_close_black.svg", 24px, 24px)
+
+.header__search-close-mobile
+
+.header__button
+  flex-shrink: 0
+  margin-right: 16px
+  padding: 16px 20px
+  &::before
+    content: ""
+    width: 24px
+    height: 24px
+    display: inline-block
+    vertical-align: top
+    margin-right: 6px
+
+.header__button_compare
+  &::before
+    margin-right: 0
+    +bgIcon("ic_compare.svg", 24px, 24px)
+
+.header__button_like
+  &::before
+    margin-right: 0
+    +bgIcon("ic_heart_black.svg", 24px, 24px)
+
+.header__button_sign-in
+  &::before
+    +bgIcon("ic_sign-in_black.svg", 24px, 24px)
+
+.header__button_basket
+  margin-right: 0
+  &::before
+    +bgIcon("ic_basket_black.svg", 24px, 24px)

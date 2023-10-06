@@ -1,0 +1,20 @@
+-
+  const footerMobileList = [
+    { mod: "home", text: "Главная" },
+    { mod: "catalog", text: "Каталог" },
+    { mod: "basket", text: "Корзина" },
+    { mod: "sign-in", text: "Кабинет" },
+  ]
+
+article.footer-mobile
+  .footer-mobile__cont.cont
+    .footer-mobile__list
+      each item, index in footerMobileList
+        if index === 0
+          span.footer-mobile__item(href='#')
+            img.footer-mobile__image(src=staticImg(`ic_${item.mod}_black.svg`))
+            .footer-mobile__text= item.text
+        else
+          a.footer-mobile__item(href='#')
+            img.footer-mobile__image(src=staticImg(`ic_${item.mod}_black.svg`))
+            .footer-mobile__text= item.text

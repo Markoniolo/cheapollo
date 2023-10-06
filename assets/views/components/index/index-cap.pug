@@ -1,0 +1,17 @@
+article.index-cap.desktop-white-border.mobile-white-border(data-element="index-cap")
+  .index-cap__cont.cont
+    .index-cap__area
+      .index-cap__arrow.index-cap__arrow_next.button-white(data-element="index-cap__arrow_next")
+      .index-cap__arrow.index-cap__arrow_prev.button-white(data-element="index-cap__arrow_prev")
+      .index-cap__slider
+        each picture, index in ["03e1ff", "000000", "FF0000", "0000FF"]
+          picture.index-cap__picture(class = index === 0 ? "index-cap__picture_active": "" data-element="index-cap__picture")
+            source(srcset=placeholder(320, 213, 2) type="image/webp" media="(max-width: 1240px)")
+            source(srcset=placeholder(1188, 288) type="image/webp")
+            source(srcset=placeholder(320, 213, 2) media="(max-width: 1240px)")
+            img.index-cap__image(src=placeholder(1188, 288) alt="" loading= index !== 0 ? "lazy": false)
+      .index-cap__nav
+        each item, index in [1,2,3,4]
+          .index-cap__nav-item(class = index === 0 ? 'index-cap__nav-item_active': '' data-element="index-cap__nav-item" data-id=index)
+    include ../catalog-modal
+    +catalog-modal("index")

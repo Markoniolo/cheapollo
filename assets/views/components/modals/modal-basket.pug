@@ -1,0 +1,37 @@
+.modal-box#modal-basket(data-role="modal-box" data-element="modal-basket")
+  .modal-box__inner
+    .modal-box__layer(data-role="modal-box__layer")
+    .modal-basket.modal-box__form(data-element='modal-basket')
+      .modal-basket__cont
+        .modal-box__close(data-role="modal-box__close")
+        form.modal-basket__form(data-role="autocomplete-spam-form" action="/qwerty")
+          input(type="hidden" name="Report_on_stock[is_spam]" data-role="input-spam")
+          input(type="hidden" value="10" data-element="modal-basket-product-id")
+          h2.modal-basket__headline.headline Товар добавлен в корзину
+          .modal-basket__basket
+            picture.modal-basket__picture
+              source(srcset=placeholder(72, 72, 2), media="(max-width: 1240px)")
+              img.modal-basket__image(src=placeholder(72,72), alt="", loading="lazy")
+            .modal-basket__info
+              span.modal-basket__name Стул Хит 20мм - золото, водонепроницаемый
+              span.modal-basket__saler.text-small Продавец: УютМаркет
+              span.modal-basket__status.fc_orange.text-small 5 в наличии
+            .modal-basket__price
+              .modal-basket__price-line
+                span.modal-basket__price-current 1 279
+                span.modal-basket__price-note ₽/шт.
+              span.modal-basket__price-old 12 590 ₽
+            .modal-basket__counter(data-element="modal-basket__counter")
+              button.modal-basket__counter-button.modal-basket__counter-button_delete(type="button" data-element="modal-basket__counter-button_delete")
+              button.modal-basket__counter-button(type="button" data-element="modal-basket__count-button_down")
+              input.modal-basket__counter-number.text-small(type="number", value="1", name="count" data-element="modal-basket__counter-number")
+              button.modal-basket__counter-button.modal-basket__counter-button_plus(type="button" data-element="modal-basket__count-button_up")
+            button.modal-basket__button.modal-basket__button_like.button-white(type="button" data-element="modal-basket__button_like")
+          .modal-basket__btn-box
+            .modal-basket__buy
+              label.modal-basket__label
+                .modal-basket__box.input-animate-box
+                  input.modal-basket__input.input.text.input-animate(type="tel" name="phone" placeholder=" " required data-role="autocomplete-spam-form-phone")
+                  span.input-animate-placeholder Телефон
+              button.modal-basket__btn-buy.button-grey.text(type="submit" data-role="autocomplete-spam-form-button") Купить в 1 клик
+            a.modal-basket__btn-basket.button-orange.text(href="#") Перейти в корзину

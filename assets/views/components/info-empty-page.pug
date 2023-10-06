@@ -1,0 +1,7 @@
+mixin info-empty-page(title, text, button, mod, page)
+  article.info-empty-page.mobile-cabinet-white-border(class=page === "basket" ? "info-empty-page_hidden": false data-element= page === "basket" ? "info-empty-page": false)
+    .info-empty-page__cont.cont
+      h1.info-empty-page__caption.caption= title
+      if text
+        p.info-empty-page__text.text-big!= text
+      a.info-empty-page__link.button-orange.text(href="#" class= mod ? `info-empty-page__link_${mod}`: "")= button

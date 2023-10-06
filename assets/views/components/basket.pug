@@ -1,0 +1,86 @@
+-
+  const basketListInfo = [
+    [
+      {name: "Кол-во", value: "12 шт", dataElement: "basket__order-info-item-value_count-all"}, {name: "Вес заказа", value: "16,4 кг", dataElement: "basket__order-info-item-value_weight"},
+    ],
+    [
+      {name: "Сумма", value: "20 450 ₽", dataElement: "basket__order-info-item-value_price-full"}, {name: "Скидка", value: "−5 230 ₽", mod: "red", dataElement: "basket__order-info-item-value_discount"}, {name: "Промокод", value: "−1 000 ₽", mod: "red", dataElement: "basket__order-info-item-value_promocode"}
+    ]
+  ]
+
+article.basket(data-element="basket")
+  .basket__cont.cont
+    h1.basket__title.title Корзина
+    p.basket__text-main.text(data-element="basket__text-main") 6 товаров на сумму 12 050 ₽
+    form.basket__form#basket__form(action="url" method="POST" data-element="basket__form" data-role="autocomplete-spam-form")
+      .basket__body
+        each headline in ["Доставка с 17 сентября", "Под заказ"]
+          .basket__box.mobile-white-border(data-element="basket__box")
+            h4.basket__headline-small= headline
+            ul.basket__list
+              each item, index in [1,2]
+                li.basket__item(data-element="basket__item")
+                  picture.basket__picture
+                    source(srcset=placeholder(72, 72, 2) type="image/webp" media="(max-width: 1240px)")
+                    source(srcset=placeholder(72, 72) type="image/webp")
+                    source(srcset=placeholder(72, 72, 2) media="(max-width: 1240px)")
+                    img.basket__image(src=placeholder(72) loading="lazy")
+                  .basket__product
+                    .basket__descr
+                      a.basket__name(href="#") Лента тефлоновая уплотнительная чёрная
+                      .basket__seller.text-small Продавец: УютМаркет
+                      if index === 0
+                        .basket__availability.text-small 16 в наличии
+                      else
+                        .basket__availability.basket__availability_orange.text-small 5 в наличии
+                    .basket__counter(data-element="basket__counter")
+                      .basket__btn.basket__btn_delete(data-element="basket__btn_delete" data-id="1")
+                      .basket__btn.basket__btn_down(data-element="basket__btn_down")
+                      input.basket__input-counter(type="number" name="count" data-step="0.1" data-weight=1.57 data-price=2700 data-discount=2321 value="1" max="999" maxlength="3" data-element="basket__input-counter")
+                      .basket__btn.basket__btn_up(data-element="basket__btn_up")
+                    .basket__price-box
+                      .basket__price
+                        .basket__price-current 379
+                        .basket__price-rouble.text ₽/шт.
+                      .basket__price-old 2700 ₽
+                    .basket__favorite.button-white(data-element="basket__favorite" data-id="1")
+      .basket__sidebar
+        .basket__sidebar-box.basket__sidebar-box_order-info.mobile-white-border
+          .basket__promocode-box
+            label.basket__promocode-label.input-animate-box
+              // нужно обязательно писать placeholder=" " или работать не будет анимация плейсхолдера
+              input.basket__promocode.input.input-animate(value="" type="number" placeholder=" ")
+              span.basket__promocode-placeholder.input-animate-placeholder Промокод
+            .basket__promocode-btn.button-white
+          each list in basketListInfo
+            ul.basket__order-info-list
+              each item in list
+                li.basket__order-info-item
+                  .basket__order-info-item-name.text= item.name
+                  .basket__order-info-item-value.text(class= item.mod ? "fc_red": "" data-element= item.dataElement ? item.dataElement : false)= item.value
+          .basket__result
+            .basket__result-name.text Итого
+            .basket__result-value(data-element="basket__result-value") 15 250 ₽
+          button.basket__button.button-orange.text(type="button" data-src="#modal-order" data-modal-box="true") К оформлению
+        .basket__sidebar-box.mobile-white-border
+          ul.basket__sidebar-info-list
+            li.basket__sidebar-info-item
+              .basket__sidebar-info-item-name.text Оплата онлайн, без комисии
+              .basket__sidebar-payment-list
+                each item in ["jcb", "mastercard", "mir", "visa"]
+                  img.basket__sidebar-payment-item(src=staticImg(`ic_${item}_black.svg`) loading="lazy")
+            li.basket__sidebar-info-item
+              .basket__sidebar-info-item-name.text Доставка от 1 дня, от 0₽
+              .basket__sidebar-info-item-value.text-small Пункты выдачи по городу, курьер или ТК.
+            li.basket__sidebar-info-item
+              .basket__sidebar-info-item-name.text Гарантия и лёгкий возврат
+              .basket__sidebar-info-item-value.text-small Гарантия 12 месяцев от продавцов, если иное не предусмотрено договором
+          a.basket__sidebar-info-btn.button-white.text-small(href="#") Покупателям
+article.basket__fixed-line
+  .basket__fixed-cont.cont
+    .basket__fixed-price-box
+      .basket__fixed-price-old.text-small(data-element="basket__fixed-price-old") 1200 ₽
+      .basket__fixed-price
+        .basket__fixed-price-current(data-element="basket__fixed-price-current") 15 250
+        .basket__fixed-rouble ₽
+    button.basket__fixed-button.button-orange.text-small(type="button" data-src="#modal-order" data-modal-box="true") К оформлению

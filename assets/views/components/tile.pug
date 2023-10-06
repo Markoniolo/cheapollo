@@ -1,0 +1,50 @@
+mixin tileInner(title, text, button, count, headline, mod, pagination)
+  if title
+    h2.tile__title.title(class = text ? "" : `tile__title_single`)!= title
+  if headline
+    h1.tile__headline.headline= headline
+  if text
+    p.tile__big-text.text-big= text
+  .tile__list
+    - for (let i = 0; i < count; i++)
+      .tile__item
+        a.tile__item-link(href="#")
+          picture.tile__picture
+            .tile__discount −23%
+            source(srcset=placeholder(144, 144, 2) type="image/webp" media="(max-width: 520px)")
+            source(srcset=placeholder(214) type="image/webp" media="(max-width: 700px)")
+            source(srcset=placeholder(194) type="image/webp" media="(max-width: 950px)")
+            source(srcset=placeholder(250) type="image/webp")
+            source(srcset=placeholder(144, 144, 2) media="(max-width: 520px)")
+            source(srcset=placeholder(214) media="(max-width: 700px)")
+            source(srcset=placeholder(194) media="(max-width: 950px)")
+            img.tile__image(src=placeholder(250) alt="" loading="lazy")
+          .tile__price-box
+            .tile__price 16
+            .tile__price-info
+              .tile__price-old 18 ₽
+              .tile__price-rouble ₽/шт.
+          .tile__info-line
+            .tile__rating
+              .tile__rating-fill(style="width: 70%")
+            .tile__rating-value.text-small 132
+            .tile__availability.fc_green.text-small В наличии
+          p.tile__text.text-small Лента тефлоновая уплотнительная чёрная
+        .tile__buttons
+          a.tile__button.tile__button_basket.button-white(href='#' data-id="1" data-element="tile__button_basket")
+          a.tile__button.tile__button_compare.button-white(href='#' data-id="1")
+          a.tile__button.tile__button_favorite.button-white(href='#' data-id="1" data-element="tile__button_favorite")
+  if button
+    a.tile__link.text.button-white(href="#")= button
+  if pagination
+    .tile__pagination-list
+      each item in [1,2,3,4,5,6,7]
+        if item === 1
+          span.tile__pagination-link= item
+        else
+          a.tile__pagination-link(href="#")= item
+
+mixin tile(title, text, button, count=12, headline, mod)
+  article.tile.desktop-white-border.mobile-white-border(class= mod ? `tile_${mod}`: "")
+    .tile__cont.cont
+      +tileInner(title, text, button, count, headline, mod)

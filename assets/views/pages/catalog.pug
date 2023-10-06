@@ -1,0 +1,12 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Каталог')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile("cabinet", "Каталог")
+  include ../components/catalog/catalog-cap
+  include ../components/tile
+  +tile("Вот это <span class='tile__title-span'>находки!</span>", "Выбрали для вас лучшие товары на этой неделе", "Смотреть всё")
+  +tile("Новинки", "Что нового в каталоге?", "Смотреть всё", 8)

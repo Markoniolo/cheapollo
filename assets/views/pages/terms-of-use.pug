@@ -1,0 +1,9 @@
+extends ../components/_layout/layout
+
+block head
+  +title('Пользовательское соглашение')
+
+block body
+  include ../components/_layout/header-mobile
+  +header-mobile('cabinet', 'Пользовательское соглашение')
+  include ../components/terms-of-use

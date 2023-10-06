@@ -1,0 +1,65 @@
+input[type='search']
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration
+    display: none
+
+input[type="number"]
+  -moz-appearance: textfield
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+    display: none
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    margin: 0
+
+.textarea
+  border: none
+  background: $grey
+  border-radius: 20px
+  resize: none
+  &::placeholder
+    color: rgba($fc_black, .5)
+
+.input
+  border: 1px solid transparent
+  background: $grey
+  border-radius: 20px
+  &::placeholder
+    color: rgba($fc_black, .5)
+
+input.input_wrong
+  border: 1px solid $orange_error
+  &:hover, &:focus
+    border: 1px solid $orange_error
+  & + .input-animate-placeholder
+    color: $fc_orange_error
+
+.input-animate-box
+  position: relative
+  display: block
+
+.input-animate-placeholder
+  position: absolute
+  top: 10px
+  left: 16px
+  font-size: 11px
+  line-height: 12px
+  color: rgba($fc_black, .5)
+  cursor: text
+  transition-duration: .2s
+  transition-property: top, font-size, line-height
+
+.input-animate
+  padding: 23px 16px 7px
+  &:placeholder-shown
+    & + .input-animate-placeholder
+      top: calc(50% - 10px)
+      font-size: 16px
+      line-height: 20px
+  &:focus
+    & + .input-animate-placeholder
+      top: 10px
+      font-size: 11px
+      line-height: 12px

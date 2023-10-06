@@ -1,0 +1,129 @@
+.delivery-informer
+  border-radius: 0
+  color: $fc_white
+  padding-bottom: 40px
+  @include media(1240)
+    padding-bottom: 24px
+
+.delivery-informer_purple
+  .delivery-informer__area
+    background: linear-gradient(315deg, #C853FF 0%, #070EAF 100%)
+    &::before
+      bottom: -16px
+      right: -18px
+      +bgIcon('ic_pickup_white.svg', 194px, 194px)
+      @include media(1240)
+        right: 8px
+        bottom: unset
+        +bgIcon('ic_pickup_white.svg', 93px, 93px)
+
+.delivery-informer_green
+  .delivery-informer__area
+    background: linear-gradient(283.49deg, #05DA0D 0%, #08A534 100%)
+    &::before
+      top: -33px
+      right: -26px
+      +bgIcon('ic_magazine_white.svg', 194px, 194px)
+      @include media(1240)
+        top: 8px
+        right: 8px
+        +bgIcon('ic_magazine_white.svg', 93px, 93px)
+
+.delivery-informer_light-blue
+  .delivery-informer__area
+    background: linear-gradient(135deg, #389FFF 0%, #7622FF 100%)
+    &::before
+      bottom: 20px
+      right: 20px
+      +bgIcon('ic_everyday-delivery_white.svg', 194px, 194px)
+      @include media(1240)
+        top: 8px
+        bottom: unset
+        right: 8px
+        +bgIcon('ic_everyday-delivery_white.svg', 93px, 93px)
+
+.delivery-informer__cont
+
+.delivery-informer__area
+  position: relative
+  padding: 40px 54px
+  display: flex
+  border-radius: 40px
+  @include media(1240)
+    padding: 24px 20px
+    border-radius: 24px
+  @include media(700)
+    display: block
+  @include media(520)
+    margin: 0 -20px
+  &::before
+    content: ""
+    position: absolute
+    width: 194px
+    height: 194px
+    @include media(1240)
+      width: 93px
+      height: 93px
+      top: 8px
+
+.delivery-informer__box
+  width: 500px
+  @include media(1240)
+    width: 380px
+  @include media(950)
+    width: 290px
+  @include media(700)
+    width: 100%
+
+.delivery-informer__box_1
+  margin-right: 46px
+  @include media(1240)
+    margin-right: 20px
+  @include media(700)
+    margin-right: 0
+    margin-bottom: 24px
+
+.delivery-informer__headline
+  margin-bottom: 24px
+  @include media(1240)
+    margin-bottom: 12px
+  @include media(700)
+    padding-right: 75px
+
+.delivery-informer__text
+  color: rgba($fc_white, .9)
+
+.delivery-informer__box
+
+.delivery-informer__span
+  display: block
+  margin-bottom: 20px
+  font-weight: 500
+  font-size: 20px
+  line-height: 24px
+  @include media(1240)
+    margin-bottom: 12px
+
+.delivery-informer__list
+  counter-reset: number
+
+.delivery-informer__item
+  margin-bottom: 12px
+  display: flex
+  align-items: center
+  &:last-of-type
+    margin-bottom: 0
+  &::before
+    counter-increment: number
+    content: counter(number)
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-right: 12px
+    width: 30px
+    height: 30px
+    font-size: 16px
+    line-height: 24px
+    border-radius: 50%
+    border: 1px solid $white

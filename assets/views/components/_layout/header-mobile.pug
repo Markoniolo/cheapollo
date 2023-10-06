@@ -1,0 +1,17 @@
+mixin header-mobile(mod, title, text)
+  .header-mobile(class = mod ? `header-mobile_${mod}`: "")
+    .header-mobile__cont.cont
+      a.header-mobile__back(href="#")
+      .header-mobile__box
+        .header-mobile__title.text= title
+        if text
+          .header-mobile__text.text-small(data-element="header-mobile__text")= text
+      .header-mobile__burger(data-element="header-mobile__burger")
+        .header-mobile__burger-line
+      if VIEW === "index"
+        .header-mobile__logo
+          img.header-mobile__logo-image(src=staticImg("logo.svg") alt="" loading="lazy")
+      else
+        a.header-mobile__logo(href="#")
+          img.header-mobile__logo-image(src=staticImg("logo.svg") alt="" loading="lazy")
+      .header-mobile__search(data-element="header-mobile__search")
